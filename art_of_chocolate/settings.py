@@ -84,7 +84,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
-DISABLE_COLLECTSTATIC=1
+
 
 # Email. backend and Accound settings for Allauth used from the Ado Shop project
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
