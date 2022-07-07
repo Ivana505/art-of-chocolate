@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-j&$9pfvlyx0^7rlk@p$h2x=f1x92+c&t(1!pxs=u1v+=wth8f#
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['art-of-chocolate.herokuapp.com', 'localhost']
 
