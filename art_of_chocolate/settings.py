@@ -15,7 +15,6 @@ import os
 import dj_database_url
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +27,7 @@ SECRET_KEY = 'django-insecure-j&$9pfvlyx0^7rlk@p$h2x=f1x92+c&t(1!pxs=u1v+=wth8f#
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['art-of-chocolate.herokuapp.com', 'localhost']
 
@@ -107,13 +106,13 @@ WSGI_APPLICATION = 'art_of_chocolate.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default' : dj_databases_url.parse(os.environ.get('DATABASE_URL'))
+        'default' : dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
         }
     }
 
