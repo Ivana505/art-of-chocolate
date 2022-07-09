@@ -1,5 +1,5 @@
 {% load static %}
-
+<!--bootstrap template-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,8 +16,16 @@
     <title>Art Of Chocolate</title>
   </head>
   <body>
-    <header></header>
-    <h1>test</h1>
+    <header>
+      <nav>
+        {% include 'includes/mobile-top-header.html' %}
+        {% include 'includes/main-nav.html' %}
+    </nav>
+    <div id="hero-image">
+    
+    </div>
+  </header>
+    <h1>Art Of Chocolate</h1>
 
   </body>
 </html>
