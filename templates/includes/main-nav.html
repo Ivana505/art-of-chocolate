@@ -6,10 +6,10 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
+        <!--<li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Chocolate Shop
-          </a>
+          </a></li>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Milk Chocolate</a>
             <a class="dropdown-item" href="#">Dark Chocolate</a>
@@ -17,7 +17,26 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Shop all Chocolates</a>
           </div>
-        </li>
+          {% for c in categories %}
+
+          <li>
+            <a class="dropdown-item" href="">{{ c.name|title }}</a>
+          </li>
+          
+          {% endfor %}-->
+          <div class="dropdown">
+            <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Chocolate Shop
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              {% for c in categories %}
+              <a class="dropdown-item" href="">{{ c.name|title }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        
+        
+    
         <li class="nav-item">
             <a class="nav-link" href="#">Register</a>
           </li>
@@ -27,6 +46,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contact Us</a>
           </li>
+          
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

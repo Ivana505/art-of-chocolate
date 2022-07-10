@@ -30,5 +30,8 @@ class Chocolate(models.Model):
         verbose_name_plural = 'Chocolates'
         ordering = ('-created',)
 
+    def get_absolute_url(self):
+        return reverse('shop:chocolate_detail', args=[self.slug])
+
     def __str__(self):
         return self.name
