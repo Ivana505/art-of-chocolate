@@ -1,108 +1,188 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Art Of Chocolate
+Art Of Chocolate is E-commerce Website that allows people to buy chocolate with unusual tastes.
+It is loved by many pastry chefs around the world.
 
-Welcome Ivana505,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+You can access live page to Art Of Chocolate by clicking [here](https://art-of-chocolate.herokuapp.com/).
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![landing page](png)
 
-## Gitpod Reminders
+# User Experience
+## User Stories
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- User Stories are made with an Agile approach. 
 
-`python3 -m http.server`
+  - As a User 
+  - As a User 
+  - As a User 
+  - As a User 
+  - As a User 
+  - As a User
 
-A blue button should appear to click: _Make Public_,
+![agile approach](png)
 
-Another blue button should appear to click: _Open Browser_.
+Future development : 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Features
+- Navigation and Social Media Icons etc
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+- Navigation
+ ![navigation](png)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- Social Media Icons
 
-To log into the Heroku toolbelt CLI:
+ ![social media icons](png)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- Footer .
 
-------
+![Footer](png)
 
-## Release History
+- Register and sign in link where the User can register and start commenting on the blog posts and "like" them.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+![Register](png)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+![Sign in](png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+![Signout](png)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Goals
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Visitor goals
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+Target Audience are all the people who love chocolate and all businesses where chocolate is neccesity and main ingreadient like bakeries and coffee shops.
+- To 
+- To 
+- To 
+- To 
+- To 
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### User Goals
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+As a user I would like to:
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- Be able
+- Be able 
+- Be able 
+- Be able
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Design Choices
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+Font choices
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+I have decided to use [Google Fonts](https://fonts.google.com/). 
+ - Font Style used: 
+ - This font 
+ - I have included example of the style below: <br>
+    ![fonts](png)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Icons
 
-------
+- Social Media Icons [Facebook](https://www.facebook.com/), [Instagram](https://www.instagram.com/) and [Pinterest](https://www.pinterest.ie/) 
+- [Fontawesome](https://fontawesome.com/) was used to add social media icons.
 
-## FAQ about the uptime script
+ 
+## Color scheme and styling
 
-**Why have you added this script?**
+I have decided to use colors
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+![colors](png)
 
-**How will this affect me?**
+## Wireframes
+All wireframes are created with [Balsamiq](https://balsamiq.com/) during the Scope Plane part of the design and planning process for this project.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+Main Page
+![main page](media/wireframes/main.png)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+Chocolate Shop
+![chocolate shop](media/wireframes/chocolate_shop.png)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+Basket
+![basket](media/wireframes/basket.png)
 
-**So….?**
+Register Page
+![register](media/wireframes/register.png)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+Sign In
+![sign in](media/wireframes/sign_in.png)
 
-**Can I opt out?**
+Sign Out
+![sign out](media/wireframes/sign_out.png)
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+Success
+![success](media/wireframes/success.png)
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+Contact Us
+![contact us](media/wireframes/contact_us.png)
 
-**Anything more?**
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+## ERD Diagram
+ERD Diagram is created with [Lucidchart](https://www.lucidchart.com/pages/) during the Scope Plane part of the design and planning process for this project.
 
----
+![erd diagram](media/erd/database_diagram.png)
 
-Happy coding!
+## Testings
+
+To view all testing documentation please refer to [TESTING.md](TESTING.md)
+
+### Local Deployment
+
+In order to make a local copy of this repository, you can type the following into your IDE Terminal:
+
+- `git clone https://github.com/Ivana505/art-of-chocolate.git` 
+
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Ivana505/art-of-chocolate)
+
+The site was deployed to [Heroku](https://art-of-chocolate.herokuapp.com/) pages using following steps: 
+   - Sign up or Login to Heroku 
+   - Click on the "NEW APPLICATION" and create an App name and choose your region
+   - Click on "Deploy" and choose your deployment method
+   - If you are connecting with Github choose your main branch and find your repository
+   - Add config vars PORT = 8000 and buildpacks python and nodejs
+   - Click on deploy manually or automatically
+   - The project has now been deployed
+   - When deployed click on view
+   - If you click on settings on the main menu bar you will find your Heroku git URL
+
+    To install the required packages for this application, type the following: pip3 install -r requirements.txt
+
+NEED TO ADD REQUIREMENTS
+
+The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
+
+![deployment1](png)
+
+  # Languages and technologies used
+- [Python](https://www.python.org/) - used for core programming language and logic
+- [Github](https://github.com/) - used for securely storing the code online
+- [Git](https://git-scm.com/) - used for version control
+- [Gitpod](https://www.gitpod.io/) - used for online cloud IDE and development
+- [Heroku](https://heroku.com/) - platform used to deploy game to cloud online
+- [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) - for generating Secret Key
+- [Font Awesome](https://fontawesome.com/) - for Icons on the page
+- [Freeformatter](https://www.freeformatter.com/) - used to format and beautify HTML and CSS code
+- [PEP8 validator](http://pep8online.com/) - used to validate Python code
+- [Coloors](https://coolors.co/) - to create color scheme for the UX section
+
+
+## Credits and Acknowledgements
+
+  ADD CREDITS
+
+  Image and Social Media sources:
+- [YouTube channel ](https://www.youtube.com/)
+- [Pixabay]
+
+
+  Other sources
+ 
+
+I want to say thank you to my Mentor Tim for the guidance, tutor support and special thanks to the Code Institute Slack community.
+
+### Content
+ - Content was created intentionally for the purpose of this project and this Website.
