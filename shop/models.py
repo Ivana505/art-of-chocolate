@@ -30,5 +30,5 @@ class Chocolate(models.Model):
         verbose_name_plural = 'Chocolates'
         ordering = ('-created',)
 
-    def __str__(sellf):
+    def __str__(self):
         return self.name
