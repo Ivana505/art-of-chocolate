@@ -73,8 +73,8 @@ As a user I would like to:
 Font choices
 
 I have decided to use [Google Fonts](https://fonts.google.com/). 
- - Font Style used: 
- - This font 
+ - Font Style used: Manrope 300
+ - This font complements Art Of Chocolate WebShop reallz well.
  - I have included example of the style below: <br>
     ![fonts](png)
 
