@@ -39,14 +39,14 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
-      <div id="topnav" class="row bg-light pt-lg-2 d-none d-lg-flex">
-          <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left"></div>
-          <a href="{% url 'home' %}" class="nav-link main-logo-link">
+      <div class="row bg-light pt-lg-4 d-none d-lg-flex">
+          
+          <a href="{% url 'home' %}" class="nav-link">
             <h2 class="font-weight-bold my-0">Art Of Chocolate</h2>
           </a>
           <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
             <form method="GET" action="">
-              <div class="input-group w-100">
+              <div class="input-group">
                 <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our products here">
                 <div class="input-group-append">
                   <button class="form-control btn btn-black border border-black rounded-0" type="submit">
@@ -58,7 +58,7 @@
               </div>
             </form>
           </div>
-          <div class="col-12 col-lg-4">
+          <div class="col-12">
             <ul class="list-inline list-unstyled text-center text-lg-right my-0">
               <li class="list-inline-item dropdown">
               <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
