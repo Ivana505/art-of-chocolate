@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "chocolates.category", "fields": {"name": "dark chocolate"}}, {"pk": 2, "model": "chocolates.category", "fields": {"name": "white chocolate"}}, {"pk": 3, "model": "chocolates.category", "fields": {"name": "milk chocolate chocolate"}}]
