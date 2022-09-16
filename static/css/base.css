@@ -1,7 +1,14 @@
-/*html {
+html {
     height: 100%;
 }
 
+#basket-icon {
+    width:25px;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+/*
 body {
     background: url('/media/images/chocolate_image.jpg') no-repeat center center fixed;
     background-size:cover;
@@ -17,3 +24,5 @@ body {
 .bg-black {
         background: #000 !important
 }**/
+
+

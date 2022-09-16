@@ -15,9 +15,28 @@
 </head>
 <body>
     
-  <h1>Navbar placeholder</h1>
-
-  <hr>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'shop' %}">Art Of Chocolate</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'shop' %}">Shop<span class="sr-only">(current)</span></a>
+        </li>
+       
+      </ul>
+     <div class="form-online my2 my-lg-0">
+    <a href="#"class="btn btn-warning">Login</a>
+      <a href="{% url 'basket' %}">
+        <img id="basket-icon" src="{% static 'images/chilli.jpg' %}">
+      </a>
+      <p id="basket-total">0</p>
+  </div>
+    </div>
+  </nav>
 
   <div class="container">
  
