@@ -28,6 +28,35 @@ html {
     margin-top:50px;
 }
 
+.basket-box {
+    display: flex;
+}
+
+.basket-heading{
+ padding: 10px;
+}
+
+.basket-row{
+    display: flex;
+    align-items: flex-stretch;
+
+}
+
+.basket-image{
+    width: 200px;
+}
+
+.amount{
+    display: inline-block;
+    
+}
+
+.chg-amount{
+    width:40px;
+    height:45px;
+    display:block;
+    margin-right: 10px;
+}
 
 /*
 body {
