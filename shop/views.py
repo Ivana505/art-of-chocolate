@@ -1,16 +1,13 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render
 
-from .models import Category, Chocolate
+def shop(request):
+    context = {}
+    return render(request, 'shop/shop.html', context)
 
-def categories(request):
-    return {
-        'categories': Category.objects.all()
-    }
+def basket(request):
+    context = {}
+    return render(request, 'shop/basket.html', context)
 
-def all_chocolates(request):
-    chocolates = Chocolate.objects.all()
-    return render(request, 'shop/home.html', {'chocolates': chocolates})
-
-def chocolate_detail(request, slug):
-    chocolate = get_object_or_404(Chocolate, slug=slug, in_stock=True)
-    return render(request, 'shop/chocolates/detail.html', {'chocolate': chocolate})
+def checkout(request):
+    context = {}
+    return render(request, 'shop/checkout.html', context)
