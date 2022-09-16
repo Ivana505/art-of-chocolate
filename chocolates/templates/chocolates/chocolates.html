@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% load static %}
+<!--{% block title %}Home{% endblock %}-->
+
+{% block page_header %}
+  <div class="container header-container">
+    <div class="row">
+      <div class="col"></div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col text-center mt-3">
+        <h2 class-logo-font>Products</h2>
+        <hr class="2-50 mb-1">
+        <div>
+            </div>
+            <div class="row">
+                <div class="product-container col-10 offset-1"></div>
+                <div class="row mt-1 mb-2">
+                    <div class="row">
+                        {% for chocolate in chocolates %}
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                                <div class="card h-100 border-0">
+                                    {% if chocolate.image %}
+                                    <a href="">
+                                        <img class="card-img-top img-fluid" src="{{ chocolate.image.url }}" alt ="{{ chocolate.name }}">
+                                    </a>
+                                    {% else %}
+                                    <a href="">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.jpg." alt="{{ chocolate.name }}">
+                                    </a>
+                                    {% endif %}
+                                    <div class="card-body pb-0">
+                                        <p class="mb-0">{{ chocolate.name }}</p>
+                                    </div>
+
+                                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                                        <div class="row">
+                        
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold">${{ chocolate.price }}</p>
+
+                                      </div>
+
+                                </div>
+                            </div>
+                            </div>
+                            {% for chocolate in chocolates %}
+                            {% if chocolate.image %}
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="{{ chocolate.image.url }}" alt ="{{ chocolate.name }}">
+                            </a>
+                            {% else %}
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.jpg." alt="{{ chocolate.name }}">
+                            </a>
+                            {% endif %}
+                            <div class="card" style="width: 18rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{ chocolate.name }}</h5>
+                                  <p class="card-text">${{ chocolate.price }}</p>
+                                  <div class="card-footer">
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="card" style="width: 18rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{ chocolate.name }}</h5>
+                                  <p class="card-text">${{ chocolate.price }}</p>
+                                  <div class="card-footer">
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <div class="card" style="width: 18rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{ chocolate.name }}</h5>
+                                  <p class="card-text">${{ chocolate.price }}</p>
+                                  <div class="card-footer">
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                  </div>
+                                </div>
+                              </div>
+                              
+
+                            {% endfor %}
+                            {% endfor %}
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    
+{% endblock %}
+
+<!--
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1>Album example</h1>
+      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc.
+        Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light"></div>
+  <div class="container">
+
+    <div class="pb-3 h5">All Chocolates</div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+
+      {% for chocolate in chocolates %}
+
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 card">
+        {% if chocolate.image %}
+        <img src="{{ chocolate.image.url }}" class="card-img-top img-fluid"
+          alt="Image of {{ chocolate.name }}"
+          onError="this.onerror=null;this.src='https://images.pexels.com/photos/33715/cake-pops-pastries-cake-sweet.jpg';">
+        {% else %}
+          <img src="https://images.pexels.com/photos/33715/cake-pops-pastries-cake-sweet.jpg" class="card-img-top img-fluid" alt="Image of chocolate">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ chocolate.name }}</h5>
+          <p class="card-text">{{ chocolate.description }}</p>
+          <a href="" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+
+</main>
+
+% endblock %-->
