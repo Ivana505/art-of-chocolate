@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
     <div class="row">
+        {% for chocolate in chocolates %}
         <div class="col-lg-4">
             <img class="thumbnail" src="{% static 'images/placeholder.png' %}">
             <div class="box-element product">
@@ -12,25 +13,7 @@
                 <h4 style="display: inline- block; float: right"><strong>EUR 3.99</strong></h4>
             </div>  
         </div>
-        <div class="col-lg-4">  
-            <img class="thumbnail" src="{% static 'images/placeholder.png' %}">
-            <div class="box-element product">
-                <h6><strong>Chocolate</strong></h6>
-                <hr>
-                <button class="btn btn-outline-decondary add-btn">Add to Basket</button>
-                <a class="btn btn-outline-success" href="#">View</a>
-                <h4 style="display: inline- block; float: right"><strong>EUR 3.99</strong></h4>
-        </div>
-    </div>
-        <div class="col-lg-4"> 
-            <img class="thumbnail" src="{% static 'images/placeholder.png' %}"> 
-            <div class="box-element product">
-                <h6><strong>Chocolate</strong></h6>
-                <hr>
-                <button class="btn btn-outline-decondary add-btn">Add to Basket</button>
-                <a class="btn btn-outline-success" href="#">View</a>
-                <h4 style="display: inline- block; float: right"><strong>EUR 3.99</strong></h4>
-        </div>
+        {% endfor %}
     </div>
 
 {% endblock content %}

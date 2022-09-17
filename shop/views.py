@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from .models import *
 
 def shop(request):
-    context = {}
+    chocolates = Chocolate.objects.all()
+    context = {'chocolates' :chocolates}
     return render(request, 'shop/shop.html', context)
 
 def basket(request):
