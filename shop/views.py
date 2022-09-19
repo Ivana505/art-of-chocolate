@@ -12,7 +12,7 @@ def shop(request):
         basketItems = order.get_basket_items
     else:
         items = []
-        order = {'get_basket_total':0, 'get_basket_item':0}
+        order = {'get_basket_total':0, 'get_basket_item':0, 'shipping':False}
         basketItems = order['get_basket_items']
 
     chocolates = Chocolate.objects.all()
@@ -28,7 +28,7 @@ def basket(request):
         basketItems = order.get_basket_items
     else:
         items = []
-        order = {'get_basket_total':0, 'get_basket_item':0}
+        order = {'get_basket_total':0, 'get_basket_item':0, 'shipping':False}
         basketItems = order['get_basket_items']
 
     context = {'items': items, 'order':order, 'basketItems' :basketItems}
@@ -43,7 +43,7 @@ def checkout(request):
         basketItems = order.get_basket_items
     else:
         items = []
-        order = {'get_basket_total':0, 'get_basket_item':0}
+        order = {'get_basket_total':0, 'get_basket_item':0, 'shipping':False}
         basketItems = order['get_basket_items']
 
     context = {'items': items, 'order':order, 'basketItems' :basketItems}
