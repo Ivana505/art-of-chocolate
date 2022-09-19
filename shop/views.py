@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from .models import *
 
 def shop(request):
@@ -30,3 +31,7 @@ def checkout(request):
 
     context = {'items': items, 'order':order}
     return render(request, 'shop/checkout.html', context)
+
+
+def updateChocolate(request):
+    return JsonResponse('Chocolate was added', safe=False)
