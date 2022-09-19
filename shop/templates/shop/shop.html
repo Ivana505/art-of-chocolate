@@ -8,7 +8,7 @@
             <div class="box-element product">
                 <h6><strong>{{chocolate.name}}</strong></h6>
                 <hr>
-                <button class="btn btn-outline-decondary add-btn">Add to Basket</button>
+                <button data-chocolate={{chocolate.id}} data-action="add" class="btn btn-outline-decondary add-btn update-basket">Add to Basket</button>
                 <a class="btn btn-outline-success" href="#">View</a>
                 <h4 style="display: inline- block; float: right"><strong>€{{chocolate.price|floatformat:2}}</strong></h4>
             </div>  
