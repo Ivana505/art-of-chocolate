@@ -1,40 +1,40 @@
-var updateBtns = document.getElementsByClassName('update-basket')
+// var updateBtns = document.getElementsByClassName('update-basket');
 
-for (i = 0; i < updateBtns.length; i++) {
-    updateBtns[i].addEventListener('click', function(){
-        var chocolateId = this.dataset.chocolate
-        var action = this.dataset.action
-        console.log('chocolateId:', chocolateId, 'action:', action)
-        console.log('USER', user)
+// for (i = 0; i < updateBtns.length; i++) {
+//     updateBtns[i].addEventListener('click', function(){
+//         var chocolateId = this.dataset.chocolate;
+//         var action = this.dataset.action;
+//         console.log('chocolateId:', chocolateId, 'action:', action)
+//         console.log('USER', user);
         
-        if(user === 'AnonymousUser'){
-            console.log('You are not logged in')
-        }else{
-            updateUserOrder(chocolateId, action)
-        }
+//         if(user === 'AnonymousUser'){
+//             console.log('You are not logged in');
+//         }else{
+//             updateUserOrder(chocolateId, action);
+//         }
 
-    })
-}
+//     });
+// }
 
-function updateUserOrder(chocolateId, action){
-    console.log('You are logged in, processing data...')
+// function updateUserOrder(chocolateId, action){
+//     console.log('You are logged in, processing data...')
 
-        var url = '/update_chocolate/'
+//         var = '/update_chocolate/';
 
-        fetch(url, {
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json',
-                'X-CSRFToken' :csrftoken,
-            },
-            body:JSON.stringify({'chocolateId': chocolateId, 'action':action})
-        })
-        .then((response) => {
-            return response.json();
-        })
+//         fetch(url, {
+//             method: 'POST',
+//             headers:{
+//                 'Content-Type': 'application/json',
+//                 'X-CSRFToken' :csrftoken,
+//             },
+//             body:JSON.stringify({'chocolateId': chocolateId, 'action' :action})
+//         })
 
-        .then((data) =>{
-            console.log('data', data)
-        });
+//         .then((response) =>{
+//             return response.json()
+//         })
 
-}
+//         .then((data) =>{
+//             console.log('data', data)
+//         })
+// }

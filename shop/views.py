@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+# from django.http import JsonResponse
+# import json
 from .models import *
 
 def shop(request):
@@ -20,6 +21,7 @@ def basket(request):
     context = {'items': items, 'order':order}
     return render(request, 'shop/basket.html', context)
 
+
 def checkout(request):
     if request.user.is_authenticated:
         buyer = request.user.buyer
@@ -33,5 +35,14 @@ def checkout(request):
     return render(request, 'shop/checkout.html', context)
 
 
-def updateChocolate(request):
-    return JsonResponse('Chocolate was added', safe=False)
+# def updateItem(request):
+#     return JsonResponse('Item was added', sale=False)
+
+# def updateChocolate(request):
+#     data = json.loads(request.data)
+#     chocolateId = data['chocolateId']
+#     action = data['action']
+
+#     print('Action:', action)
+#     print('chocolateId:', chocolateId)
+#     return JsonResponse('Chocolate was added', safe=False)
