@@ -36,8 +36,8 @@
                 <div style="flex:1"><p>{{item.chocolate.price|floatformat:2}}</p></div>
                 <div style="flex:1"><p class="amount">{{item.quantity}}</p></div>
                 <div class="amount">
-                    <img class="chg-amount" src="{% static 'images/arrow_up.png' %}">
-                    <img class="chg-amount" src="{% static 'images/arrow_down.png' %}">
+                    <img data-chocolate={{item.chocolate.id}} data-action="add" class="chg-amount update-basket" src="{% static 'images/arrow_up.png' %}">
+                    <img data-chocolate={{item.chocolate.id}} data-action="remove" class="chg-amount update-basket" src="{% static 'images/arrow_down.png' %}">
                     </div>
                 </div>
                 <div style="flex:1"><p>eur{{item.get_total}}</p></div>
