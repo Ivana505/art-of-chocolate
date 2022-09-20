@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import json
 from .models import *
+import datetime
 
 def shop(request):
 
@@ -12,7 +13,7 @@ def shop(request):
         basketItems = order.get_basket_items
     else:
         items = []
-        order = {'get_basket_total':0, 'get_basket_item':0, 'shipping':False}
+        order = {'get_basket_total':0, 'get_basket_items':0, 'shipping':False}
         basketItems = order['get_basket_items']
 
     chocolates = Chocolate.objects.all()
@@ -28,7 +29,7 @@ def basket(request):
         basketItems = order.get_basket_items
     else:
         items = []
-        order = {'get_basket_total':0, 'get_basket_item':0, 'shipping':False}
+        order = {'get_basket_total':0, 'get_basket_items':0, 'shipping':False}
         basketItems = order['get_basket_items']
 
     context = {'items': items, 'order':order, 'basketItems' :basketItems}
@@ -43,7 +44,7 @@ def checkout(request):
         basketItems = order.get_basket_items
     else:
         items = []
-        order = {'get_basket_total':0, 'get_basket_item':0, 'shipping':False}
+        order = {'get_basket_total':0, 'get_basket_items':0, 'shipping':False}
         basketItems = order['get_basket_items']
 
     context = {'items': items, 'order':order, 'basketItems' :basketItems}
@@ -77,3 +78,36 @@ def updateItem(request):
 
 
     return JsonResponse('Item was added', safe=False)
+
+
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
+def processOrder(request):
+    transaction_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
+
+    if request.user.is_authenticated:
+        buyer = request.user.buyer
+        order, created = Order.objects.get_or_create(buyer=buyer, complete=False)
+        total = float(data['form']['total'])
+        order.transaction_id = transaction_id
+
+        if total == order.get_basket_total :
+            order.complete = True
+        order.save()
+
+        if order.shipping == True:
+            SendingAddress.objects.create(
+                buyer=buyer,
+                order=order,
+                address=data['shipping']['address'],
+                city=data['shipping']['city'],
+                state=data['shipping']['state'],
+                zipcode=data['shipping']['zipcode'],
+
+            )
+
+    else:
+        print('You are not logged in.')
+    return JsonResponse('You paid !', safe=False)
