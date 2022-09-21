@@ -28,11 +28,26 @@ def basket(request):
         items = order.orderitem_set.all()
         basketItems = order.get_basket_items
     else:
+        try:
+            basket = json.loads(request.COOKIES['basket'])
+        except:
+           basket = {}
+           print('Basket:', basket)
         items = []
         order = {'get_basket_total':0, 'get_basket_items':0, 'shipping':False}
         basketItems = order['get_basket_items']
 
-    context = {'items': items, 'order':order, 'basketItems' :basketItems}
+        for i in basket:
+            basketItems += basket[i]["quantity"]
+
+            chocolate = Chocolate.objects.get(id=i)
+            total = (chocolate.price * basket[i]["quantity"])
+
+            order['get.basket_total'] += total
+            order['get.basket_items'] += basket[i]["quantity"]
+            
+
+    context = {'items' :items, 'order' :order, 'basketItems':basketItems}
     return render(request, 'shop/basket.html', context)
 
 
