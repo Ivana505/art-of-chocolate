@@ -32,6 +32,27 @@
     }
 const csrftoken = getToken('csrftoken');
 
+    
+    function getCookie(name) {
+      var cookieArr = document.cookie.split(";");
+
+      for(var i = 0; i < cookieArr.length; i++) {
+        var cookiePair = cookieArr[i].split("=");
+
+        if(name == cookiePair[0].trim()) {
+          return decodeURIComponent(cookiePair[1]);
+        }
+      }
+      return null;
+    }
+
+    var basket = JSON.parse(getCookie('basket'))
+    if(basket == undefined) {
+      basket = {}
+      console.log('Basket was created')
+      document.cookie = 'basket=' + JSON.stringify(basket) + ";domain=path=/"
+    }
+    console.log('basket', basket)
     </script>
     
 </head>
