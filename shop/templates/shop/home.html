@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
+    <script src="https://kit.fontawesome.com/5797e01b9b.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var user = '{{request.user}}'
 
@@ -53,6 +54,7 @@
           document.cookie = 'basket=' + JSON.stringify(basket) + ";domain=;path=/"
       }
       console.log('basket:', basket)
+    
     </script>
 
     </head>
@@ -75,14 +77,16 @@
           </ul>
           <div class="form-online my2 my-lg-0">
             <a href="#" class="btn btn-warning">Login</a>
+            <a href="#" class="btn btn-warning">Sign Up</a>
             <a href="{% url 'basket' %}">
-              <img id="basket-icon" src="{% static 'images/chilli.jpg' %}">
+              <img id="basket-icon"><i class="fas fa-shopping-cart"></i>
             </a>
             <p id="basket-total">{{basketItems}}</p>
           </div>
         </div>
       </nav>
 
+      
       <div class="container">
 
         {% block content %}
@@ -90,7 +94,11 @@
         {% endblock content %}
       </div>
 
-
+      <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+          <span class="text-muted">Place sticky footer content here.</span>
+        </div>
+      </footer>
 
 
       <!-- JavaScript Bundle with Popper -->
@@ -108,6 +116,11 @@
 
       <script type="text/javascript" src="{% static 'js/basket.js' %}"></script>
 
+      
+
     </body>
+
+
+
 
     </html>

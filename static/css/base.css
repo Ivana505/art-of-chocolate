@@ -4,8 +4,7 @@ html {
 
 #basket-icon {
     width:35px;
-    display: inline-block;
-    margin-left: 15px;
+    color: white;
 }
 
 .btn{
@@ -58,8 +57,11 @@ html {
     margin-right: 10px;
 }
 
-
-
+.footer {
+    color: black;
+    height: 100px;
+    width: 100%;
+}
 /*
 body {
     background: url('/media/images/chocolate_image.jpg') no-repeat center center fixed;
