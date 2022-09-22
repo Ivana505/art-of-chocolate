@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.generic import TemplateView
 import json
 from .models import *
 import datetime
+
+class home(TemplateView):
+    template_name = 'home.html'
 
 def shop(request):
 
