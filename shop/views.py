@@ -130,3 +130,13 @@ def processOrder(request):
     else:
         print('You are not logged in.')
     return JsonResponse('You paid !', safe=False)
+
+
+def chocolate_page(request, id):
+    chocolate = Chocolate.objects.filter(id = id).first()
+
+    context = {
+        'chocolate':chocolate,
+    }
+
+    return render(request, 'shop/chocolate_page.html',context)
