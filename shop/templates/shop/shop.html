@@ -9,7 +9,7 @@
                 <h6><strong>{{chocolate.name}}</strong></h6>
                 <hr>
                 <button data-chocolate={{chocolate.id}} data-action="add" class="btn btn-outline-secondary add-btn update-basket">Add to Basket</button>
-                <a class="btn btn-outline-success" href="#">View</a>
+                <a class="btn btn-outline-success" href="chocolate_page/{{chocolate.id}}">View</a>
                 <h4 style="display: inline- block; float: right"><strong>€{{chocolate.price|floatformat:2}}</strong></h4>
             </div>  
         </div>
