@@ -148,3 +148,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 # Default primary key field type
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#STRIPE_PUBLIC_KEY=os.environ.get('STRIPE_PUBLIC_KEY')
+#STRIPE_SECRET_KEY=os.environ.get('STRIPE_SECRET_KEY')
+#STRIPE_WEBHOOK_SECRET=os.environ.get('STRIPE_WEBHOOK_SECRET')

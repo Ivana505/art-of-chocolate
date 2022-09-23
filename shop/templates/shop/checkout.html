@@ -41,8 +41,10 @@
         </div>
         <br>
         <div class="box-element hidden" id="payment-info">
-            <small>Paypal Options</small>
-            <button id="make-payment">Make Payment</button>
+            <small>Stripe Payment</small>
+           <!-- <form action="{% url 'order:create-checkout-session' %}" method="POST">-->
+            <button type="submit" id="make-payment">Make Payment</button>
+          <!--- </form>-->
         </div>
     </div>
     <div class="col-lg-6">
@@ -89,16 +91,6 @@
         document.getElementById('form-wrapper').classList.add("hidden");
         document.getElementById('payment-info').classList.remove("hidden");
     }
-
-
-
-    //  var form = document.getElementById('form')
-    //  form.addEventListener('submit', function(e){
-    //      e.preventDefault()
-    //      console.log('Form submitted')
-    //     document.getElementById('form-button').classList.add('hidden');
-    //     document.getElementById('payment-info').classList.remove('hidden');
-    //     })
 
 
     document.getElementById('make-payment').addEventListener('click', function(e){
@@ -160,3 +152,9 @@
 </script>
 
 {% endblock content %}
+
+{% block postloadjs %}
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+{% endblock %}

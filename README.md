@@ -181,7 +181,8 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
 
   Other sources
  
-
+ - [YouTube channel CodingEx](https://www.youtube.com/watch?v=HsDSXh26yKc) - Helped me with creating chocolate_image.html page.
+ - [YouTube channel Dennis Ivy Django Ecommerce serier](https://www.youtube.com/watch?v=_ELCMngbM0E) - Used as a boilerplate for the project,.
 I want to say thank you to my Mentor Tim for the guidance, tutor support and special thanks to the Code Institute Slack community.
 
 ### Content

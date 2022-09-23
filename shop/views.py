@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.generic import TemplateView
+#from django.views import generic
 import json
 from .models import *
 import datetime
+#import stripe
+#from django.conf import settings
 
 class home(TemplateView):
     template_name = 'home.html'
@@ -140,3 +143,44 @@ def chocolate_page(request, id):
     }
 
     return render(request, 'shop/chocolate_page.html',context)
+
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+class CreateCheckoutSessionView(generic.View):
+    def post(self, *args, **kwargs):
+        host = self.request.get_host()
+        checkout_session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=[
+                {
+                    'price_data': {
+                        'currency': 'eur',
+                        'unit_amount': 1000,
+                        'chocolate_data': {
+                            'name': 'codepiep-order',
+
+                        },
+                    },
+                    'quantity': 1,
+                },
+            ],
+            mode='payment',
+            success_url="http://{}{}".format(host, reverse('order:payment-success')),
+            cancel_url="http://{}{}".format(host, reverse('order:payment-cancel')),
+        )
+        return redirect(checkout_session.url, code=303)
+
+
+def paymentSuccess(request):
+    context = {
+        'payment_status': 'success'
+    }
+    return render(request, '/confirmation.html', context)
+
+
+def paymentCancel(request):
+    context = {
+        'payment_status': 'cancel'
+    }
+    return render(request, '/confirmation.html', context)
