@@ -11,6 +11,10 @@
                 <button data-chocolate={{chocolate.id}} data-action="add" class="btn btn-outline-secondary add-btn update-basket">Add to Basket</button>
                 <a class="btn btn-outline-success" href="chocolate_page/{{chocolate.id}}">View</a>
                 <h4 style="display: inline- block; float: right"><strong>€{{chocolate.price|floatformat:2}}</strong></h4>
+
+            {% if user.is_superuser %}
+            <a class="btn btn-outline-success" href="delete_chocolate/{{chocolate.id}}">Delete</a>
+            {% endif %}
             </div>  
         </div>
         {% endfor %}

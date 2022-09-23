@@ -9,5 +9,6 @@ urlpatterns = [
     path('process_order/', views.processOrder, name="process_order"),
     path('', views.home, name="home"),
     path('chocolate_page/<str:id>', views.chocolate_page, name="chocolate_page"),
+    path('delete_chocolate/<pk>', views.DeleteProductView.as_view(), name="delete_chocolate"),
     #path('create-checkout-session', views.CreateCheckoutSessionView, name='create-checkout-session')
 ]
