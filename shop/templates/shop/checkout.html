@@ -42,9 +42,9 @@
         <br>
         <div class="box-element hidden" id="payment-info">
             <small>Stripe Payment</small>
-           <!-- <form action="{% url 'order:create-checkout-session' %}" method="POST">-->
+          
             <button type="submit" id="make-payment">Make Payment</button>
-          <!--- </form>-->
+       
         </div>
     </div>
     <div class="col-lg-6">
@@ -155,6 +155,6 @@
 
 {% block postloadjs %}
 {{ block.super }}
-{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+<!--{{ stripe_public_key|json_script:"id_stripe_public_key" }}-->
 {{ client_secret|json_script:"id_client_secret" }}
 {% endblock %}

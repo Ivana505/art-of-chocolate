@@ -196,3 +196,20 @@ class DeleteProductView(DeleteView):
     model = Chocolate
     template_name = 'delete_chocolate.html'
     success_url = reverse_lazy('shop')
+
+
+def add_product(request):
+    if user.is_superuser:
+        chocolate_form = ChocolateForm(request.POST or None)
+        user = get_object_or_404(User, username=request.user.username)
+    if request.method == "POST":
+        if chocolate_form.is_valid():
+            chocolate_form.instance.author = request.user
+            form = chocolate_form.save()
+            messages.success(request, "chocolate added")
+            return redirect("home")
+    template = 'add_chocolate.html'
+    context = {
+            'chocolate_form':chocolate_form,
+        }
+    return render(request, template, context)
