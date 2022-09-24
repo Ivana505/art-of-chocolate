@@ -1,11 +1,28 @@
 # Art Of Chocolate
-Art Of Chocolate is E-commerce Website that allows people to buy chocolate with unusual tastes.
+Art Of Chocolate is an E-commerce Website that allows people to buy chocolate with unusual tastes.
 It is loved by many pastry chefs around the world.
-
+s a startup Company we will wait for few months before deciding on the best place to show off our product.
+- People - Concentration of the business is on personas who like new things, who are not afraid to risk and who are adventurous. People all over the World as Website gives shipping option.
 
 You can access live page to Art Of Chocolate by clicking [here](https://art-of-chocolate.herokuapp.com/).
 
-![landing page](png)
+![landing page](png) IMAGE TO GO HERE
+
+# Business Model
+
+Art Of Chocolate is a B2C business supporting the end consumer. The site gives User the option to create an account, look for desired product and purchase it by card and sign-up for a Newsletter. Full CRUD functionality is available for superusers only.
+
+# Marketing Strategy
+
+7 P's Marketing Strategy was used throughout the whole process of this project : 
+
+- Product - Chocolate used is made from the finest cocoa solids and cocoa butter and as such will be marked as a "pure ingredients and high quality product".
+- Promotion - Lot of promotions will be organised through Newsletters, Social Media, online events and other.
+- Price - Price of all products is the same but the Company will make new strategies and planning for Newsletter and Social Media Campaigns. There will always be discounts there so we can engage more people to buy the product.
+- Place - As a startup Company we will wait for few months before deciding on the best place to show off our product.
+- People - People in our team will grow how the team grows, making sure customers are happy and that they are starting to promote the product free by "word of mouth".
+- Process - All processes and materials used are sustainable and this will be presented to the customer.
+- Physical Evidence - Company owns a factory where all chocolates are produced but main point of sale will be our Website.
 
 # User Experience
 ## User Stories
@@ -52,12 +69,14 @@ Future development :
 
 ### Visitor goals
 
-Target Audience are all the people who love chocolate and all businesses where chocolate is neccesity and main ingreadient like bakeries and coffee shops.
-- To 
-- To 
-- To 
-- To 
-- To 
+Target Audience are all the people who love chocolate. Business has a great potential to grow into B2B, where businesses where chocolate is neccesity and main ingreadient like bakeries and coffee shops will be able to purchase high quality products.
+
+- To have easy navigation and clear message.
+- To see the insight of the Company and understand quality of the product.
+- For the page to be relevant to what the visitor searched online.
+- For the product to be of a good quality, as presented.
+- To be able to make purchase easy and quickly.
+- To be able to see Social Media links for further Information and stories about the Company.
 
 ### User Goals
 
@@ -183,7 +202,12 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
  
  - [YouTube channel CodingEx](https://www.youtube.com/watch?v=HsDSXh26yKc) - Helped me with creating chocolate_image.html page.
  - [YouTube channel Dennis Ivy Django Ecommerce serier](https://www.youtube.com/watch?v=_ELCMngbM0E) - Used as a boilerplate for the project,.
+ - [Smartinsights](https://www.smartinsights.com/marketing-planning/marketing-models/how-to-use-the-7ps-marketing-mix/) - Insight of 7 P's in Marketing.
+ - [Emarsys](https://emarsys.com/learn/blog/what-is-b2c-marketing/) - More Information about B2C
+ - [Assemblo](https://assemblo.com/guides/what-are-the-7-ps-of-marketing/)- Insight of 7 P's in Marketing.
+
 I want to say thank you to my Mentor Tim for the guidance, tutor support and special thanks to the Code Institute Slack community.
+
 
 ### Content
  - Content was created intentionally for the purpose of this project and this Website.
