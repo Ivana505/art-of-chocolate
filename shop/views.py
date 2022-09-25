@@ -10,13 +10,18 @@ import datetime
 from django.views.generic import DeleteView
 from django.urls import reverse_lazy
 from .models import Chocolate
-
+from shop.forms import ChocolateForm
+from django.shortcuts import get_object_or_404
+from django.contrib import messages
+from django.shortcuts import redirect
 
 
 class home(TemplateView):
     template_name = 'home.html'
 
+
 def shop(request):
+
 
     if request.user.is_authenticated:
         buyer = request.user.buyer
@@ -25,12 +30,13 @@ def shop(request):
         basketItems = order.get_basket_items
     else:
         items = []
-        order = {'get_basket_total':0, 'get_basket_items':0, 'shipping':False}
+        order = {'get_basket_total': 0, 'get_basket_items': 0, 'shipping': False}
         basketItems = order['get_basket_items']
 
     chocolates = Chocolate.objects.all()
-    context = {'chocolates' :chocolates, 'basketItems' :basketItems}
+    context = {'chocolates': chocolates, 'basketItems': basketItems}
     return render(request, 'shop/shop.html', context)
+
 
 def basket(request):
 
@@ -46,7 +52,7 @@ def basket(request):
            basket = {}
            print('Basket:', basket)
         items = []
-        order = {'get_basket_total':0, 'get_basket_items':0, 'shipping':False}
+        order = {'get_basket_total': 0, 'get_basket_items': 0, 'shipping':False}
         basketItems = order['get_basket_items']
 
         for i in basket:
@@ -56,25 +62,24 @@ def basket(request):
             total = (chocolate.price * basket[i]["quantity"])
 
             order['get.basket_total'] += total
-            order['get.basket_items'] += basket[i]["quantity"]
-            
+            order['get.basket_items'] += basket[i]["quantity"]        
 
-    context = {'items' :items, 'order' :order, 'basketItems':basketItems}
+    context = {'items': items, 'order': order, 'basketItems': basketItems}
     return render(request, 'shop/basket.html', context)
 
 
 def checkout(request):
     if request.user.is_authenticated:
         buyer = request.user.buyer
-        order, created = Order.objects.get_or_create(buyer=buyer, complete=False)
+        order, created = Order.objects.get_or_create(buyer=buyer, complete= False)
         items = order.orderitem_set.all()
         basketItems = order.get_basket_items
     else:
         items = []
-        order = {'get_basket_total':0, 'get_basket_items':0, 'shipping':False}
+        order = {'get_basket_total': 0, 'get_basket_items': 0, 'shipping': False}
         basketItems = order['get_basket_items']
 
-    context = {'items': items, 'order':order, 'basketItems' :basketItems}
+    context = {'items': items, 'order': order, 'basketItems': basketItems}
     return render(request, 'shop/checkout.html', context)
 
 
@@ -94,20 +99,20 @@ def updateItem(request):
 
 
     if action == 'add':
-        orderItem.quantity = (orderItem.quantity +1)
+        orderItem.quantity = (orderItem.quantity + 1)
     elif action == 'remove':
-        orderItem.quantity = (orderItem.quantity -1)
+        orderItem.quantity = (orderItem.quantity - 1)
 
     orderItem.save()
 
     if orderItem.quantity <= 0:
         orderItem.delete()
 
-
     return JsonResponse('Item was added', safe=False)
 
 
 from django.views.decorators.csrf import csrf_exempt
+
 
 @csrf_exempt
 def processOrder(request):
@@ -120,7 +125,7 @@ def processOrder(request):
         total = float(data['form']['total'])
         order.transaction_id = transaction_id
 
-        if total == order.get_basket_total :
+        if total == order.get_basket_total:
             order.complete = True
         order.save()
 
@@ -141,13 +146,13 @@ def processOrder(request):
 
 
 def chocolate_page(request, id):
-    chocolate = Chocolate.objects.filter(id = id).first()
+    chocolate = Chocolate.objects.filter(id=id).first()
 
     context = {
-        'chocolate':chocolate,
+        'chocolate': chocolate,
     }
 
-    return render(request, 'shop/chocolate_page.html',context)
+    return render(request, 'shop/chocolate_page.html', context)
 
 
 # stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -191,7 +196,6 @@ def chocolate_page(request, id):
 #     return render(request, '/confirmation.html', context)
 
 
-
 class DeleteProductView(DeleteView):
     model = Chocolate
     template_name = 'delete_chocolate.html'
@@ -199,17 +203,41 @@ class DeleteProductView(DeleteView):
 
 
 def add_product(request):
-    if user.is_superuser:
-        chocolate_form = ChocolateForm(request.POST or None)
-        user = get_object_or_404(User, username=request.user.username)
+    # add the request.FILES
+    chocolate_form = ChocolateForm(request.POST, request.FILES)
+    user = get_object_or_404(User, username=request.user.username)
     if request.method == "POST":
         if chocolate_form.is_valid():
-            chocolate_form.instance.author = request.user
-            form = chocolate_form.save()
+            # save the form but do not commit
+            form = chocolate_form.save(commit=False)
+            # attach the arthur after
+            form.author = request.user
+            # save the form
+            form.save()
             messages.success(request, "chocolate added")
             return redirect("home")
+        else:
+            print(chocolate_form.errors)
     template = 'add_chocolate.html'
     context = {
-            'chocolate_form':chocolate_form,
+            'chocolate_form': chocolate_form,
         }
     return render(request, template, context)
+
+
+# def edit_product(request, slug):
+#     chocolate = get_object_or_404(Chocolate, slug=slug)
+#     chocolate_form = ChocolateForm(request.POST or None, instance=chocolate)
+#     user = get_object_o(User, username=request.user.username)
+#     if request.method == 'POST':
+#         if chocolate_form.is_valid():
+#             chocolate_form.instance.superuser = request.user
+#             form = chocolate_form.save()
+#             messages.success(request, "chocolate edited")
+#             return redirect(reverse('home', kwargs={'slug': chocolate.slug}))
+#     template = 'edit_chocolate.html'
+#     context = {
+#         'chocolate': chocolate,
+#         'chocolate_form':chocolate_form,
+#     }
+#     return render(request, template, context)

@@ -11,5 +11,6 @@ urlpatterns = [
     path('chocolate_page/<str:id>', views.chocolate_page, name="chocolate_page"),
     path('delete_chocolate/<pk>', views.DeleteProductView.as_view(), name="delete_chocolate"),
     path('add_chocolate/', views.add_product, name="add_chocolate"),
+    #path('edit_chocolate/', views.edit_product, name="edit_chocolate"),
     #path('create-checkout-session', views.CreateCheckoutSessionView, name='create-checkout-session')
 ]

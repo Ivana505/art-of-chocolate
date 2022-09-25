@@ -4,7 +4,9 @@
     <div class="row">
         {% for chocolate in chocolates %}
         <div class="col-lg-4">
+            {% if chocolate.image %}
             <img class="thumbnail" src="{{chocolate.image.url}}">
+            {% endif %}
             <div class="box-element product">
                 <h6><strong>{{chocolate.name}}</strong></h6>
                 <hr>

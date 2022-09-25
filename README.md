@@ -24,17 +24,22 @@ Art Of Chocolate is a B2C business supporting the end consumer. The site gives U
 - Process - All processes and materials used are sustainable and this will be presented to the customer.
 - Physical Evidence - Company owns a factory where all chocolates are produced but main point of sale will be our Website.
 
+Part of a Business Strategy is also a [Facebook](https://www.facebook.com/) mockup page, made with [Balsamiq](https://balsamiq.com/):
+
+![mockup page](media/wireframes/facebook_mockup.png)
+
+
 # User Experience
 ## User Stories
 
 - User Stories are made with an Agile approach. 
 
-  - As a User 
-  - As a User 
-  - As a User 
-  - As a User 
-  - As a User 
-  - As a User
+  - As a User I want to be able to create an account.
+  - As a User I want to be able to search for the products.
+  - As a User I want to be able to add product to the basket.
+  - As a User I want to be able to purchase product with credit card.
+  - As a User I want to be able to signup for a Newsletter.
+  - As a User I want to be able to see Social Media links on the Website.
 
 ![agile approach](png)
 

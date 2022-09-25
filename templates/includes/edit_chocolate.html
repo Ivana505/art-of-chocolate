@@ -11,11 +11,11 @@
             {{ chocolate_form | crispy }}
             {% csrf_token %}
 
-            {% if chocolate.image %}
+            <!-- {% if chocolate.image %}
             <img src="{{ chocolate.image.url }}"/>
-            {% endif %}
+            {% endif %} -->
 
-            <button type="submit" class="btn btn-signup btn-lg">Add</button>
+            <button type="submit" class="btn btn-signup btn-lg">Edit</button>
         </form>
         </div>
     </div>

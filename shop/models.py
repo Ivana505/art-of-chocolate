@@ -11,18 +11,16 @@ class Buyer(models.Model):
     def __str__(self):
         return self.name
 
+
 class Chocolate(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     digital = models.BooleanField(default=False, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True, upload_to='images/')
     description = models.TextField(default=False)
-
-
 
     def __str__(self):
         return self.name
-
 
     @property
     def imageURL(self):
@@ -31,7 +29,6 @@ class Chocolate(models.Model):
         except:
             url = ''
         return url
-
 
 
 class Order(models.Model):
@@ -43,7 +40,6 @@ class Order(models.Model):
     def __str__(self):
         return str(self.id)
 
-
     @property
     def shipping(self):
         shipping = False
@@ -52,7 +48,6 @@ class Order(models.Model):
             if i.chocolate.digital == False:
                 shipping = True
         return shipping
-
 
     @property
     def get_basket_total(self):
@@ -65,7 +60,6 @@ class Order(models.Model):
         orderitems = self.orderitem_set.all()
         total = sum([item.quantity for item in orderitems])
         return total
-    
 
 
 class OrderItem(models.Model):
@@ -89,7 +83,7 @@ class SendingAddress(models.Model):
     zipcode = models.CharField(max_length=255, null=False)
     date_added = models.CharField(max_length=255, null=False)
 
-
     def __str__(self):
         return self.address
-        
+
+
