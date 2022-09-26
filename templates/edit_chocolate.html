@@ -8,12 +8,12 @@
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
     <form method="post" enctype="multipart/form-data" class="update">
-            {{ chocolate_form | crispy }}
+            {{ form | crispy }}
             {% csrf_token %}
 
-            <!-- {% if chocolate.image %}
+            {% if chocolate.image %}
             <img src="{{ chocolate.image.url }}"/>
-            {% endif %} -->
+            {% endif %}
 
             <button type="submit" class="btn btn-signup btn-lg">Edit</button>
         </form>

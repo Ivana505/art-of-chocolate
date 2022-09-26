@@ -1,19 +1,19 @@
+import json
+import datetime
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.generic import TemplateView
 #from django.views import generic
-import json
-from .models import *
-import datetime
 #import stripe
 #from django.conf import settings
 from django.views.generic import DeleteView
 from django.urls import reverse_lazy
-from .models import Chocolate
-from shop.forms import ChocolateForm
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
+from .models import *
+from shop.forms import ChocolateForm
 
 
 class home(TemplateView):
@@ -21,23 +21,23 @@ class home(TemplateView):
 
 
 def shop(request):
-
-
-    if request.user.is_authenticated:
-        buyer = request.user.buyer
-        order, created = Order.objects.get_or_create(buyer=buyer, complete=False)
-        items = order.orderitem_set.all()
-        basketItems = order.get_basket_items
-    else:
-        items = []
-        order = {'get_basket_total': 0, 'get_basket_items': 0, 'shipping': False}
-        basketItems = order['get_basket_items']
+    # if request.user.is_authenticated:
+        # buyer = get_object_or_404(User, username=request.user.username)
+        # order, created = Order.objects.get_or_create(buyer=buyer, complete=False)
+        # items = order.orderitem_set.all()
+        # basketItems = order.get_basket_items
+    # else:
+        # items = []
+        # order = {'get_basket_total': 0, 'get_basket_items': 0, 'shipping': False}
+        # basketItems = order['get_basket_items']
 
     chocolates = Chocolate.objects.all()
-    context = {'chocolates': chocolates, 'basketItems': basketItems}
+    context = {'chocolates': chocolates}
+    # context = {'chocolates': chocolates, 'basketItems': basketItems}
     return render(request, 'shop/shop.html', context)
 
 
+@login_required
 def basket(request):
 
     if request.user.is_authenticated:
@@ -68,6 +68,7 @@ def basket(request):
     return render(request, 'shop/basket.html', context)
 
 
+@login_required
 def checkout(request):
     if request.user.is_authenticated:
         buyer = request.user.buyer
@@ -83,6 +84,7 @@ def checkout(request):
     return render(request, 'shop/checkout.html', context)
 
 
+@login_required
 def updateItem(request):
     data = json.loads(request.body)
     chocolateId = data['chocolateId']
@@ -114,6 +116,7 @@ def updateItem(request):
 from django.views.decorators.csrf import csrf_exempt
 
 
+@login_required
 @csrf_exempt
 def processOrder(request):
     transaction_id = datetime.datetime.now().timestamp()
@@ -202,6 +205,7 @@ class DeleteProductView(DeleteView):
     success_url = reverse_lazy('shop')
 
 
+@login_required
 def add_product(request):
     # add the request.FILES
     chocolate_form = ChocolateForm(request.POST, request.FILES)
@@ -225,19 +229,68 @@ def add_product(request):
     return render(request, template, context)
 
 
-# def edit_product(request, slug):
-#     chocolate = get_object_or_404(Chocolate, slug=slug)
-#     chocolate_form = ChocolateForm(request.POST or None, instance=chocolate)
-#     user = get_object_o(User, username=request.user.username)
+# def edit_product(request, chocolate_id):
+#     #chocolate = get_object_or_404(Chocolate, slug=slug)
+#     chocolate = get_object_or_404(Chocolate, pk=chocolate_id)
 #     if request.method == 'POST':
+#         chocolate_form = ChocolateForm(request.POST, request.FILES, instance=chocolate)
 #         if chocolate_form.is_valid():
-#             chocolate_form.instance.superuser = request.user
-#             form = chocolate_form.save()
+#             form = chocolate_form.save(commit=False)
+#             form.save()
 #             messages.success(request, "chocolate edited")
-#             return redirect(reverse('home', kwargs={'slug': chocolate.slug}))
+#             return redirect(reverse('home', args=[chocolate.id]))
 #     template = 'edit_chocolate.html'
 #     context = {
 #         'chocolate': chocolate,
-#         'chocolate_form':chocolate_form,
+#         'chocolate_form': chocolate_form,
 #     }
 #     return render(request, template, context)
+
+# def edit_product(request, chocolate_id):
+#     # add the request.FILES
+#     chocolate_form = ChocolateForm(request.POST, request.FILES)
+#     user = get_object_or_404(User, username=request.user.username)
+#     if request.method == "POST":
+#         if chocolate_form.is_valid():
+#             # save the form but do not commit
+#             form = chocolate_form.save(commit=True)
+#             # attach the arthur after
+#             form.author = request.user
+#             # save the form
+#             form.save()
+#             messages.success(request, "edited")
+#             return redirect("home")
+#         else:
+#             print(chocolate_form.errors)
+#     template = 'edit_chocolate.html'
+#     context = {
+#             'chocolate_form': chocolate_form,
+#         }
+#     return render(request, template, context)
+
+
+@login_required
+def edit_product(request, pk):
+    # add the request.FILES
+    chocolate = get_object_or_404(Chocolate, id=pk)
+    chocolate_form = ChocolateForm(request.POST, request.FILES)
+    user = get_object_or_404(User, username=request.user.username)
+    if request.method == "POST":
+        if chocolate_form.is_valid():
+            # save the form but do not commit
+            form = ChocolateForm(request.POST, request.FILES, instance=chocolate)
+            # attach the arthur after
+            if form.is_valid():
+                form.save()
+                messages.success(request, "edited")
+                return redirect(reverse('chocolate_page', args=[chocolate.id]))
+    else:
+        form = ChocolateForm(instance=chocolate)
+        messages.error(request, f'youre updating {chocolate.name}')
+
+    template = 'edit_chocolate.html'
+    context = {
+            'form': form,
+            'chocolate': chocolate,
+        }
+    return render(request, template, context)
