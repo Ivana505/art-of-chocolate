@@ -208,8 +208,9 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
  - [YouTube channel CodingEx](https://www.youtube.com/watch?v=HsDSXh26yKc) - Helped me with creating chocolate_image.html page.
  - [YouTube channel Dennis Ivy Django Ecommerce serier](https://www.youtube.com/watch?v=_ELCMngbM0E) - Used as a boilerplate for the project,.
  - [Smartinsights](https://www.smartinsights.com/marketing-planning/marketing-models/how-to-use-the-7ps-marketing-mix/) - Insight of 7 P's in Marketing.
- - [Emarsys](https://emarsys.com/learn/blog/what-is-b2c-marketing/) - More Information about B2C
+ - [Emarsys](https://emarsys.com/learn/blog/what-is-b2c-marketing/) - More Information about B2C.
  - [Assemblo](https://assemblo.com/guides/what-are-the-7-ps-of-marketing/)- Insight of 7 P's in Marketing.
+ - [Youtube channel Easy WebCode](https://www.youtube.com/watch?v=g55EQkDGdg4) - details in creating Newsletter.
 
 I want to say thank you to my Mentor Tim for the guidance, tutor support and special thanks to the Code Institute Slack community.
 

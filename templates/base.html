@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
     <script src="https://kit.fontawesome.com/5797e01b9b.js" crossorigin="anonymous"></script>
+   
     <script type="text/javascript">
       let user = '{{request.user}}'
 
@@ -57,6 +58,12 @@
       }
       console.log('basket:', basket)
     
+
+    function showMessage() {
+    var myMessage = "Thank you for subscribing!";
+    alert (myMessage);
+  }
+
     </script>
 
     </head>
@@ -119,8 +126,13 @@
                       </li>
           </ul>
         </div>
-        <div id="newsletter">
-          <p>NEWSLETTER</p>
+        <div class="newsletter-box">
+          <h1>Subscribe for our newsletter here !</h1>
+          <span>Get updates on our best offers and discounts.</span>
+          <form method="POST" action="{% url 'account_login' %}">
+            <input type="email" name="email_address" placeholder="Add your E-mail Address" required>
+            <button id="newsletter" type="submit" onsubmit="showMessage()">Sign up</button>
+          </form> 
         </div>
       </footer>
 

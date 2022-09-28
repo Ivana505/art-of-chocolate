@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 #import stripe
 #from django.conf import settings
 from django.views.generic import DeleteView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -220,7 +220,7 @@ def add_product(request):
             # save the form
             form.save()
             messages.success(request, "chocolate added")
-            return redirect("home")
+            return redirect("shop")
         else:
             print(chocolate_form.errors)
     template = 'add_chocolate.html'
