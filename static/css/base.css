@@ -57,11 +57,11 @@ html {
     margin-right: 10px;
 }
 
-.footer {
+/* .footer {
     color: black;
     height: 100px;
     width: 100%;
-}
+} */
 /*
 body {
     background: url('/media/images/chocolate_image.jpg') no-repeat center center fixed;
@@ -80,3 +80,12 @@ body {
 }**/
 
 
+li {
+    display: inline;
+    font-size: 2em;
+    padding: 10px;
+}
+
+li>a {
+    color: black;
+}

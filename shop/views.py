@@ -41,7 +41,8 @@ def shop(request):
 def basket(request):
 
     if request.user.is_authenticated:
-        buyer = request.user.buyer
+        #buyer = request.user.buyer
+        buyer, created = Buyer.objects.get_or_create(user=request.user)
         order, created = Order.objects.get_or_create(buyer=buyer, complete=False)
         items = order.orderitem_set.all()
         basketItems = order.get_basket_items
