@@ -1,160 +1,74 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-<div class="row">
-    <div class="col-lg-6">
-        <div class="box-element" id="form-wrapper">
-            <form id="form">
-                <div id="user-info">
-                    <div class="form field">
-                        <input required class="form-control" type="text" name="name" placeholder="Your Name...">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment page!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+
+    <section>
+        <div class="container">
+            <div class="page-header text-center">
+                <h1>Credit Card Payment Gateway - Total to pay eur {{order.get_basket_total|floatformat:2}}</h1>
+            </div>
+            <!-- Credit Card Payment Form - START -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6 col-md-offset-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <h3 class="text-center">Payment Details</h3>
+                                    <div class="inlineimage"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Mastercard-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Discover-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Paypal-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/American-Express-Curved.png"> </div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <form role="form">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group"> <label>CARD NUMBER</label>
+                                                <div class="input-group"> <input type="tel" class="form-control" placeholder="Valid Card Number" /> <span class="input-group-addon"><span class="fa fa-credit-card"></span></span> </div>
+                                                <div class="mb-3" ></div>
+                                                <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-7 col-md-7">
+                                            <div class="form-group"> <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label> <input type="tel" class="form-control" placeholder="MM / YY" /> </div>
+                                        </div>
+                                        <div class="col-xs-5 col-md-5 pull-right">
+                                            <div class="form-group"> <label>CV CODE</label> <input type="tel" class="form-control" placeholder="CVC" /> </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group"> <label>CARD OWNER</label> <input type="text" class="form-control" placeholder="Card Owner Name" /> </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-xs-12"> <button class="btn btn-success btn-lg btn-block">Confirm Payment</button> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-field">
-                        <input required class="form-control" type="email" name="email" placeholder="Your E-mail...">
-                    </div>
-                </div>
-                <div id="shipping-info"></div>
-                <hr>
-                <p>Shipping Information</p>
-                <hr>
-                <div class="form-field">
-                    <input required class="form-control" type="text" name="address" placeholder="Your Address...">
-                </div>
-                <div class="form-field">
-                    <input required class="form-control" type="text" name="city" placeholder="Your City...">
-                </div>
-                <div class="form-field">
-                    <input required class="form-control" type="text" name="state" placeholder="Your State...">
-                </div>
-                <div class="form-field">
-                    <input required class="form-control" type="text" name="zipcode" placeholder="Your Zip code...">
-                </div>
-                <div class="form-field">
-                    <input required class="form-control" type="text" name="zipcode" placeholder="Your Zip code...">
                 </div>
             </div>
-            <hr>
-
-                <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
-            </form>
-
         </div>
-        <br>
-        <div class="box-element hidden" id="payment-info">
-            <small>Stripe Payment</small>
-          
-            <button type="submit" id="make-payment">Make Payment</button>
-       
-        </div>
-    </div>
-    <div class="col-lg-6">
-        <div class="box-element">
-            <a class="btn btn-outline-dark" href="{% url 'basket' %}">Back to Basket</a>
-            <hr>
-            <h3>Order Summary</h3>
-            <hr>
-            {% for item in items %}
+      <form action="/create-checkout-session" method="POST">
+        <button type="submit" id="checkout-button">Checkout</button>
+      </form>
+    </section>
+  </body>
+</html>
 
 
-            <div class="cart-row">
-                <div style="flex:2"><img class="row-image" src="{{item.chocolate.imageURL}}"></div>
-                <div style="flex:2"><p>{{item.chocolate.name}}</p></div>
-                <div style="flex:1"><p>eur {{item.chocolate.price}}</p></div>
-                <div style="flex:1"><p>{{item.quantity}}</p></div>
-            </div>
-            {% endfor %}
-                  <h5>Items : {{order.get_basket_items}}</h5>
-                  <h5>Total : Eur{{order.get_basket_total|floatformat:2}}</h5>
-   </div>
-
-
-
-
-
-  </div>
-
-</div>
-
-<script type = "text/javascript">
-    var shipping = '{{order.shipping}}'
-    var total = '{{order.get_basket_total}}'
-
-    if(shipping == 'False'){
-        document.getElementById('shipping-info').innerHTML = ''
-    }
-
-    if (user != 'AnonymousUser'){
-        document.getElementById('user-info').innerHTML = ''
-    }
-
-    if (shipping == 'False' && user != 'AnmonymousUser'){
-        document.getElementById('form-wrapper').classList.add("hidden");
-        document.getElementById('payment-info').classList.remove("hidden");
-    }
-
-
-    document.getElementById('make-payment').addEventListener('click', function(e){
-        submitFormData()
-    })
-
-    function submitFormData(){
-        console.log('Payment button clicked')
-
-        var userFormData = {
-            'name': null,
-            'email':null,
-            'total':total,
-        }
-
-        var shippingInfo = {
-            'address': null,
-            'city':null,
-            'state':null,
-            'zipcode':null,
-
-        }
-
-        if(shipping != 'False'){
-            shippingInfo.address = form.address.value
-            shippingInfo.city = form.city.value
-            shippingInfo.state = form.state.value
-            shippingInfo.zipcode = form.zipcode.value
-        }
-
-        if(user == 'AnonymousUser'){
-            userFormData.name = form.name.value
-            userFormData.email = form.email.value
-          
-        }
-
-
-        var url = '/process_order/'
-        fetch(url,{
-            method:'POST',
-            headers:{
-                'Content-Type' : 'application/json',
-                'X-CSRFToken':csrftoken,
-            },
-            body:JSON.stringify({'form':userFormData, 'shipping' :shippingInfo}
-            ),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log('Success:', data);
-            alert('Transaction completed');
-            window.location.href = "{% url 'shop' %}"
-        })
-
-    }
-
-
-
-</script>
-
-{% endblock content %}
-
-{% block postloadjs %}
 {{ block.super }}
-<!--{{ stripe_public_key|json_script:"id_stripe_public_key" }}-->
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
 {{ client_secret|json_script:"id_client_secret" }}
-{% endblock %}
+

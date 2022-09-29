@@ -2,7 +2,7 @@ import json
 import datetime
 from django.shortcuts import render
 from django.http import JsonResponse
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
 #from django.views import generic
 #import stripe
 #from django.conf import settings
@@ -14,7 +14,11 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from .models import *
 from shop.forms import ChocolateForm
+import stripe
+from django.conf import settings
 
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class home(TemplateView):
     template_name = 'home.html'
@@ -63,14 +67,20 @@ def basket(request):
             total = (chocolate.price * basket[i]["quantity"])
 
             order['get.basket_total'] += total
-            order['get.basket_items'] += basket[i]["quantity"]        
+            order['get.basket_items'] += basket[i]["quantity"]   
+  
 
     context = {'items': items, 'order': order, 'basketItems': basketItems}
+    # 'stripe_public_key': 'pk_test_51LC4NEBJ4dJMxFfPk2Y6VvPLmEJxe7xhV7uiWu14rtiDetAkMgDpze0zDtvByNy6zYGKLk3VhyCkjL5dlRsg233H00ZkBo6tIK',
+    # 'client_secret': 'test client secret'
     return render(request, 'shop/basket.html', context)
 
 
 @login_required
 def checkout(request):
+    # stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    # stripe_secret_key = settings.STRIPE_SECRET_KEY
+
     if request.user.is_authenticated:
         buyer = request.user.buyer
         order, created = Order.objects.get_or_create(buyer=buyer, complete= False)
@@ -158,48 +168,6 @@ def chocolate_page(request, id):
 
     return render(request, 'shop/chocolate_page.html', context)
 
-
-# stripe.api_key = settings.STRIPE_SECRET_KEY
-
-# class CreateCheckoutSessionView(generic.View):
-#     def post(self, *args, **kwargs):
-#         host = self.request.get_host()
-#         checkout_session = stripe.checkout.Session.create(
-#             payment_method_types=['card'],
-#             line_items=[
-#                 {
-#                     'price_data': {
-#                         'currency': 'eur',
-#                         'unit_amount': 1000,
-#                         'chocolate_data': {
-#                             'name': 'codepiep-order',
-
-#                         },
-#                     },
-#                     'quantity': 1,
-#                 },
-#             ],
-#             mode='payment',
-#             success_url="http://{}{}".format(host, reverse('order:payment-success')),
-#             cancel_url="http://{}{}".format(host, reverse('order:payment-cancel')),
-#         )
-#         return redirect(checkout_session.url, code=303)
-
-
-# def paymentSuccess(request):
-#     context = {
-#         'payment_status': 'success'
-#     }
-#     return render(request, '/confirmation.html', context)
-
-
-# def paymentCancel(request):
-#     context = {
-#         'payment_status': 'cancel'
-#     }
-#     return render(request, '/confirmation.html', context)
-
-
 class DeleteProductView(DeleteView):
     model = Chocolate
     template_name = 'delete_chocolate.html'
@@ -230,44 +198,6 @@ def add_product(request):
     return render(request, template, context)
 
 
-# def edit_product(request, chocolate_id):
-#     #chocolate = get_object_or_404(Chocolate, slug=slug)
-#     chocolate = get_object_or_404(Chocolate, pk=chocolate_id)
-#     if request.method == 'POST':
-#         chocolate_form = ChocolateForm(request.POST, request.FILES, instance=chocolate)
-#         if chocolate_form.is_valid():
-#             form = chocolate_form.save(commit=False)
-#             form.save()
-#             messages.success(request, "chocolate edited")
-#             return redirect(reverse('home', args=[chocolate.id]))
-#     template = 'edit_chocolate.html'
-#     context = {
-#         'chocolate': chocolate,
-#         'chocolate_form': chocolate_form,
-#     }
-#     return render(request, template, context)
-
-# def edit_product(request, chocolate_id):
-#     # add the request.FILES
-#     chocolate_form = ChocolateForm(request.POST, request.FILES)
-#     user = get_object_or_404(User, username=request.user.username)
-#     if request.method == "POST":
-#         if chocolate_form.is_valid():
-#             # save the form but do not commit
-#             form = chocolate_form.save(commit=True)
-#             # attach the arthur after
-#             form.author = request.user
-#             # save the form
-#             form.save()
-#             messages.success(request, "edited")
-#             return redirect("home")
-#         else:
-#             print(chocolate_form.errors)
-#     template = 'edit_chocolate.html'
-#     context = {
-#             'chocolate_form': chocolate_form,
-#         }
-#     return render(request, template, context)
 
 
 @login_required
@@ -295,3 +225,56 @@ def edit_product(request, pk):
             'chocolate': chocolate,
         }
     return render(request, template, context)
+
+
+# class CreateCheckoutSessionVie(View):
+#     def post(self, request, *args, **kwargs):
+#         checkout_session = stripe.checkout.Session.create(
+#            payment_method_types=['card'],
+#            line_items=[
+#                 {
+#                     'price_data': {
+#                         'currency': 'eur',
+#                         'name': 'Chocolates',
+
+
+                
+                    
+#                 },
+#             ],
+#             'quantity': 1,
+#             mode='payment',
+#             success_url=YOUR_DOMAIN + '/success.html',
+#             cancel_url=YOUR_DOMAIN + '/cancel.html',
+#         )
+#     except Exception as e:
+#         return str(e)
+
+#     return redirect(checkout_session.url, code=303)
+
+# if __name__ == '__main__':
+#     app.run(port=4242)
+
+
+#@app.route('/create-checkout-session', methods=['POST'])
+def create_checkout_session():
+    try:
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                    # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+                    'price': '{{PRICE_ID}}',
+                    'quantity': 1,
+                },
+            ],
+            mode='payment',
+            success_url=YOUR_DOMAIN + '/success.html',
+            cancel_url=YOUR_DOMAIN + '/cancel.html',
+        )
+    except Exception as e:
+        return str(e)
+
+    return redirect(checkout_session.url, code=303)
+
+if __name__ == '__main__':
+    app.run(port=4242)
