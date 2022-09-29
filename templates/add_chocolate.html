@@ -1,23 +1,19 @@
 {% extends "base.html" %}
-
 {% block content %}
 {% load crispy_forms_tags %}
 {% load static %}
-
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-    <form method="post" enctype="multipart/form-data" class="update">
+   <div class="row">
+      <div class="col-md-8 mt-3 offset-md-2">
+         <form method="post" enctype="multipart/form-data" class="update">
             {{ chocolate_form | crispy }}
             {% csrf_token %}
-
             {% if chocolate.image %}
             <img src="{{ chocolate.image.url }}"/>
             {% endif %}
-
             <button type="submit" class="btn btn-signup btn-lg">Add</button>
-        </form>
-        </div>
-    </div>
+         </form>
+      </div>
+   </div>
 </div>
 {% endblock %}

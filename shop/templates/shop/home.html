@@ -1,136 +1,106 @@
 {% extends "base.html" %}
 <!DOCTYPE html>
 {% load static %}
-
-
-
-
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Of Chocolate Shop</title>
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-
-    <script src="https://kit.fontawesome.com/5797e01b9b.js" crossorigin="anonymous"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script type="text/javascript">
-      let user = '{{request.user}}'
-
-      function getToken(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-          const cookies = document.cookie.split(';');
-          for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-              break;
-            }
-          }
-        }
-        return cookieValue;
-      }
-      const csrftoken = getToken('csrftoken');
-
-
-      function getCookie(name) {
-         var cookieArr = document.cookie.split(";");
-
-         for(var i = 0; i < cookieArr.length; i++) {
-             var cookiePair = cookieArr[i].split("=");
-
-             if (name == cookiePair[0].trim()) {
-                return decodeURIComponent(cookiePair[1]);
-          }
-        }
-        
-        return null;
-      }
-
-      var basket = JSON.parse(getCookie('basket'))
-      if (basket == undefined){
-          basket = {}
-          console.log('Basket was created', basket)
-          document.cookie = 'basket=' + JSON.stringify(basket) + ";domain=;path=/"
-      }
-      console.log('basket:', basket)
-    
-    </script>
-
-    </head>
-
-    <body>
-
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Art Of Chocolate Shop</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+      <script src="https://kit.fontawesome.com/5797e01b9b.js" crossorigin="anonymous"></script>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script type="text/javascript">
+         let user = '{{request.user}}'
+         
+         function getToken(name) {
+           let cookieValue = null;
+           if (document.cookie && document.cookie !== '') {
+             const cookies = document.cookie.split(';');
+             for (let i = 0; i < cookies.length; i++) {
+               const cookie = cookies[i].trim();
+               if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                 break;
+               }
+             }
+           }
+           return cookieValue;
+         }
+         const csrftoken = getToken('csrftoken');
+         
+         
+         function getCookie(name) {
+            var cookieArr = document.cookie.split(";");
+         
+            for(var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split("=");
+         
+                if (name == cookiePair[0].trim()) {
+                   return decodeURIComponent(cookiePair[1]);
+             }
+           }
+           
+           return null;
+         }
+         
+         var basket = JSON.parse(getCookie('basket'))
+         if (basket == undefined){
+             basket = {}
+             console.log('Basket was created', basket)
+             document.cookie = 'basket=' + JSON.stringify(basket) + ";domain=;path=/"
+         }
+         console.log('basket:', basket)
+         
+      </script>
+   </head>
+   <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'shop' %}">Art Of Chocolate</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'shop' %}">Shop</a>
-            </li>
-
-          </ul>
-          <div class="form-online my2 my-lg-0">
-            {% if user.is_authenticated %}
-            <p>Welcome {{ user.username }} !!!</p>
-            <a href="{% url 'account_logout' %}"class="btn btn-warning">Logout</a>
-            {% else %}
-            <a href="{% url 'account_login' %}"class="btn btn-warning">Login</a>
-            <a href="{% url 'account_signup' %}" class="btn btn-warning">Sign Up</a>
-            {% endif %}
-            <a href="{% url 'basket' %}">
-              <img id="basket-icon"><i class="fas fa-shopping-cart"></i>
-            </a>
-            <p id="basket-total">{{basketItems}}</p>
-          </div>
-        </div>
+         <a class="navbar-brand" href="{% url 'shop' %}">Art Of Chocolate</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'shop' %}">Shop</a>
+               </li>
+            </ul>
+            <div class="form-online my2 my-lg-0">
+               {% if user.is_authenticated %}
+               <p>Welcome {{ user.username }} !!!</p>
+               <a href="{% url 'account_logout' %}"class="btn btn-warning">Logout</a>
+               {% else %}
+               <a href="{% url 'account_login' %}"class="btn btn-warning">Login</a>
+               <a href="{% url 'account_signup' %}" class="btn btn-warning">Sign Up</a>
+               {% endif %}
+               <a href="{% url 'basket' %}">
+               <img id="basket-icon"><i class="fas fa-shopping-cart"></i>
+               </a>
+               <p id="basket-total">{{basketItems}}</p>
+            </div>
+         </div>
       </nav>
-
-      
       <div class="container">
-
-        {% block content %}
-
-        {% endblock content %}
+         {% block content %}
+         {% endblock content %}
       </div>
-
       <footer class="footer mt-auto py-3 bg-light">
-        <div class="container">
-          <span class="text-muted">Place sticky footer content here.</span>
-        </div>
+         <div class="container">
+            <span class="text-muted">Place sticky footer content here.</span>
+         </div>
       </footer>
-
-
       <!-- JavaScript Bundle with Popper -->
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-      </script>
-
+         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-      </script>
-
+         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-      </script>
-
+         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
       <script type="text/javascript" src="{% static 'js/basket.js' %}"></script>
-
       <script src="https://js.stripe.com/v3/"></script>
-
-    </body>
-
-
-
-
-    </html>
+   </body>
+</html>

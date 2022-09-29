@@ -1,19 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-
 <div class="col-lg-4">
-    <img class="thumbnail" src="{{chocolate.image.url}}">
-    <div class="box-element product">
-        <h6><strong>{{chocolate.name}}</strong></h6>
-        <hr>
-        {% if request.user.is_authenticated %}
-        <button data-chocolate={{chocolate.id}} data-action="add" class="btn btn-outline-secondary add-btn update-basket">Add to Basket</button>
-        {% endif %}
-        <h4 style="display: inline- block; float: right"><strong>€{{chocolate.price|floatformat:2}}</strong></h4>
-        <p><strong>{{chocolate.description}}</strong></p>
-    </div>  
+   <img class="thumbnail" src="{{chocolate.image.url}}">
+   <div class="box-element product">
+      <h6><strong>{{chocolate.name}}</strong></h6>
+      <hr>
+      {% if request.user.is_authenticated %}
+      <button data-chocolate={{chocolate.id}} data-action="add" class="btn btn-outline-secondary add-btn update-basket">Add to Basket</button>
+      {% endif %}
+      <h4 style="display: inline- block; float: right"><strong>€{{chocolate.price|floatformat:2}}</strong></h4>
+      <p><strong>{{chocolate.description}}</strong></p>
+   </div>
 </div>
-
 {% endblock content %}

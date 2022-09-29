@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div class="row">
-        {% if payment_status == 'success' %}
-        <p>Order cofnirmed</p>
-        {% else %}
-        <p>Oops something went wrong.</p>
-    </div>
-
-
+<div class="row">
+   {% if payment_status == 'success' %}
+   <p>Order cofnirmed</p>
+   {% else %}
+   <p>Oops something went wrong.</p>
+</div>
 {% endblock content %}
