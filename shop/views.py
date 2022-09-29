@@ -14,11 +14,11 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from .models import *
 from shop.forms import ChocolateForm
-import stripe
+#import stripe
 from django.conf import settings
 
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
+#stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class home(TemplateView):
     template_name = 'home.html'
@@ -78,9 +78,6 @@ def basket(request):
 
 @login_required
 def checkout(request):
-    # stripe_public_key = settings.STRIPE_PUBLIC_KEY
-    # stripe_secret_key = settings.STRIPE_SECRET_KEY
-
     if request.user.is_authenticated:
         buyer = request.user.buyer
         order, created = Order.objects.get_or_create(buyer=buyer, complete= False)
