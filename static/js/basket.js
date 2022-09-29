@@ -15,32 +15,6 @@ for (var i = 0; i < updateBtns.length; i++) {
     })
 }
 
-
-// function addCookieItem(chocolateId, action) {
-//     console.log('You are not logged in')
-
-//     if (action == 'add') {
-//         if(basket[chocolateId] == undefined){
-//             basket[chocolateId] = {'quantity':1}
-//         }else{
-//             basket[chocolateId]['quantity'] += 1
-//         }
-//     }
-
-//     if (action == 'remove') {
-//         basket[chocolateId]['quantity'] -= 1
-
-//         if (basket[chocolateId]['quantity'] <= 0) {
-//             console.log('Remove Item')
-//             delete basket[chocolateId];
-//         }
-//     }
-//     console.log('Basket', basket)
-//     document.cookie = 'basket=' + JSON.stringify(basket) + ";domain=;path=/"
-//     location.reload()
-// }
-
-
 function updateUserOrder(chocolateId, action) {
     console.log('You are logged in, processing data...')
 
