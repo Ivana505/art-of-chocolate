@@ -59,11 +59,16 @@
       console.log('basket:', basket)
     
 
-    function showMessage() {
-    var myMessage = "Thank you for subscribing!";
-    alert (myMessage);
-  }
-
+      // Credit goes to Javascripter http://www.javascripter.net/faq/validati.htm
+  function isValid() {
+ var email=document.newsletter_form.newsletter_email.value;
+ if (email.indexOf(' ')==-1 
+      && 0<email.indexOf('@')
+      && email.indexOf('@')+1 < email.length
+ ) return true;
+ else alert ('Please add correct E-mail Address!')
+ return false;
+}
     </script>
 
     </head>
@@ -129,9 +134,11 @@
         <div class="newsletter-box">
           <h1>Subscribe for our newsletter here !</h1>
           <span>Get updates on our best offers and discounts.</span>
-          <form method="POST" action="{% url 'account_login' %}">
-            <input type="email" name="email_address" placeholder="Add your E-mail Address" required>
-            <button id="newsletter" type="submit" onsubmit="showMessage()">Sign up</button>
+          <form method="POST" name="newsletter_form" action="javascript:alert('Thank you for subscribing!')" 
+          onSubmit="return isValid()">
+            {% csrf_token %}
+            <input type="text" name="newsletter_email" placeholder="Add your E-mail Address" required>
+            <button id="newsletter" type="submit" onsubmit="return validate()">Sign up</button>
           </form> 
         </div>
       </footer>

@@ -211,6 +211,7 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
  - [Emarsys](https://emarsys.com/learn/blog/what-is-b2c-marketing/) - More Information about B2C.
  - [Assemblo](https://assemblo.com/guides/what-are-the-7-ps-of-marketing/)- Insight of 7 P's in Marketing.
  - [Youtube channel Easy WebCode](https://www.youtube.com/watch?v=g55EQkDGdg4) - details in creating Newsletter.
+ - [Javascripter](http://www.javascripter.net/faq/validati.htm) - for nesletter notification setup.
 
 I want to say thank you to my Mentor Tim for the guidance, tutor support and special thanks to the Code Institute Slack community.
 
