@@ -220,4 +220,3 @@ I want to say thank you to my Mentor Tim for the guidance, tutor support and spe
  - Content was created intentionally for the purpose of this project and this Website.
 
 
-DJANGO ADMINISTRATION - username: ivana, password: ivana
