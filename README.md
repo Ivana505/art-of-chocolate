@@ -6,7 +6,6 @@ s a startup Company we will wait for few months before deciding on the best plac
 
 You can access live page to Art Of Chocolate by clicking [here](https://art-of-chocolate.herokuapp.com/).
 
-![landing page](png) IMAGE TO GO HERE
 
 # Business Model
 
@@ -41,7 +40,6 @@ Part of a Business Strategy is also a [Facebook](https://www.facebook.com/) mock
   - As a User I want to be able to signup for a Newsletter.
   - As a User I want to be able to see Social Media links on the Website.
 
-![agile approach](png)
 
 Future development : 
 
@@ -50,24 +48,12 @@ Future development :
 
 
 - Navigation
- ![navigation](png)
 
 - Social Media Icons
 
- ![social media icons](png)
+- Footer
 
 
-- Footer .
-
-![Footer](png)
-
-- Register and sign in link where the User can register and start commenting on the blog posts and "like" them.
-
-![Register](png)
-
-![Sign in](png)
-
-![Signout](png)
 
 
 ## Goals
@@ -99,8 +85,8 @@ Font choices
 I have decided to use [Google Fonts](https://fonts.google.com/). 
  - Font Style used: Manrope 300
  - This font complements Art Of Chocolate WebShop reallz well.
- - I have included example of the style below: <br>
-    ![fonts](png)
+ - I have included example of the style below: 
+  
 
 
 Icons
@@ -112,8 +98,6 @@ Icons
 ## Color scheme and styling
 
 I have decided to use colors
-
-![colors](png)
 
 ## Wireframes
 All wireframes are created with [Balsamiq](https://balsamiq.com/) during the Scope Plane part of the design and planning process for this project.
@@ -150,7 +134,7 @@ ERD Diagram is created with [Lucidchart](https://www.lucidchart.com/pages/) duri
 
 ## Testings
 
-To view all testing documentation please refer to [TESTING.md](TESTING.md)
+To view all testing documentation please refer to 
 
 ### Local Deployment
 
@@ -179,8 +163,6 @@ NEED TO ADD REQUIREMENTS
 
 The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
 
-![deployment1](png)
-
   # Languages and technologies used
 - [Python](https://www.python.org/) - used for core programming language and logic
 - [Github](https://github.com/) - used for securely storing the code online
@@ -200,13 +182,13 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
 
   Image and Social Media sources:
 - [YouTube channel ](https://www.youtube.com/)
-- [Pixabay]
+- [Pixabay](https://pixabay.com/)
 
 
   Other sources
  
  - [YouTube channel CodingEx](https://www.youtube.com/watch?v=HsDSXh26yKc) - Helped me with creating chocolate_image.html page.
- - [YouTube channel Dennis Ivy Django Ecommerce serier](https://www.youtube.com/watch?v=_ELCMngbM0E) - Used as a boilerplate for the project,.
+ - [YouTube channel Dennis Ivy Django Ecommerce series](https://www.youtube.com/watch?v=_ELCMngbM0E) - Used as a boilerplate for the project,.
  - [Smartinsights](https://www.smartinsights.com/marketing-planning/marketing-models/how-to-use-the-7ps-marketing-mix/) - Insight of 7 P's in Marketing.
  - [Emarsys](https://emarsys.com/learn/blog/what-is-b2c-marketing/) - More Information about B2C.
  - [Assemblo](https://assemblo.com/guides/what-are-the-7-ps-of-marketing/)- Insight of 7 P's in Marketing.
