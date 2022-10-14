@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
+from cloudinary.models import CloudinaryField
+
 
 
 class Buyer(models.Model):
@@ -16,7 +18,8 @@ class Chocolate(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     digital = models.BooleanField(default=False, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True, upload_to='images/')
+    #image = models.ImageField(null=True, blank=True, upload_to='images/')
+    image = CloudinaryField('image', null=True, blank=True)
     description = models.TextField(default=False)
 
     def __str__(self):
