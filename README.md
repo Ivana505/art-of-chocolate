@@ -194,6 +194,9 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
  - [Assemblo](https://assemblo.com/guides/what-are-the-7-ps-of-marketing/)- Insight of 7 P's in Marketing.
  - [Youtube channel Easy WebCode](https://www.youtube.com/watch?v=g55EQkDGdg4) - details in creating Newsletter.
  - [Javascripter](http://www.javascripter.net/faq/validati.htm) - for nesletter notification setup.
+ - [Youtube channel Codepiep](https://www.youtube.com/watch?v=66joNBEyNwE) - Used to set up STRIPE.
+ - [Stack Overflow](https://stackoverflow.com/questions/64476542/stripe-error-in-order-to-use-checkout-you-must-set-an-account-or-business-name) - Helped to resolve STRIPE checkout error.
+
 
 I want to say thank you to my Mentor Tim for the guidance, tutor support and special thanks to the Code Institute Slack community.
 

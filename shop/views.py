@@ -12,6 +12,7 @@ from django.shortcuts import redirect
 from .models import *
 from shop.forms import ChocolateForm
 from django.conf import settings
+from django.views import generic
 
 
 class home(TemplateView):
@@ -26,7 +27,7 @@ def shop(request):
 
 @login_required
 def basket(request):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated :
         buyer, created = Buyer.objects.get_or_create(user=request.user)
         order, created = Order.objects.get_or_create(buyer=buyer, complete=False)
         items = order.orderitem_set.all()
@@ -201,3 +202,100 @@ def edit_product(request, pk):
             'chocolate': chocolate,
         }
     return render(request, template, context)
+
+
+
+#for payments
+import stripe
+from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+
+# This is your test secret API key.
+stripe.api_key = settings.STRIPE_SECRET_KEY
+endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
+
+class CreateCheckoutSessionView(generic.View):
+    def post(self, *args, **kwargs):
+        host = self.request.get_host()
+
+        order_id = self.request.POST.get('order-id')
+        order = Order.objects.get(id=order_id)
+
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                    'price_data': {
+                        'currency': 'eur',
+                        'unit_amount': 1000, 
+                        #order.get_basket_total *100 
+                        'product_data': {
+                            'name': order.id,
+                        },
+                    },
+                    'quantity': 1,
+                },
+            ],
+            mode='payment',
+            success_url="http://{}{}".format(host, reverse('payment-success')),
+            cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
+        )
+        return redirect(checkout_session.url, code=303)
+
+
+def paymentSuccess(request):
+    context = {
+        'payment_status': 'success'
+    }
+    return render(request, 'order/confirmation.html', context)
+
+
+def paymentCancel(request):
+    context = {
+        'payment_status': 'cancel'
+    }
+    return render(request, 'order/confirmation.html', context)
+
+# Using Django
+from django.http import HttpResponse
+
+
+@csrf_exempt
+def my_webhook_view(request):
+    payload = request.body
+    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    event = None
+
+    try:
+        event = stripe.Webhook.construct_event(
+        payload, sig_header, endpoint_secret
+        )
+    except ValueError as e:
+        # Invalid payload
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+        # Invalid signature
+        return HttpResponse(status=400)
+
+    # Handle the checkout.session.completed event
+    if event['type'] == 'checkout.session.completed':
+        session = event['data']['object']
+
+        if session.payment_status == "paid":
+            line_item = session.list_line_items(session.id, limit=1).data[0]
+            order_id = line_item['description']
+            fulfill_order(order_id)
+
+    # Passed signature verification
+    return HttpResponse(status=200)
+
+
+def fulfill_order(order_id):
+    order = Order.objects.get(id=order_id)
+    order.ordered = Trueorder.orderDate = datetime.datetime.now()
+    order.save()
+
+    for item in order.items.all():
+        product_var = ProductVariation.objects.get(id=item.product.id)
+        product_var.stock -= item.quantity
+        product_var.save()
