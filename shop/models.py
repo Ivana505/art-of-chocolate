@@ -19,7 +19,6 @@ class Chocolate(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     digital = models.BooleanField(default=False, null=True, blank=True)
-    #image = models.ImageField(null=True, blank=True, upload_to='images/')
     image = CloudinaryField('image', null=True, blank=True)
     description = models.TextField(default=False)
 

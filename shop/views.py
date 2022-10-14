@@ -27,7 +27,7 @@ def shop(request):
 
 @login_required
 def basket(request):
-    if request.user.is_authenticated :
+    if request.user.is_authenticated:
         buyer, created = Buyer.objects.get_or_create(user=request.user)
         order, created = Order.objects.get_or_create(buyer=buyer, complete=False)
         items = order.orderitem_set.all()
