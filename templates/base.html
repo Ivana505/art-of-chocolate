@@ -92,6 +92,16 @@
                <p id="basket-total">{{basketItems}}</p>
             </div>
          </div>
+         <div>
+            <form class="form" method="GET" action="{% url 'shop' %}">
+               <div class="input-group w-100">
+                  <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                  <button class="form-control form-control btn brn-black border border-black rounded-0" type="submit">
+                     BUTTON
+                  </button>
+               </div>
+            </form>
+         </div>
       </nav>
       <div class="container">
          {% block content %}

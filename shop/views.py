@@ -7,8 +7,9 @@ from django.views.generic import DeleteView
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect
+from django.shortcuts import redirect, reverse
 from .models import *
 from shop.forms import ChocolateForm
 from django.conf import settings
@@ -21,11 +22,23 @@ class home(TemplateView):
 
 def shop(request):
     chocolates = Chocolate.objects.all()
-    context = {'chocolates': chocolates}
+    query = None
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "Chocolate does not exist!")
+                return redirect(reverse('chocolates'))
+            
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            chocolates = chocolates.filter(queries)
+
+    context = {'chocolates': chocolates, 'search_term': query, }
     return render(request, 'shop/shop.html', context)
 
 
-@login_required
+
 def basket(request):
     if request.user.is_authenticated:
         buyer, created = Buyer.objects.get_or_create(user=request.user)
@@ -55,7 +68,7 @@ def basket(request):
     return render(request, 'shop/basket.html', context)
 
 
-@login_required
+
 def checkout(request):
     if request.user.is_authenticated:
         buyer = request.user.buyer
