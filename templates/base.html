@@ -74,8 +74,15 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-               <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'shop' %}">Special Chocolate Shop</a>
+               <li class="nav-item dropdown" data-toggle="dropdown">
+                  <a class="nav-link" href="{% url 'shop' %}">Special Chocolate Shop - click here to see more</a>
+               <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'shop' %}">White Chocolates</a>
+                  <a class="dropdown-item" href="{% url 'shop' %}">Dark Chocolates</a>
+                  <a class="dropdown-item" href="{% url 'shop' %}">Milk Chocolates</a>
+                  <a class="dropdown-item" href="{% url 'shop' %}">All Chocolates</a>
+                  <a class="dropdown-item" href="{% url 'shop' %}">About us</a>
+               </div>
                </li>
             </ul>
             <div class="form-online my2 my-lg-0">

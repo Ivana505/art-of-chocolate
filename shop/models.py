@@ -6,8 +6,9 @@ from cloudinary.models import CloudinaryField
 
 
 
+
 class Buyer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=255, null=True)
     email = models.CharField(max_length=255)
 
@@ -15,9 +16,22 @@ class Buyer(models.Model):
         return self.name
 
 
+class Category(models.Model):
+   chocolate_type = models.CharField(max_length=250, null=True, blank=True)
+
+   class Meta:
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+
+   def __str__(self):
+         return self.chocolate_type
+
+
+
 class Chocolate(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    category = models.ForeignKey('Category', default=False, on_delete=models.CASCADE)
     digital = models.BooleanField(default=False, null=True, blank=True)
     image = CloudinaryField('image', null=True, blank=True)
     description = models.TextField(default=False)

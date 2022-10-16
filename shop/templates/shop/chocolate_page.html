@@ -6,7 +6,7 @@
    <div class="box-element product">
       <h6><strong>{{chocolate.name}}</strong></h6>
       <hr>
-      {% if request.user.is_authenticated %}
+      {% if request.user %}
       <button data-chocolate={{chocolate.id}} data-action="add" class="btn btn-outline-secondary add-btn update-basket">Add to Basket</button>
       {% endif %}
       <h4 style="display: inline- block; float: right"><strong>€{{chocolate.price|floatformat:2}}</strong></h4>
