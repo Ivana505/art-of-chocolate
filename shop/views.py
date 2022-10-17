@@ -16,6 +16,7 @@ from django.conf import settings
 from django.views import generic
 
 
+
 class home(TemplateView):
     template_name = 'home.html'
 
@@ -23,8 +24,14 @@ class home(TemplateView):
 def shop(request):
     chocolates = Chocolate.objects.all()
     query = None
+    categories = None
 
     if request.GET:
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            chocolates = chocolates.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -34,7 +41,7 @@ def shop(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             chocolates = chocolates.filter(queries)
 
-    context = {'chocolates': chocolates, 'search_term': query, }
+    context = {'chocolates': chocolates, 'search_term': query, 'current_categories': categories, }
     return render(request, 'shop/shop.html', context)
 
 
@@ -311,3 +318,5 @@ def fulfill_order(order_id):
         product_var = ProductVariation.objects.get(id=item.product.id)
         product_var.stock -= item.quantity
         product_var.save()
+
+

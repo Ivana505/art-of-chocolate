@@ -75,22 +75,22 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                <li class="nav-item dropdown" data-toggle="dropdown">
-                  <a class="nav-link" href="{% url 'shop' %}">Special Chocolate Shop - click here to see more</a>
+                  <a class="nav-link">Special Chocolate Shop - click here to see more</a>
                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="{% url 'shop' %}">White Chocolates</a>
-                  <a class="dropdown-item" href="{% url 'shop' %}">Dark Chocolates</a>
-                  <a class="dropdown-item" href="{% url 'shop' %}">Milk Chocolates</a>
-                  <a class="dropdown-item" href="{% url 'shop' %}">All Chocolates</a>
-                  <a class="dropdown-item" href="{% url 'shop' %}">About us</a>
+                  <a href="{% url 'shop' %}"class="dropdown-item">White Chocolates</a>
+                  <a href="{% url 'shop' %}?category=dark_chocolate" class="dropdown-item">Dark Chocolates</a>
+                  <a  href="{% url 'shop' %}" class="dropdown-item">Milk Chocolates</a>
+                  <a href="{% url 'shop' %}"class="dropdown-item">All Chocolates</a>
+                  <a href="{% url 'shop' %}"class="dropdown-item">About us</a>
                </div>
                </li>
             </ul>
             <div class="form-online my2 my-lg-0">
                {% if user.is_authenticated %}
                <p>Welcome {{ user.username }} !!!</p>
-               <a href="{% url 'account_logout' %}"class="btn btn-warning">Logout</a>
+               <a href="{% url 'account_logout' %}" class="btn btn-warning">Logout</a>
                {% else %}
-               <a href="{% url 'account_login' %}"class="btn btn-warning">Login</a>
+               <a href="{% url 'account_login' %}" class="btn btn-warning">Login</a>
                <a href="{% url 'account_signup' %}" class="btn btn-warning">Sign Up</a>
                {% endif %}
                <a href="{% url 'basket' %}">

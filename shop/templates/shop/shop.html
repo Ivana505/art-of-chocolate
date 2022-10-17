@@ -8,7 +8,7 @@
       <img class="thumbnail" src="{{chocolate.image.url}}">
       {% endif %}
       <div class="box-element product">
-         <h6><strong>{{chocolate.name}}</strong></h6>
+         <h6><strong>{{chocolate.name}}</strong> - {{chocolate.category}}</h6>
          <hr>
          {% if request.user %}
          <button data-chocolate={{chocolate.id}} data-action="add" class="btn btn-outline-secondary add-btn update-basket">Add to Basket</button>
