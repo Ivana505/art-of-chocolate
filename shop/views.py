@@ -84,7 +84,7 @@ def checkout(request):
     return render(request, 'shop/checkout.html', context)
 
 
-@login_required
+
 def updateItem(request):
     data = json.loads(request.body)
     chocolateId = data['chocolateId']
@@ -116,7 +116,6 @@ def updateItem(request):
 from django.views.decorators.csrf import csrf_exempt
 
 
-@login_required
 @csrf_exempt
 def processOrder(request):
     transaction_id = datetime.datetime.now().timestamp()
