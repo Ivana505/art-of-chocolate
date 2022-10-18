@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'shop',
-    'newsletter',
+    'marketing',
     'crispy_forms',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -89,18 +89,21 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-if 'DEVELOPMENT' in os.environ:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'artofchocolate@example.com'
+#if 'DEVELOPMENT' in os.environ:
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#DEFAULT_FROM_EMAIL = 'artofchocolate@example.com'
 
-else:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_USE_TLS = True
-    EMAIL_PORT = 443
-    EMAIL_HOST = 'smtp.protonmail.com'
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ('EMAIL_HOST_PASS')
-    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+# else:
+#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#     EMAIL_USE_TLS = True
+#     EMAIL_PORT = 443
+#     EMAIL_HOST = 'smtp.mandrillapp.com'
+    # EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    # EMAIL_HOST_PASSWORD = os.environ('EMAIL_HOST_PASS')
+    # DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+MAILCHIMP_API_KEY = "dea098273798fe650e705ade5e9db737-us21"
+MAILCHIMP_DATA_CENTER = "s21"
+MAILCHIMP_EMAIL_LIST_ID = "1068abdfe8"
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -109,6 +112,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 5
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
+
 
 WSGI_APPLICATION = 'art_of_chocolate.wsgi.application'
 

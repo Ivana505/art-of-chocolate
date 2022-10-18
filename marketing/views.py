@@ -44,5 +44,5 @@ def subscription(request):
         subscribe(email)                    # function to access mailchimp
         messages.success(request, "Thank you for subscribing !") # message
 
-    return render(request, "newsletter/index.html")
+    return render(request, "marketing/index.html")
 
