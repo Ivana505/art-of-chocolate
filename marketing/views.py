@@ -41,7 +41,7 @@ def subscribe(email):
 def subscription(request):
     if request.method == "POST":
         email = request.POST['email']
-        subscribe(email)                    # function to access mailchimp
+        print(email)                    # function to access mailchimp
         messages.success(request, "Thank you for subscribing !") # message
 
     return render(request, "marketing/index.html")
