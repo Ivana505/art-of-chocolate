@@ -132,6 +132,27 @@ ERD Diagram is created with [Lucidchart](https://www.lucidchart.com/pages/) duri
 
 ![erd diagram](media/erd/database_diagram.png)
 
+
+## SEO
+
+### Keyword Research
+
+Short-tail and long-tail words used for SEO implementation.
+
+![SEO keywords](media/seo/keywords.png)
+
+Further keywords research done :
+
+[Wordtracker](https://www.wordtracker.com/) word chocolate within Ireland
+
+![wordtracker keywords](media/seo/wordtracker_ireland.png)
+
+[Google](https://www.google.com/) - Search for wordkey "chocolate"
+
+![google search](media/seo/google_search.png)
+
+
+
 ## Testings
 
 To view all testing documentation please refer to 
@@ -174,7 +195,7 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
 - [Freeformatter](https://www.freeformatter.com/) - used to format and beautify HTML and CSS code
 - [PEP8 validator](http://pep8online.com/) - used to validate Python code
 - [Coloors](https://coolors.co/) - to create color scheme for the UX section
-
+- [Sitemaps](https://www.xml-sitemaps.com/) - to create sitemaps for SEO.
 
 ## Credits and Acknowledgements
 
