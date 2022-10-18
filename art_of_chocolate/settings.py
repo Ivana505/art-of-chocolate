@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'shop',
+    'newsletter',
     'crispy_forms',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -156,3 +157,7 @@ STRIPE_CURRENCY = 'eur'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET')
+
+MAILCHIMP_API_KEY = "dea098273798fe650e705ade5e9db737-us21"
+MAILCHIMP_DATA_CENTER = "s21"
+MAILCHIMP_EMAIL_LIST_ID = "1068abdfe8"
