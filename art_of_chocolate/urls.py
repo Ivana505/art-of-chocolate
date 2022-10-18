@@ -10,6 +10,8 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('marketing/', include('marketing.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
 handler404 = 'art_of_chocolate.views.handler404'
 
 

@@ -200,6 +200,7 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
  - [Youtube channel Codemy.com](https://www.youtube.com/watch?v=_ph8GF84fX4) - For adding categories to Django.
  - [Django Central](https://djangocentral.com/django-admin-making-model-fields-required/) - For resolving the issue where Django categories showed as objects rather than with their names.
  - [Computerhope.com](https://www.computerhope.com/issues/ch000317.htm) - Used to create go back button.
+ - [Pythonstacks](https://www.pythonstacks.com/blog/post/integrating-mailchimp-django/) - For implementing mailchimp.
 
 
 I want to say thank you to my Mentor Tim for the guidance, tutor support and special thanks to the Code Institute Slack community.
