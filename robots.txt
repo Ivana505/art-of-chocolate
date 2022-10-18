@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /basket/
+Sitemap: https://art-of-chocolate.herokuapp.com/sitemap.xml

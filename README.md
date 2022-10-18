@@ -201,6 +201,7 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
  - [Django Central](https://djangocentral.com/django-admin-making-model-fields-required/) - For resolving the issue where Django categories showed as objects rather than with their names.
  - [Computerhope.com](https://www.computerhope.com/issues/ch000317.htm) - Used to create go back button.
  - [Pythonstacks](https://www.pythonstacks.com/blog/post/integrating-mailchimp-django/) - For implementing mailchimp.
+ - [Youtube channel Cryce Truly](https://www.youtube.com/watch?v=3SKjPppM_DU) - For implementing 404 error page.
 
 
 I want to say thank you to my Mentor Tim for the guidance, tutor support and special thanks to the Code Institute Slack community.
