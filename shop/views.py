@@ -14,7 +14,10 @@ from .models import *
 from shop.forms import ChocolateForm
 from django.conf import settings
 from django.views import generic
-
+import stripe
+from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 
 
 class home(TemplateView):
@@ -37,13 +40,11 @@ def shop(request):
             if not query:
                 messages.error(request, "Chocolate does not exist!")
                 return redirect(reverse('chocolates'))
-            
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             chocolates = chocolates.filter(queries)
 
     context = {'chocolates': chocolates, 'search_term': query, 'current_categories': categories, }
     return render(request, 'shop/shop.html', context)
-
 
 
 def basket(request):
@@ -56,8 +57,8 @@ def basket(request):
         try:
             basket = json.loads(request.COOKIES['basket'])
         except:
-           basket = {}
-           print('Basket:', basket)
+            basket = {}
+            print('Basket:', basket)
         items = []
         order = {'get_basket_total': 0, 'get_basket_items': 0, 'shipping': False}
         basketItems = order['get_basket_items']
@@ -75,7 +76,6 @@ def basket(request):
     return render(request, 'shop/basket.html', context)
 
 
-
 def checkout(request):
     if request.user.is_authenticated:
         buyer = request.user.buyer
@@ -91,7 +91,6 @@ def checkout(request):
     return render(request, 'shop/checkout.html', context)
 
 
-
 def updateItem(request):
     data = json.loads(request.body)
     chocolateId = data['chocolateId']
@@ -105,7 +104,6 @@ def updateItem(request):
     order, created = Order.objects.get_or_create(buyer=buyer, complete=False)
 
     orderItem, created = OrderItem.objects.get_or_create(order=order, chocolate=chocolate)
-
 
     if action == 'add':
         orderItem.quantity = (orderItem.quantity + 1)
@@ -194,8 +192,6 @@ def add_product(request):
     return render(request, template, context)
 
 
-
-
 @login_required
 def edit_product(request, pk):
     # add the request.FILES
@@ -223,16 +219,10 @@ def edit_product(request, pk):
     return render(request, template, context)
 
 
-
-#for payments
-import stripe
-from django.conf import settings
-from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
-
 # This is your test secret API key.
 stripe.api_key = settings.STRIPE_SECRET_KEY
 endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
+
 
 class CreateCheckoutSessionView(generic.View):
     def post(self, *args, **kwargs):
@@ -246,8 +236,7 @@ class CreateCheckoutSessionView(generic.View):
                 {
                     'price_data': {
                         'currency': 'eur',
-                        'unit_amount': 1000, 
-                        #order.get_basket_total *100 
+                        'unit_amount': 1000,
                         'product_data': {
                             'name': order.id,
                         },
@@ -274,9 +263,6 @@ def paymentCancel(request):
         'payment_status': 'cancel'
     }
     return render(request, 'order/confirmation.html', context)
-
-# Using Django
-from django.http import HttpResponse
 
 
 @csrf_exempt
@@ -318,5 +304,3 @@ def fulfill_order(order_id):
         product_var = ProductVariation.objects.get(id=item.product.id)
         product_var.stock -= item.quantity
         product_var.save()
-
-
