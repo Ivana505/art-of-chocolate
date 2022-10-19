@@ -99,4 +99,14 @@ li>a {
     clear:left; 
     font:14px Helvetica,Arial,sans-serif;  
     width:600px;
+    margin-left: 10%;
+}
+
+#news {
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.text-muted {
+    margin-left: 30%;
 }

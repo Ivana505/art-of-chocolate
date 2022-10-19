@@ -77,7 +77,7 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                <li class="nav-item dropdown" data-toggle="dropdown">
-                  <a class="nav-link">Special Chocolate Shop - click here to see more</a>
+                  <a class="nav-link">Special Chocolate Shop - categories</a>
                <div class="dropdown-menu">
                   <a href="{% url 'shop' %}"class="dropdown-item">White Chocolates</a>
                   <a href="{% url 'shop' %}?category=dark_chocolate" class="dropdown-item">Dark Chocolates</a>
@@ -127,36 +127,16 @@
          {% endblock content %}
       </div>
       <footer class="footer mt-auto py-3 bg-light">
-         <div class="container">
-            <p><span class="text-muted">&copy;2022 | Art Of Chocolate, Inc | All rights Reserved</span></p>
-            <ul class="d-flex justify-content-center h-100">
-               <li>
-                  <a href="https://www.facebook.com/" target="_blank" rel="noopener"
-                     aria-label="Visit us on Facebook (opens in a new tab)"><i class="fab fa-facebook-square"></i></a>
-               </li>
-               <li>
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener"
-                     aria-label="Visit us on Instagram (opens in a new tab)"><i class="fab fa-instagram-square"></i></a>
-               </li>
-               <li>
-                  <a href="https://www.pinterest.com/" target="_blank" rel="noopener"
-                     aria-label="Visit us on Pinterest (opens in a new tab)"><i class="fab fa-pinterest-square"></i></a>
-               </li>
-            </ul>
-         </div>
-         <div class="row">
+       
             <div class="col-12 col-md-6">
 
-           
-            <h3>Subscribe for our newsletter here !</h3>
-            <p>Get best offers</p>
-            <span>Get updates on our best offers and discounts.</span>
+            <h4 id="news">News, offers and discounts.</h4>
          <!-- Begin Mailchimp Signup Form -->
 
 <div id="mc_embed_signup">
     <form action="https://protonmail.us21.list-manage.com/subscribe/post?u=ff6848632b2c2724924da1780&amp;id=1068abdfe8&amp;f_id=00cdc3e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
         <div id="mc_embed_signup_scroll">
-        <h2>Subscribe</h2>
+        <h2>Subscribe here</h2>
         <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
 <div class="mc-field-group">
 	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
@@ -182,6 +162,25 @@
 <!--End mc_embed_signup-->
          </div>
          </div>
+         <div class="container">
+       
+            <ul class="d-flex justify-content-center h-100">
+               <li>
+                  <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                     aria-label="Visit us on Facebook (opens in a new tab)"><i class="fab fa-facebook-square"></i></a>
+               </li>
+               <li>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                     aria-label="Visit us on Instagram (opens in a new tab)"><i class="fab fa-instagram-square"></i></a>
+               </li>
+               <li>
+                  <a href="https://www.pinterest.com/" target="_blank" rel="noopener"
+                     aria-label="Visit us on Pinterest (opens in a new tab)"><i class="fab fa-pinterest-square"></i></a>
+               </li>
+            </ul>
+            <p><span class="text-muted">&copy;2022 | Art Of Chocolate, Inc | All rights Reserved | Privacy Policy </span></p>
+         </div>
+         <div class="row">
       </footer>
       <!-- JavaScript Bundle with Popper -->
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
