@@ -39,7 +39,7 @@ def shop(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "Chocolate does not exist!")
-                return redirect(reverse('chocolates'))
+                return redirect(reverse('shop'))
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             chocolates = chocolates.filter(queries)
 

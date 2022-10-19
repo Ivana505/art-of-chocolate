@@ -79,7 +79,7 @@ TEMPLATES = [
     },
 ]
 
-#MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -89,22 +89,22 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-if 'DEVELOPMENT' in os.environ:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'artofchocolate@example.com'
+# if 'DEVELOPMENT' in os.environ:
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    # DEFAULT_FROM_EMAIL = 'artofchocolate@example.com'
 
-else:
-     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-     EMAIL_USE_TLS = True
-     EMAIL_PORT = 465
-     EMAIL_HOST = 'smtp.mandrillapp.com'
+# else:
+#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#     EMAIL_USE_TLS = True
+#     EMAIL_PORT = 465
+#     EMAIL_HOST = 'smtp.mandrillapp.com'
     # EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     # EMAIL_HOST_PASSWORD = os.environ('EMAIL_HOST_PASS')
     # DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
-MAILCHIMP_API_KEY = os.getenv('MAILCHIMP_API_KEY')
-MAILCHIMP_DATA_CENTER = os.getenv('MAILCHIMP_DATA_CENTER')
-MAILCHIMP_EMAIL_LIST_ID = os.getenv('MAILCHIMP_EMAIL_LIST_ID')
+# MAILCHIMP_API_KEY = os.getenv('MAILCHIMP_API_KEY')
+# MAILCHIMP_DATA_CENTER = os.getenv('MAILCHIMP_DATA_CENTER')
+# MAILCHIMP_EMAIL_LIST_ID = os.getenv('MAILCHIMP_EMAIL_LIST_ID')
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True

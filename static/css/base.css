@@ -89,3 +89,14 @@ li {
 li>a {
     color: black;
 }
+
+#welcome, #search {
+    color: white;
+}
+
+#mc_embed_signup{
+    background:#fff; 
+    clear:left; 
+    font:14px Helvetica,Arial,sans-serif;  
+    width:600px;
+}
