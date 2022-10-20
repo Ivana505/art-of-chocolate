@@ -12,5 +12,3 @@ urlpatterns = [
 
 
 handler404 = 'art_of_chocolate.views.handler404'
-
-
