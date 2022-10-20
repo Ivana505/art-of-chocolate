@@ -37,45 +37,45 @@ Result for mobile devices
 
 - Attribute error - resolved by removing shop app name from the apps list.
 
-![solved bugs attribute error](documents/testing/attribute_error.png)
+![solved bugs attribute error](documents/media/testing/attribute_error.png)
 
 - Not Found error - resolved by adding correct path to urls.py file.
 
-![solved bugs not found error](documents/testing/not_found_error.png)
+![solved bugs not found error](documents/media/testing/not_found_error.png)
 
 - ProgrammingError at - Models were updated but migration was not done. Resolved by making migrations and migrating new models added.
 
-![solved bugs programming error](documents/testing/programming_error.png)
+![solved bugs programming error](documents/media/testing/programming_error.png)
 
 
 - IndentationError - Migration was not processing due to incorrect indentationt, indentation corrected to resolve the issue.
 
-![solved bugs indentation error](documents/testing/invalid_host_error.png)
+![solved bugs indentation error](documents/media/testing/invalid_host_error.png)
 
 - SyntaxError - Due to misspelling error migration was not possible, entry corrected to resolve the issue.
 
-![solved bugs syntax error](documents/testing/syntax_error.png)
+![solved bugs syntax error](documents/media/testing/syntax_error.png)
 
 - PermissionError - Error when tried to edit the product. Resolved with connecting and installing cloudinary correctly.
 
-![solved bugs permission error](documents/testing/permission_edit_error.png)
+![solved bugs permission error](documents/media/testing/permission_edit_error.png)
 
 - NameError - Resolved by importing get_404 object to django.
 
-![solved bugs name error](documents/testing/name_error.png)
+![solved bugs name error](documents/media/testing/name_error.png)
 
 - TamplateDoesNotExist - error resolved by moving html to correct template folder.
 
-![solved bugs template does not exist](documents/testing/template_does_not_exist.png)
+![solved bugs template does not exist](documents/media/testing/template_does_not_exist.png)
 
 
 ### STRIPE payment testing
 
 - I have tested Stripe payment with card provided in Stripe documents.
 
-![stripe payment testing card](documents/testing/stripe_card_testing.png)
+![stripe payment testing card](documents/media/testing/stripe_card_testing.png)
 
-![stripe payment testing payment](documents/testing/stripe_payment_testing.png)
+![stripe payment testing payment](documents/media/testing/stripe_payment_testing.png)
 
 ### Unsolved bugs
 - Unsolved problem which relates to ms-toolsai.jupyter extension not bein synched and not added in .gitpod.yml. I have checked Slack community and this is known issue which we can ignore.
