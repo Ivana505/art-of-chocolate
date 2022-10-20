@@ -10,6 +10,31 @@ You can access live page to Art Of Chocolate by clicking [here](https://art-of-c
 
 IMAGE TO BE ADDED HERE
 
+# Table of content:
+- [Business Model](#business-model)
+- [Marketing Strategy](#marketing-strategy)
+- [User Experience](#user-experience)
+  - [User Stories](#user-stories)
+  - [Features](#features)
+  - [Goals](#goals)
+   - [Visitor goals](#visitor-goals)
+   - [User goals](#user-goals)
+- [Design Choices](#design-choices)
+  - [Color scheme and styling](#colors-style)
+- [Wireframes](#wireframes)
+- [ERD Diagram](#erd-diagram)
+- [SEO](#seo)
+  - [Keyword Research](#keyword-research)
+- [Testing](#testing)
+- [Local Deployment](#local-deployment)
+- [Languages and technologies used](#languages-technologies)
+- [Credits and Acknowledgements](#credits)
+- [Content](#content)
+
+
+
+
+
 
 # Business Model
 
@@ -233,6 +258,6 @@ I want to say thank you to my Mentor Tim for the guidance, tutor support and spe
 
 
 ### Content
- - Content was created intentionally for the purpose of this project and this Website.
+ - Content was created intentionally for the purpose of this project and this Website. [top](#content)
 
 
