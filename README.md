@@ -258,6 +258,6 @@ I want to say thank you to my Mentor Tim for the guidance, tutor support and spe
 
 
 ### Content
- - Content was created intentionally for the purpose of this project and this Website. [top](#content)
+ - Content was created intentionally for the purpose of this project and this Website. *Click to go back to the [top](#content)*
 
 
