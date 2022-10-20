@@ -1,15 +1,19 @@
 # Art Of Chocolate
 Art Of Chocolate is an E-commerce Website that allows people to buy chocolate with unusual tastes.
 It is loved by many pastry chefs around the world.
-s a startup Company we will wait for few months before deciding on the best place to show off our product.
-- People - Concentration of the business is on personas who like new things, who are not afraid to risk and who are adventurous. People all over the World as Website gives shipping option.
+
+Also, our clients are people like new things, who are not afraid to risk and who are adventurous. People all over the World as Website gives shipping option.
+
+This project is made for Code Institute Full-stack development program - Portfolio 5.
 
 You can access live page to Art Of Chocolate by clicking [here](https://art-of-chocolate.herokuapp.com/).
+
+IMAGE TO BE ADDED HERE
 
 
 # Business Model
 
-Art Of Chocolate is a B2C business supporting the end consumer. The site gives User the option to create an account, look for desired product and purchase it by card and sign-up for a Newsletter. Full CRUD functionality is available for superusers only.
+Art Of Chocolate is a B2C business supporting the end consumer. The site gives User option to interact with central dataset, choose and purchase products and process payment with Stripe. Users can sign-up to Art Of Chocolate Newsletter. Full CRUD functionality is available to the user.
 
 # Marketing Strategy
 
@@ -33,7 +37,7 @@ Part of a Business Strategy is also a [Facebook](https://www.facebook.com/) mock
 
 - User Stories are made with an Agile approach. 
 
-  - As a User I want to be able to create an account.
+  - As a User I want to be able to create an account so that I can see all my purchases.
   - As a User I want to be able to search for the products.
   - As a User I want to be able to add product to the basket.
   - As a User I want to be able to purchase product with credit card.
@@ -52,8 +56,6 @@ Future development :
 - Social Media Icons
 
 - Footer
-
-
 
 
 ## Goals
@@ -87,12 +89,15 @@ I have decided to use [Google Fonts](https://fonts.google.com/).
  - This font complements Art Of Chocolate WebShop reallz well.
  - I have included example of the style below: 
   
+![main page](media/images/google_font.png)
 
 
 Icons
 
 - Social Media Icons [Facebook](https://www.facebook.com/), [Instagram](https://www.instagram.com/) and [Pinterest](https://www.pinterest.ie/) 
 - [Fontawesome](https://fontawesome.com/) was used to add social media icons.
+
+![main page](media/images/social_media_icons.png)
 
  
 ## Color scheme and styling
@@ -152,10 +157,9 @@ Further keywords research done :
 ![google search](media/seo/google_search.png)
 
 
-
 ## Testings
 
-To view all testing documentation please refer to 
+To view all testing documentation, please refer to [TESTING.md](TESTING.md)
 
 ### Local Deployment
 

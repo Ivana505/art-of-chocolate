@@ -20,6 +20,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 
 
+
 class home(TemplateView):
     template_name = 'home.html'
 
@@ -304,3 +305,24 @@ def fulfill_order(order_id):
         product_var = ProductVariation.objects.get(id=item.product.id)
         product_var.stock -= item.quantity
         product_var.save()
+
+
+def delete_user(request, username):
+    context = {}
+    
+    if not request.user.is_authenticated:
+        return redirect("login")
+
+    if request.method == 'DELETE':
+        try:
+            user = request.user
+            user.delete()
+            context['msg'] = 'Bye Bye'
+        except Exception as e: 
+            context['msg'] = 'Something went wrong!'
+
+    else:
+        context['msg'] = 'Request method should be "DELETE"!'
+
+    return render(request, 'template.html', context=context) 
+    

@@ -1,0 +1,19 @@
+{% extends '_base.html' %}
+{% load account %}
+
+{% block title %}User Account Delete{% endblock title %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <!-- <form method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete your account?</p>
+        <input type="submit" value="Confirm">
+    </form> -->
+    <form action="{% url 'account:delete_account' username=request.user.username %}" method="GET">
+        <a class="mt-4 btn btn-danger deleteaccount" onclick="return confirm('Are you sure you want to delete your account')" href="">Delete Account</a> 
+      </form> 
+    {% else %}
+        <p><a href="#">Login</a></p>
+    {% endif %}
+{% endblock content %}

@@ -91,6 +91,7 @@
                {% if user.is_authenticated %}
                <p id="welcome">Welcome {{ user.username }} !</p>
                <a href="{% url 'account_logout' %}" class="btn btn-warning">Logout</a>
+               <a href="" class="btn btn-warning">Delete Account</a>
                {% else %}
                <a href="{% url 'account_login' %}" class="btn btn-warning">Login</a>
                <a href="{% url 'account_signup' %}" class="btn btn-warning">Sign Up</a>
