@@ -10,7 +10,8 @@ You can access live page to Art Of Chocolate by clicking [here](https://art-of-c
 
 IMAGE TO BE ADDED HERE
 
-# [Table of content:](#table-of-content)
+# Table of content: 
+- [Art Of Chocolate Shop](#art-of-chocolate)
 - [Business Model](#business-model)
 - [Marketing Strategy](#marketing-strategy)
 - [User Experience](#user-experience)
@@ -261,6 +262,6 @@ I want to say thank you to my Mentor Tim for the guidance, tutor support and spe
  - Content was created intentionally for the purpose of this project and this Website. 
  
  
-*Click to go back to the [top](#table-of-content)*
+*Click to go back to the [top](#art-of-chocolate).*
 
 
