@@ -3,7 +3,7 @@
 {% block content %}
 <div class="row">
    {% if payment_status == 'success' %}
-   <p>Order confirmed</p>
+   <p>Order confirmed {{order.id}}</p>
    {% else %}
    <p>Oops something went wrong.</p>
    {% endif %}

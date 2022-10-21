@@ -260,9 +260,10 @@ class CreateCheckoutSessionView(generic.View):
                 },
             ],
             mode='payment',
-            success_url=reverse('payment-success'),
-            # success_url="http://{}{}".format(host, reverse('payment-success')),
+            success_url="http://{}{}".format(host, reverse('payment-success')),
             cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
+            #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
+            #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
         )
         return redirect(checkout_session.url, code=303)
 
@@ -320,23 +321,3 @@ def fulfill_order(order_id):
         product_var = ProductVariation.objects.get(id=item.product.id)
         product_var.stock -= item.quantity
         product_var.save()
-
-
-def delete_user(request, username):
-    context = {}
-
-    if not request.user.is_authenticated:
-        return redirect("login")
-
-    if request.method == 'DELETE':
-        try:
-            user = request.user
-            user.delete()
-            context['msg'] = 'Bye Bye'
-        except Exception as e:
-            context['msg'] = 'Something went wrong!'
-
-    else:
-        context['msg'] = 'Request method should be "DELETE"!'
-
-    return render(request, 'template.html', context=context)
