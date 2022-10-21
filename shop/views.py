@@ -31,7 +31,7 @@ def shop(request):
 
     if request.GET:
         if 'category' in request.GET:
-            chocolate_type = request.GET['chocolate_type'].split(',')
+            categories = request.GET['category'].split(',')
             chocolates = chocolates.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 

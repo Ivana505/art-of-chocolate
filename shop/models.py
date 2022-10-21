@@ -14,7 +14,6 @@ class Buyer(models.Model):
 
 
 class Category(models.Model):
-    type = models.CharField(max_length=254)
     chocolate_type = models.CharField(max_length=250, null=True, blank=True)
 
     class Meta:
