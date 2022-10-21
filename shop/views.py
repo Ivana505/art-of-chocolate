@@ -40,27 +40,37 @@ def shop(request):
             if not query:
                 messages.error(request, "Chocolate does not exist!")
                 return redirect(reverse('shop'))
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(
+                name__icontains=query) | Q(description__icontains=query)
             chocolates = chocolates.filter(queries)
 
-    context = {'chocolates': chocolates, 'search_term': query, 'current_categories': categories, }
+    context = {
+        'chocolates': chocolates,
+        'search_term': query,
+        'current_categories': categories,
+    }
     return render(request, 'shop/shop.html', context)
 
 
 def basket(request):
     if request.user.is_authenticated:
         buyer, created = Buyer.objects.get_or_create(user=request.user)
-        order, created = Order.objects.get_or_create(buyer=buyer, complete=False)
+        order, created = Order.objects.get_or_create(
+            buyer=buyer, complete=False)
         items = order.orderitem_set.all()
         basketItems = order.get_basket_items
     else:
         try:
             basket = json.loads(request.COOKIES['basket'])
-        except:
+        except Exception:
             basket = {}
             print('Basket:', basket)
         items = []
-        order = {'get_basket_total': 0, 'get_basket_items': 0, 'shipping': False}
+        order = {
+            'get_basket_total': 0,
+            'get_basket_items': 0,
+            'shipping': False,
+        }
         basketItems = order['get_basket_items']
 
         for i in basket:
@@ -79,12 +89,17 @@ def basket(request):
 def checkout(request):
     if request.user.is_authenticated:
         buyer = request.user.buyer
-        order, created = Order.objects.get_or_create(buyer=buyer, complete=False)
+        order, created = Order.objects.get_or_create(
+            buyer=buyer, complete=False)
         items = order.orderitem_set.all()
         basketItems = order.get_basket_items
     else:
         items = []
-        order = {'get_basket_total': 0, 'get_basket_items': 0, 'shipping': False}
+        order = {
+            'get_basket_total': 0,
+            'get_basket_items': 0,
+            'shipping': False,
+        }
         basketItems = order['get_basket_items']
 
     context = {'items': items, 'order': order, 'basketItems': basketItems}
@@ -103,7 +118,8 @@ def updateItem(request):
     chocolate = Chocolate.objects.get(id=chocolateId)
     order, created = Order.objects.get_or_create(buyer=buyer, complete=False)
 
-    orderItem, created = OrderItem.objects.get_or_create(order=order, chocolate=chocolate)
+    orderItem, created = OrderItem.objects.get_or_create(
+        order=order, chocolate=chocolate)
 
     if action == 'add':
         orderItem.quantity = (orderItem.quantity + 1)
@@ -125,7 +141,8 @@ def processOrder(request):
 
     if request.user.is_authenticated:
         buyer = request.user.buyer
-        order, created = Order.objects.get_or_create(buyer=buyer, complete=False)
+        order, created = Order.objects.get_or_create(
+            buyer=buyer, complete=False)
         total = float(data['form']['total'])
         order.transaction_id = transaction_id
 
@@ -133,7 +150,7 @@ def processOrder(request):
             order.complete = True
         order.save()
 
-        if order.shipping == True:
+        if order.shipping:
             SendingAddress.objects.create(
                 buyer=buyer,
                 order=order,
@@ -198,7 +215,8 @@ def edit_product(request, pk):
     if request.method == "POST":
         if chocolate_form.is_valid():
             # save the form but do not commit
-            form = ChocolateForm(request.POST, request.FILES, instance=chocolate)
+            form = ChocolateForm(
+                request.POST, request.FILES, instance=chocolate)
             # attach the arthur after
             if form.is_valid():
                 form.save()
@@ -270,7 +288,7 @@ def my_webhook_view(request):
 
     try:
         event = stripe.Webhook.construct_event(
-        payload, sig_header, endpoint_secret
+            payload, sig_header, endpoint_secret
         )
     except ValueError as e:
         # Invalid payload

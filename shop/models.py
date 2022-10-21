@@ -17,17 +17,18 @@ class Category(models.Model):
     chocolate_type = models.CharField(max_length=250, null=True, blank=True)
 
     class Meta:
-       verbose_name = 'category'
-       verbose_name_plural = 'categories'
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
 
     def __str__(self):
-            return self.chocolate_type
+        return self.chocolate_type
 
 
 class Chocolate(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    category = models.ForeignKey('Category', default=False, on_delete=models.CASCADE)
+    category = models.ForeignKey(
+        'Category', default=False, on_delete=models.CASCADE)
     digital = models.BooleanField(default=False, null=True, blank=True)
     image = CloudinaryField('image', null=True, blank=True)
     description = models.TextField(default=False)
@@ -39,13 +40,14 @@ class Chocolate(models.Model):
     def imageURL(self):
         try:
             url = self.image.url
-        except:
+        except Exception:
             url = ''
         return url
 
 
 class Order(models.Model):
-    buyer = models.ForeignKey(Buyer, on_delete=models.SET_NULL, null=True, blank=True)
+    buyer = models.ForeignKey(
+        Buyer, on_delete=models.SET_NULL, null=True, blank=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False, null=True, blank=False)
     transaction_id = models.CharField(max_length=150, null=True)
@@ -58,7 +60,7 @@ class Order(models.Model):
         shipping = False
         orderitems = self.orderitem_set.all()
         for i in orderitems:
-            if i.chocolate.digital == False:
+            if not i.chocolate.digital:
                 shipping = True
         return shipping
 
@@ -76,7 +78,8 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
-    chocolate = models.ForeignKey(Chocolate, on_delete=models.SET_NULL, null=True)
+    chocolate = models.ForeignKey(
+        Chocolate, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     quantity = models.IntegerField(default=0, null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)

@@ -40,7 +40,7 @@ html {
 
 .basket-row{
     display: flex;
-    align-items: flex-stretch;
+    align-items: stretch;
 
 }
 

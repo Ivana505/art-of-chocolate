@@ -1,3 +1,4 @@
+/* jshint esversion: 11, jquery: true */
 var updateBtns = document.getElementsByClassName('update-basket')
 
 for (var i = 0; i < updateBtns.length; i++) {
