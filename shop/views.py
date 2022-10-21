@@ -31,7 +31,7 @@ def shop(request):
 
     if request.GET:
         if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
+            chocolate_type = request.GET['chocolate_type'].split(',')
             chocolates = chocolates.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
@@ -260,10 +260,10 @@ class CreateCheckoutSessionView(generic.View):
                 },
             ],
             mode='payment',
-            success_url="http://{}{}".format(host, reverse('payment-success')),
-            cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
-            #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
-            #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
+            # success_url="http://{}{}".format(host, reverse('payment-success')),
+            # cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
+              success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
+              cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
         )
         return redirect(checkout_session.url, code=303)
 

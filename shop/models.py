@@ -14,6 +14,7 @@ class Buyer(models.Model):
 
 
 class Category(models.Model):
+    type = models.CharField(max_length=254)
     chocolate_type = models.CharField(max_length=250, null=True, blank=True)
 
     class Meta:
@@ -27,8 +28,9 @@ class Category(models.Model):
 class Chocolate(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    category = models.ForeignKey(
-        'Category', default=False, on_delete=models.CASCADE)
+    # category = models.ForeignKey(
+    #     'Category', default=False, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     digital = models.BooleanField(default=False, null=True, blank=True)
     image = CloudinaryField('image', null=True, blank=True)
     description = models.TextField(default=False)
