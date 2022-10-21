@@ -251,7 +251,7 @@ class CreateCheckoutSessionView(generic.View):
                 {
                     'price_data': {
                         'currency': 'eur',
-                        'unit_amount': 1000,
+                        'unit_amount': int(100 * order.get_basket_total),
                         'product_data': {
                             'name': order.id,
                         },
@@ -260,7 +260,8 @@ class CreateCheckoutSessionView(generic.View):
                 },
             ],
             mode='payment',
-            success_url="http://{}{}".format(host, reverse('payment-success')),
+            success_url=reverse('payment-success'),
+            # success_url="http://{}{}".format(host, reverse('payment-success')),
             cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
         )
         return redirect(checkout_session.url, code=303)
@@ -270,14 +271,14 @@ def paymentSuccess(request):
     context = {
         'payment_status': 'success'
     }
-    return render(request, 'order/confirmation.html', context)
+    return render(request, 'shop/confirmation.html', context)
 
 
 def paymentCancel(request):
     context = {
         'payment_status': 'cancel'
     }
-    return render(request, 'order/confirmation.html', context)
+    return render(request, 'shop/confirmation.html', context)
 
 
 @csrf_exempt
