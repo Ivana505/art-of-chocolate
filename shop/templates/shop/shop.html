@@ -10,7 +10,7 @@
       <div class="box-element product">
          <h6><strong>{{chocolate.name}}</strong> - {{chocolate.category}}</h6>
          <hr>
-         {% if request.user %}
+         {% if not request.user.is_superuser %}
          <button data-chocolate={{chocolate.id}} data-action="add" class="btn btn-outline-secondary add-btn update-basket">Add to Basket</button>
          {% endif %}
          <a class="btn btn-outline-success" href="chocolate_page/{{chocolate.id}}">View</a>

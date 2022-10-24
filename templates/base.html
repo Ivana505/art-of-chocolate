@@ -85,7 +85,6 @@
                      <a href="{% url 'shop' %}?category=dark_chocolate" class="dropdown-item">Dark Chocolates</a>
                      <a href="{% url 'shop' %}?category=milk_chocolate" class="dropdown-item">Milk Chocolates</a>
                      <a href="{% url 'shop' %}" class="dropdown-item">All Chocolates</a>
-                     <a href="{% url 'shop' %}" class="dropdown-item">About us</a>
                   </div>
                </li>
             </ul>
@@ -97,10 +96,12 @@
                <a href="{% url 'account_login' %}" class="btn btn-warning">Login</a>
                <a href="{% url 'account_signup' %}" class="btn btn-warning">Sign Up</a>
                {% endif %}
+               {% if not request.user.is_superuser %}
                <a href="{% url 'basket' %}">
                <img id="basket-icon"><i class="fas fa-shopping-cart"></i>
                </a>
                <p id="basket-total">{{basketItems}}</p>
+               {% endif %}
             </div>
          </div>
          <div>
