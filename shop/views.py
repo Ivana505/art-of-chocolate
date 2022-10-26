@@ -54,6 +54,8 @@ def shop(request):
 
 def basket(request):
     if request.user.is_authenticated:
+        if request.user.is_superuser:
+            return HttpResponse('Available for other users')
         buyer, created = Buyer.objects.get_or_create(user=request.user)
         order, created = Order.objects.get_or_create(
             buyer=buyer, complete=False)
@@ -88,6 +90,8 @@ def basket(request):
 
 def checkout(request):
     if request.user.is_authenticated:
+        if request.user.is_superuser:
+            return HttpResponse('Available for other users')
         buyer = request.user.buyer
         order, created = Order.objects.get_or_create(
             buyer=buyer, complete=False)
@@ -107,6 +111,8 @@ def checkout(request):
 
 
 def updateItem(request):
+    if request.user.is_superuser:
+        return HttpResponse('Available for other users')
     data = json.loads(request.body)
     chocolateId = data['chocolateId']
     action = data['action']
@@ -136,6 +142,8 @@ def updateItem(request):
 
 @csrf_exempt
 def processOrder(request):
+    if request.user.is_superuser:
+        return HttpResponse('Available for other users')
     transaction_id = datetime.datetime.now().timestamp()
     data = json.loads(request.body)
 
@@ -181,12 +189,19 @@ class DeleteProductView(DeleteView):
     template_name = 'delete_chocolate.html'
     success_url = reverse_lazy('shop')
 
+    def dispatch(self, request, *args,**kwargs):
+        if not self.request.user.is_superuser:
+            return HttpResponse('You do not have access')
+        return super().dispatch(request, *args, **kwargs)
+
 
 @login_required
 def add_product(request):
     # add the request.FILES
     chocolate_form = ChocolateForm(request.POST, request.FILES)
     user = get_object_or_404(User, username=request.user.username)
+    if not request.user.is_superuser:
+        return HttpResponse('You do not have access')
     if request.method == "POST":
         if chocolate_form.is_valid():
             # save the form but do not commit
@@ -212,6 +227,8 @@ def edit_product(request, pk):
     chocolate = get_object_or_404(Chocolate, id=pk)
     chocolate_form = ChocolateForm(request.POST, request.FILES)
     user = get_object_or_404(User, username=request.user.username)
+    if not request.user.is_superuser:
+        return HttpResponse('You do not have access')
     if request.method == "POST":
         if chocolate_form.is_valid():
             # save the form but do not commit
@@ -240,6 +257,11 @@ endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
 
 
 class CreateCheckoutSessionView(generic.View):
+    def dispatch(self, request, *args,**kwargs):
+        if self.request.user.is_superuser:
+            return HttpResponse('You do not have access')
+        return super().dispatch(request, *args, **kwargs)
+
     def post(self, *args, **kwargs):
         host = self.request.get_host()
 
