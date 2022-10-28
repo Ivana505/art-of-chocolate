@@ -73,18 +73,36 @@ def basket(request):
             'get_basket_items': 0,
             'shipping': False,
         }
+        for item in basket:
+            try:
+                chocolate = Chocolate.objects.get(id=item)
+                order['get_basket_total'] += chocolate.price*basket[item]['quantity']
+                order['get_basket_items'] += basket[item]['quantity']
+                item = {
+                    "chocolate": {
+                        "id": chocolate.id,
+                        "name": chocolate.name,
+                        "price": chocolate.price,
+                        "imageURL": chocolate.imageURL,
+                    },
+                    "quantity": basket[item]["quantity"],
+                    "get_total": chocolate.price*basket[item]['quantity']
+                }
+                items.append(item)
+            except Exception:
+                pass
         basketItems = order['get_basket_items']
-
+        print(items)
         for i in basket:
             basketItems += basket[i]["quantity"]
 
             chocolate = Chocolate.objects.get(id=i)
             total = (chocolate.price * basket[i]["quantity"])
 
-            order['get.basket_total'] += total
-            order['get.basket_items'] += basket[i]["quantity"]
+            order['get_basket_total'] += total
+            order['get_basket_items'] += basket[i]["quantity"]
 
-    context = {'items': items, 'order': order, 'basketItems': basketItems}
+    context = {'items': items, 'order': order, 'basketItems': basketItems, "user": request.user}
     return render(request, 'shop/basket.html', context)
 
 

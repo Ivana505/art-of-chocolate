@@ -10,7 +10,25 @@ for (var i = 0; i < updateBtns.length; i++) {
 
         console.log('USER', user);
         if (user == 'AnonymousUser') {
-            addCookieItem(chocolateId, action);
+            if(action=="add"){
+                if(basket[chocolateId]==undefined){
+                    basket[chocolateId]={
+                        "quantity":1
+                    }
+                }else
+                {
+                    basket[chocolateId]["quantity"]+=1
+                }
+            }
+            if (action=="remove"){
+                basket[chocolateId]["quantity"]-=1
+                if(basket[chocolateId]["quantity"]<=0){
+                    delete basket[chocolateId]
+                }
+            }
+            console.log(basket)
+            document.cookie="basket="+JSON.stringify(basket)+";domain=;path=/"
+            location.reload()
         }else {
             updateUserOrder(chocolateId, action);
         }
