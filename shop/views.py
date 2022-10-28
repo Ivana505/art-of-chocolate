@@ -93,7 +93,6 @@ def basket(request):
                 pass
         basketItems = order['get_basket_items']
         print(items)
-    
     context = {'items': items, 'order': order, 'basketItems': basketItems, "user": request.user}
     return render(request, 'shop/basket.html', context)
 
@@ -292,10 +291,10 @@ class CreateCheckoutSessionView(generic.View):
                 },
             ],
             mode='payment',
-            # success_url="http://{}{}".format(host, reverse('payment-success')),
-            # cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
-              success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
-              cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
+            success_url="http://{}{}".format(host, reverse('payment-success')),
+            cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
+            #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
+            #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
         )
         return redirect(checkout_session.url, code=303)
 
