@@ -93,15 +93,7 @@ def basket(request):
                 pass
         basketItems = order['get_basket_items']
         print(items)
-        for i in basket:
-            basketItems += basket[i]["quantity"]
-
-            chocolate = Chocolate.objects.get(id=i)
-            total = (chocolate.price * basket[i]["quantity"])
-
-            order['get_basket_total'] += total
-            order['get_basket_items'] += basket[i]["quantity"]
-
+    
     context = {'items': items, 'order': order, 'basketItems': basketItems, "user": request.user}
     return render(request, 'shop/basket.html', context)
 
@@ -207,7 +199,7 @@ class DeleteProductView(DeleteView):
     template_name = 'delete_chocolate.html'
     success_url = reverse_lazy('shop')
 
-    def dispatch(self, request, *args,**kwargs):
+    def dispatch(self, request, *args, **kwargs):
         if not self.request.user.is_superuser:
             return HttpResponse('You do not have access')
         return super().dispatch(request, *args, **kwargs)
@@ -275,7 +267,7 @@ endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
 
 
 class CreateCheckoutSessionView(generic.View):
-    def dispatch(self, request, *args,**kwargs):
+    def dispatch(self, request, *args, **kwargs):
         if self.request.user.is_superuser:
             return HttpResponse('You do not have access')
         return super().dispatch(request, *args, **kwargs)

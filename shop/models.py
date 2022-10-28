@@ -4,7 +4,6 @@ from django.shortcuts import reverse
 from cloudinary.models import CloudinaryField
 
 
-
 class Buyer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=255, null=True)
