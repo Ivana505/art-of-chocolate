@@ -106,6 +106,11 @@ def checkout(request):
             buyer=buyer, complete=False)
         items = order.orderitem_set.all()
         basketItems = order.get_basket_items
+        context={
+            'items': items,
+            'order': order,
+            'basketItems': basketItems
+        }
     else:
         items = []
         order = {
@@ -114,8 +119,32 @@ def checkout(request):
             'shipping': False,
         }
         basketItems = order['get_basket_items']
+        try:
+            basket=json.loads(request.COOKIES['basket'])
+        except Exception:
+            basket={}
 
-    context = {'items': items, 'order': order, 'basketItems': basketItems}
+        
+        for item in basket:
+            try:
+                chocolate = Chocolate.objects.get(id=item)
+                order['get_basket_total'] += chocolate.price*basket[item]['quantity']
+                order['get_basket_items'] += basket[item]['quantity']
+                item = {
+                    "chocolate": {
+                        "id": chocolate.id,
+                        "name": chocolate.name,
+                        "price": chocolate.price,
+                        "imageURL": chocolate.imageURL,
+                    },
+                    "quantity": basket[item]["quantity"],
+                    "get_total": chocolate.price*basket[item]['quantity']
+                }
+                items.append(item)
+            except Exception:
+                pass
+            
+        context = {'items': items, 'order': order, 'basketItems': basketItems, 'total':order['get_basket_total']}
     return render(request, 'shop/checkout.html', context)
 
 
