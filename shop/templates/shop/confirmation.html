@@ -4,6 +4,9 @@
 <div class="row">
    {% if payment_status == 'success' %}
    <p>Order confirmed {{order.id}}</p>
+   <script>
+   document.cookie='basket=;domain=;path=/'
+   </script>
    {% else %}
    <p>Oops something went wrong.</p>
    {% endif %}

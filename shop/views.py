@@ -334,7 +334,7 @@ class CreateCheckoutSessionView(generic.View):
                             'currency': 'eur',
                             'unit_amount': int(100 * float(order_total)),
                             'product_data': {
-                                'name': 'anonymous user',
+                                'name': 'Your order will be generated when purchased',
                             },
                         },
                         'quantity': 1,
@@ -350,6 +350,10 @@ class CreateCheckoutSessionView(generic.View):
 
 
 def paymentSuccess(request):
+    if request.user.is_authenticated:
+        order=request.user.buyer.order_set.get(complete=False)
+        order.complete=True
+        order.save()
     context = {
         'payment_status': 'success'
     }
