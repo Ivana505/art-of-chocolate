@@ -93,7 +93,7 @@ def basket(request):
                 pass
         basketItems = order['get_basket_items']
         print(items)
-    context = {'items': items, 'order': order, 'basketItems': basketItems, "user": request.user}
+    context = {'items': items, 'order': order, 'basketItems': basketItems, "user": request.user, "show": len(items)>0}
     return render(request, 'shop/basket.html', context)
 
 

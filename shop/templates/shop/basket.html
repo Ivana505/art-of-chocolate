@@ -54,6 +54,7 @@
 </div>
 <div class="row">
    <div class="col-lg-6">
+      {% if show %}
       <div class="box-element" id="form-wrapper">
          <form id="form" action="{% url 'checkout' %}">
             <div id="shipping-info"></div>
@@ -93,5 +94,6 @@
       </form>
    </div>
    <br>
+   {% endif %}
 </div>
 {% endblock content %}
