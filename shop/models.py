@@ -10,7 +10,7 @@ class Buyer(models.Model):
     email = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.name
+        return self.user.username
 
 
 class Category(models.Model):
