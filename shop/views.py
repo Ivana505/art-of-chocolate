@@ -302,29 +302,50 @@ class CreateCheckoutSessionView(generic.View):
 
     def post(self, *args, **kwargs):
         host = self.request.get_host()
+        if self.request.user.is_authenticated:
+            order_id = self.request.POST.get('order_id')
+            order = Order.objects.get(id=order_id)
 
-        order_id = self.request.POST.get('order-id')
-        order = Order.objects.get(id=order_id)
-
-        checkout_session = stripe.checkout.Session.create(
-            line_items=[
-                {
-                    'price_data': {
-                        'currency': 'eur',
-                        'unit_amount': int(100 * order.get_basket_total),
-                        'product_data': {
-                            'name': order.id,
+            checkout_session = stripe.checkout.Session.create(
+                line_items=[
+                    {
+                        'price_data': {
+                            'currency': 'eur',
+                            'unit_amount': int(100 * order.get_basket_total),
+                            'product_data': {
+                                'name': order.id,
+                            },
                         },
+                        'quantity': 1,
                     },
-                    'quantity': 1,
-                },
-            ],
-            mode='payment',
-            success_url="http://{}{}".format(host, reverse('payment-success')),
-            cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
-            #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
-            #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
-        )
+                ],
+                mode='payment',
+                success_url="http://{}{}".format(host, reverse('payment-success')),
+                cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
+                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
+                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
+            )
+        else:
+            order_total=self.request.POST.get('order_total')
+            checkout_session = stripe.checkout.Session.create(
+                line_items=[
+                    {
+                        'price_data': {
+                            'currency': 'eur',
+                            'unit_amount': int(100 * float(order_total)),
+                            'product_data': {
+                                'name': 'anonymous user',
+                            },
+                        },
+                        'quantity': 1,
+                    },
+                ],
+                mode='payment',
+                success_url="http://{}{}".format(host, reverse('payment-success')),
+                cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
+                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
+                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
+            )
         return redirect(checkout_session.url, code=303)
 
 

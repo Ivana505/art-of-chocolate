@@ -23,7 +23,11 @@
          </div>
          <form action="{% url 'create-checkout-session' %}" method="POST">
             {% csrf_token %}
-            <input type="hidden" name="order-id" value="{{order.id}}">
+            {% if request.user.is_authenticated %}
+            <input type="hidden" name="order_id" value="{{order.id}}">
+            {% else %}
+            <input type="hidden" name="order_total" value="{{total}}">
+            {% endif %}
             <button type="submit" id="checkout-button">Checkout</button>
          </form>
       </section>
