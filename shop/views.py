@@ -369,10 +369,10 @@ def paymentSuccess(request):
     email=stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["email"]
     name=stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["name"]
     print(email,name)
-    SENDGRID_API_KEY=settings.SENDGRID_API_KEY
+    SENDGRID_API_KEY=''
     sg=sendgrid.SendGridAPIClient(api_key=SENDGRID_API_KEY)
     message=Mail(
-        from_email='test@test.com',
+        from_email='',
         to_emails=email, 
         subject="Order Confirmation",
         html_content=f"Hey thank you for shopping with us! Your order is {order_id}"
@@ -380,7 +380,8 @@ def paymentSuccess(request):
     response=sg.send(message)
     context = {
         'payment_status': 'success',
-        'order_id': order_id
+        'order_id': order_id,
+        'email':email
     }
     return render(request, 'shop/confirmation.html', context)
 
