@@ -5,7 +5,10 @@
    {% if payment_status == 'success' %}
    <p>Order confirmed {{order.id}}</p>
    <script>
-   document.cookie='basket=;domain=;path=/'
+      for(item in basket){
+         delete basket[item]
+      }
+   document.cookie="basket"+JSON.stringify(basket)+";domain=;path=/"
    </script>
    {% else %}
    <p>Oops something went wrong.</p>
