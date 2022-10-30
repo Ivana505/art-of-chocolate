@@ -18,6 +18,8 @@ import stripe
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+import sendgrid
+from sendgrid.helpers.mail import Mail
 
 
 class home(TemplateView):
@@ -102,6 +104,7 @@ def checkout(request):
         if request.user.is_superuser:
             return HttpResponse('Available for other users')
         buyer = request.user.buyer
+        email = request.GET["email"]
         order, created = Order.objects.get_or_create(
             buyer=buyer, complete=False)
         items = order.orderitem_set.all()
@@ -109,7 +112,8 @@ def checkout(request):
         context={
             'items': items,
             'order': order,
-            'basketItems': basketItems
+            'basketItems': basketItems,
+            'email': email
         }
     else:
         items = []
@@ -118,6 +122,7 @@ def checkout(request):
             'get_basket_items': 0,
             'shipping': False,
         }
+        email = request.GET["email"]
         basketItems = order['get_basket_items']
         try:
             basket=json.loads(request.COOKIES['basket'])
@@ -144,7 +149,7 @@ def checkout(request):
             except Exception:
                 pass
             
-        context = {'items': items, 'order': order, 'basketItems': basketItems, 'total':order['get_basket_total']}
+        context = {'items': items, 'order': order, 'basketItems': basketItems, 'total':order['get_basket_total'] ,'email': email}
     return render(request, 'shop/checkout.html', context)
 
 
@@ -305,6 +310,7 @@ class CreateCheckoutSessionView(generic.View):
         if self.request.user.is_authenticated:
             order_id = self.request.POST.get('order_id')
             order = Order.objects.get(id=order_id)
+            email=self.request.POST.get("email")
 
             checkout_session = stripe.checkout.Session.create(
                 line_items=[
@@ -320,13 +326,15 @@ class CreateCheckoutSessionView(generic.View):
                     },
                 ],
                 mode='payment',
-                success_url="http://{}{}".format(host, reverse('payment-success')),
-                cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
-                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
-                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
+                customer_email=email,
+                # success_url="http://{}{}".format(host, reverse('payment-success')),
+                # cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
+                  success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
+                  cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-cancel/',
             )
         else:
             order_total=self.request.POST.get('order_total')
+            email=self.request.POST.get("email")
             checkout_session = stripe.checkout.Session.create(
                 line_items=[
                     {
@@ -341,10 +349,11 @@ class CreateCheckoutSessionView(generic.View):
                     },
                 ],
                 mode='payment',
-                success_url="http://{}{}".format(host, reverse('payment-success')),
-                cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
-                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
-                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu72.gitpod.io/payment-success/',
+                customer_email=email,
+                # success_url="http://{}{}".format(host, reverse('payment-success')),
+                # cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
+                  success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
+                  cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu7..gitpod.io/payment-cancel/',
             )
         return redirect(checkout_session.url, code=303)
 
@@ -354,8 +363,24 @@ def paymentSuccess(request):
         order=request.user.buyer.order_set.get(complete=False)
         order.complete=True
         order.save()
+        order_id=order.id
+    else:
+        order_id="anonymous"
+    email=stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["email"]
+    name=stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["name"]
+    print(email,name)
+    SENDGRID_API_KEY=settings.SENDGRID_API_KEY
+    sg=sendgrid.SendGridAPIClient(api_key=SENDGRID_API_KEY)
+    message=Mail(
+        from_email='test@test.com',
+        to_emails=email, 
+        subject="Order Confirmation",
+        html_content=f"Hey thank you for shopping with us! Your order is {order_id}"
+    )
+    response=sg.send(message)
     context = {
-        'payment_status': 'success'
+        'payment_status': 'success',
+        'order_id': order_id
     }
     return render(request, 'shop/confirmation.html', context)
 

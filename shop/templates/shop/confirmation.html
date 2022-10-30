@@ -3,7 +3,7 @@
 {% block content %}
 <div class="row">
    {% if payment_status == 'success' %}
-   <p>Order confirmed {{order.id}}</p>
+   <p>Order confirmed {{order_id}}</p>
    <script>
       for(item in basket){
          delete basket[item]
