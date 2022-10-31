@@ -90,3 +90,9 @@ li>a {
 .text-muted {
     margin-left: 30%;
 }
+
+
+#edit_chocolate {
+    width: 400px;
+    height: 250px;
+}

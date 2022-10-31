@@ -1,26 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html>
    <head>
       <title>Buy cool new product</title>
       <meta name ="description" content="Art Chocolate shop, place for chocolate lovers">
       <meta name ="keywords" content="chocolate cakes,cacao,fondant recipe,muffin ingredients">
-      <link rel="stylesheet" href="style.css">
+      <!-- <link rel="stylesheet" href="style.css"> -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
       <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
       <script src="https://js.stripe.com/v3/"></script>
    </head>
    <body>
       <section>
-         <div class="product">
-            <img src="https://i.imgur.com/EHyR2nP.png" alt="The cover of Stubborn Attachments" />
             <div class="description">
-               <h3>Stubborn Attachments</h3>
+               <h3>Please click on Checkout if you are ready to proceed with payment.</h3>
                {% if request.user.is_authenticated %}
                <h5>eur{{order.get_basket_total}}</h5>
                {% else %}
-               <h5>eur{{total}}</h5>
+               <h3>eur {{total}}</h3>
                {% endif %}
             </div>
-         </div>
          <form action="{% url 'create-checkout-session' %}" method="POST">
             {% csrf_token %}
             {% if request.user.is_authenticated %}
@@ -33,3 +34,4 @@
       </section>
    </body>
 </html>
+{% endblock content %}

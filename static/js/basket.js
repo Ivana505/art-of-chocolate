@@ -61,3 +61,12 @@ function updateUserOrder(chocolateId, action) {
         });
 
 }
+
+ //Thanks to channel https://www.youtube.com/watch?v=g_5ZDrl2KKE for creating this function to restrict letter input into input field//
+function restrictAlphabets(e){
+    var x = e.which || e.keycode;
+    if((x >= 48 && x <=57))
+        return true;
+    else
+        return false;
+}

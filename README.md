@@ -249,9 +249,9 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
  - [Computerhope.com](https://www.computerhope.com/issues/ch000317.htm) - Used to create go back button.
  - [Pythonstacks](https://www.pythonstacks.com/blog/post/integrating-mailchimp-django/) - For implementing mailchimp.
  - [Youtube channel Cryce Truly](https://www.youtube.com/watch?v=3SKjPppM_DU) - For implementing 404 error page.
+ - [Youtube channel Code Varto](https://www.youtube.com/watch?v=g_5ZDrl2KKE) - For restricting letters in the phone input tag.
 
-
-I want to say thank you to my Mentor Tim for the guidance, tutor support and special thanks to the Code Institute Slack community.
+I want to say thank you to my Mentor Tim for the guidance, and special thanks tp tutor support.
 
 
 ### Content

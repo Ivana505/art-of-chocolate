@@ -9,7 +9,7 @@
             {{ form | crispy }}
             {% csrf_token %}
             {% if chocolate.image %}
-            <img src="{{ chocolate.image.url }}"/>
+            <img id="edit_chocolate" src="{{ chocolate.image.url }}"/>
             {% endif %}
             <button type="submit" class="btn btn-signup btn-lg">Edit</button>
          </form>
