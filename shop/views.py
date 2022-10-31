@@ -95,7 +95,7 @@ def basket(request):
                 pass
         basketItems = order['get_basket_items']
         print(items)
-    context = {'items': items, 'order': order, 'basketItems': basketItems, "user": request.user, "show": len(items)>0}
+    context = {'items': items, 'order': order, 'basketItems': basketItems, "user": request.user, "show": len(items) > 0}
     return render(request, 'shop/basket.html', context)
 
 
@@ -109,7 +109,7 @@ def checkout(request):
             buyer=buyer, complete=False)
         items = order.orderitem_set.all()
         basketItems = order.get_basket_items
-        context={
+        context = {
             'items': items,
             'order': order,
             'basketItems': basketItems,
@@ -125,11 +125,10 @@ def checkout(request):
         email = request.GET["email"]
         basketItems = order['get_basket_items']
         try:
-            basket=json.loads(request.COOKIES['basket'])
+            basket = json.loads(request.COOKIES['basket'])
         except Exception:
-            basket={}
+            basket = {}
 
-        
         for item in basket:
             try:
                 chocolate = Chocolate.objects.get(id=item)
@@ -148,8 +147,8 @@ def checkout(request):
                 items.append(item)
             except Exception:
                 pass
-            
-        context = {'items': items, 'order': order, 'basketItems': basketItems, 'total':order['get_basket_total'] ,'email': email}
+
+        context = {'items': items, 'order': order, 'basketItems': basketItems, 'total': order['get_basket_total'], 'email': email}
     return render(request, 'shop/checkout.html', context)
 
 
@@ -310,7 +309,7 @@ class CreateCheckoutSessionView(generic.View):
         if self.request.user.is_authenticated:
             order_id = self.request.POST.get('order_id')
             order = Order.objects.get(id=order_id)
-            email=self.request.POST.get("email")
+            email = self.request.POST.get("email")
 
             checkout_session = stripe.checkout.Session.create(
                 line_items=[
@@ -333,8 +332,8 @@ class CreateCheckoutSessionView(generic.View):
                   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-cancel/',
             )
         else:
-            order_total=self.request.POST.get('order_total')
-            email=self.request.POST.get("email")
+            order_total = self.request.POST.get('order_total')
+            email = self.request.POST.get("email")
             checkout_session = stripe.checkout.Session.create(
                 line_items=[
                     {
@@ -360,28 +359,28 @@ class CreateCheckoutSessionView(generic.View):
 
 def paymentSuccess(request):
     if request.user.is_authenticated:
-        order=request.user.buyer.order_set.get(complete=False)
-        order.complete=True
+        order = request.user.buyer.order_set.get(complete=False)
+        order.complete = True
         order.save()
-        order_id=order.id
+        order_id = order.id
     else:
-        order_id="anonymous"
-    email=stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["email"]
-    name=stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["name"]
-    print(email,name)
-    SENDGRID_API_KEY=''
-    sg=sendgrid.SendGridAPIClient(api_key=SENDGRID_API_KEY)
-    message=Mail(
+        order_id = "anonymous"
+    email = stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["email"]
+    name = stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["name"]
+    print(email, name)
+    SENDGRID_API_KEY = ''
+    sg = sendgrid.SendGridAPIClient(api_key=SENDGRID_API_KEY)
+    message = Mail(
         from_email='',
-        to_emails=email, 
+        to_emails=email,
         subject="Order Confirmation",
         html_content=f"Hey thank you for shopping with us! Your order is {order_id}"
     )
-    response=sg.send(message)
+    response = sg.send(message)
     context = {
         'payment_status': 'success',
         'order_id': order_id,
-        'email':email
+        'email': email
     }
     return render(request, 'shop/confirmation.html', context)
 
