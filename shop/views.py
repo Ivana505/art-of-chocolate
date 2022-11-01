@@ -22,7 +22,6 @@ import sendgrid
 from sendgrid.helpers.mail import Mail
 
 
-
 class home(TemplateView):
     template_name = 'home.html'
 
@@ -35,7 +34,8 @@ def shop(request):
     if request.GET:
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            chocolates = chocolates.filter(category__chocolate_type__in=categories)
+            chocolates = chocolates.filter(
+                category__chocolate_type__in=categories)
             categories = Category.objects.filter(chocolate_type__in=categories)
 
         if 'q' in request.GET:
@@ -327,10 +327,12 @@ class CreateCheckoutSessionView(generic.View):
                 ],
                 mode='payment',
                 customer_email=email,
-                # success_url="http://{}{}".format(host, reverse('payment-success')),
-                # cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
-                  success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
-                  cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-cancel/',
+                success_url="http://{}{}".format(
+                    host, reverse('payment-success')),
+                cancel_url="http://{}{}".format(
+                    host, reverse('payment-cancel')),
+                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
+                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-cancel/',
             )
         else:
             order_total = self.request.POST.get('order_total')
@@ -350,10 +352,12 @@ class CreateCheckoutSessionView(generic.View):
                 ],
                 mode='payment',
                 customer_email=email,
-                # success_url="http://{}{}".format(host, reverse('payment-success')),
-                # cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
-                  success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
-                  cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu7..gitpod.io/payment-cancel/',
+                success_url="http://{}{}".format(
+                    host, reverse('payment-success')),
+                cancel_url="http://{}{}".format(
+                    host, reverse('payment-cancel')),
+                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
+                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu7..gitpod.io/payment-cancel/',
             )
         return redirect(checkout_session.url, code=303)
 
@@ -448,12 +452,12 @@ def contact(request):
             message = "\n".join(body.values())
 
             try:
-                send_mail(subject, message, 'admin@test.com', ['admin@test.com']) 
+                send_mail(
+                    subject, message, 'admin@test.com', ['admin@test.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
 
             return redirect("home")
-
 
     form = ContactForm()
     return render(request, "contact.html", {'form': form})

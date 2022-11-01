@@ -20,7 +20,7 @@ def contact(request):
 
             try:
                 send_mail(
-                    subject, message, 'admin@test.com', ['admin@test.com']) 
+                    subject, message, 'admin@test.com', ['admin@test.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
 
