@@ -22,6 +22,7 @@ import sendgrid
 from sendgrid.helpers.mail import Mail
 
 
+
 class home(TemplateView):
     template_name = 'home.html'
 
@@ -431,3 +432,28 @@ def fulfill_order(order_id):
         product_var = ProductVariation.objects.get(id=item.product.id)
         product_var.stock -= item.quantity
         product_var.save()
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = "Website Inquiry"
+            body = {
+             'name': form.cleaned_data['name'],
+             'email_address': form.cleaned_data['email_address'],
+             'phone': form.cleaned_data['phone'],
+             'message': form.cleaned_data['message'],
+            }
+            message = "\n".join(body.values())
+
+            try:
+                send_mail(subject, message, 'admin@test.com', ['admin@test.com']) 
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+
+            return redirect("home")
+
+
+    form = ContactForm()
+    return render(request, "contact.html", {'form': form})
