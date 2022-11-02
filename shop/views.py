@@ -368,11 +368,11 @@ def paymentSuccess(request):
     email = stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["email"]
     name = stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["name"]
     print(email, name)
-    API_KEY = '4f1a7d731006e2eb51deefdfb5f71dcf'
-    API_SECRET = '620e7017b43d6fdd9eade49ab772a24d'
+    API_KEY = settings.API_KEY
+    API_SECRET = settings.API_SECRET
     mailjet = Client(auth=(API_KEY, API_SECRET))
     data= {
-        "FromEmail":"iwanna.iles@gmail.com",
+        "FromEmail":settings.EMAIL,
         "FromName":"Art Of Chocolate Shop",
         "Subject": "Order Confirmation",
         "Text-part": f"Dear {name}, your order number {order_id} has been confirmed.",
