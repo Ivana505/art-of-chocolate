@@ -2,13 +2,16 @@
 Art Of Chocolate is an E-commerce Website that allows people to buy chocolate with unusual tastes.
 It is loved by many pastry chefs around the world.
 
-Also, our clients are people like new things, who are not afraid to risk and who are adventurous. People all over the World as Website gives shipping option.
+Also, our clients are people who like to try new tastes who are not afraid to risk and who are adventurous. People from all over the World can order our Chocolate as Website gives shipping option worldwide.
+
+Users can browse the shop and view each product, check chocolate categories and use searchbar. They can also add products to basket and purchase them by using payment with Stripe ( you can find more details [below](#art-of-chocolate) ).
 
 This project is made for Code Institute Full-stack development program - Portfolio 5.
 
 You can access live page to Art Of Chocolate by clicking [here](https://art-of-chocolate.herokuapp.com/).
 
-IMAGE TO BE ADDED HERE
+![Am I reponsive](media/images/am_i_responsive.png)
+
 
 # Table of content:
 - [Art Of Chocolate Shop](#art-of-chocolate)
@@ -225,6 +228,7 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
 - [Coloors](https://coolors.co/) - to create color scheme for the UX section
 - [Sitemaps](https://www.xml-sitemaps.com/) - to create sitemaps for SEO.
 - [Cloudinary](https://cloudinary.com/) - to store images.
+- [Am I reponsive](https://ui.dev/amiresponsive) - to create am I responsive image.
 
 ## Credits and Acknowledgements
 

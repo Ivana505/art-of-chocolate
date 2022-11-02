@@ -87,12 +87,15 @@ li>a {
     margin-top: 5%;
 }
 
-.text-muted {
-    margin-left: 30%;
-}
-
-
 #edit_chocolate {
     width: 400px;
     height: 250px;
+}
+
+#contact {
+    color: black;
+}
+
+#info {
+    margin-left:25%;
 }
