@@ -62,16 +62,19 @@ Part of a Business Strategy is also a [Facebook](https://www.facebook.com/) mock
 ![User Stories, Kanban board](media/images/agile.png)
 
 
-
 ## Features
-- Navigation and Social Media Icons etc
+- Shop name, Chocolate Shop Categories, login and sign up buttons, basket icon and search bar
 
+![Main features](media/images/landing_page.png)
 
-- Navigation
+- Footer
+
+![Footer](media/images/footer.png)
 
 - Social Media Icons
 
-- Footer
+![Social Media Icons](media/images/social_media_icons.png)
+
 
 
 ## Goals
@@ -111,9 +114,14 @@ I have decided to use [Google Fonts](https://fonts.google.com/).
 Icons
 
 - Social Media Icons [Facebook](https://www.facebook.com/), [Instagram](https://www.instagram.com/) and [Pinterest](https://www.pinterest.ie/) 
-- [Fontawesome](https://fontawesome.com/) was used to add social media icons.
+- [Fontawesome](https://fontawesome.com/) was used to add social media icons and basket.
 
 ![social media icons](media/images/social_media_icons.png)
+
+- Basket Icon
+
+![basket icon](media/images/basket.png)
+
 
  
 ## Color scheme and styling
