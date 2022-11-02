@@ -234,7 +234,7 @@ class DeleteProductView(DeleteView):
 
     def dispatch(self, request, *args, **kwargs):
         if not self.request.user.is_superuser:
-            return HttpResponse('You do not have access')
+            return HttpResponse('You do not have access to delete product!')
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -271,7 +271,7 @@ def edit_product(request, pk):
     chocolate_form = ChocolateForm(request.POST, request.FILES)
     user = get_object_or_404(User, username=request.user.username)
     if not request.user.is_superuser:
-        return HttpResponse('You do not have access')
+        return HttpResponse('You do not have access to edit new product!')
     if request.method == "POST":
         if chocolate_form.is_valid():
             # save the form but do not commit
@@ -434,26 +434,3 @@ def fulfill_order(order_id):
         product_var.save()
 
 
-def contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            subject = "Website Inquiry"
-            body = {
-             'name': form.cleaned_data['name'],
-             'email_address': form.cleaned_data['email_address'],
-             'phone': form.cleaned_data['phone'],
-             'message': form.cleaned_data['message'],
-            }
-            message = "\n".join(body.values())
-
-            try:
-                send_mail(
-                    subject, message, 'admin@test.com', ['admin@test.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-
-            return redirect("home")
-
-    form = ContactForm()
-    return render(request, "contact.html", {'form': form})

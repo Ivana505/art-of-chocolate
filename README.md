@@ -40,30 +40,38 @@ You can access live page to Art Of Chocolate by clicking [here](https://art-of-c
 
 Art Of Chocolate is a B2C business supporting the end consumer. The site gives User option to interact with central dataset, choose and purchase products and process payment with Stripe. Users can sign-up to Art Of Chocolate Newsletter. Full CRUD functionality is available to the user.
 
-# Marketing Strategy
-
-7 P's Marketing Strategy was used throughout the whole process of this project : 
-
-- Product - Chocolate used is made from the finest cocoa solids and cocoa butter and as such will be marked as a "pure ingredients and high quality product".
-- Promotion - Lot of promotions will be organised through Newsletters, Social Media, online events and other.
-- Price - Price of all products is the same but the Company will make new strategies and planning for Newsletter and Social Media Campaigns. There will always be discounts there so we can engage more people to buy the product.
-- Place - As a startup Company we will wait for few months before deciding on the best place to show off our product.
-- People - People in our team will grow how the team grows, making sure customers are happy and that they are starting to promote the product free by "word of mouth".
-- Process - All processes and materials used are sustainable and this will be presented to the customer.
-- Physical Evidence - Company owns a factory where all chocolates are produced but main point of sale will be our Website.
-
-Part of a Business Strategy is also a [Facebook](https://www.facebook.com/) mockup page, made with [Balsamiq](https://balsamiq.com/):
-
-![mockup page](media/wireframes/facebook_mockup.png)
-
 
 # User Experience
 ## User Stories
 
-- User Stories were made with an Agile approach, Kanban board.
+- User Stories were made with an Agile approach, Kanban board. User stories were documented within the Github Project option by using Github issues.
+
+- User stories are divided to:
+  - Site Users - Anonymous and Registered Users
+  - Superuser
 
 ![User Stories, Kanban board](media/images/agile.png)
 
+
+## Security Features
+
+### User Access
+
+- User Access
+
+![Main features](media/images/landing_page.png)
+
+- Shop name, Chocolate Shop Categories, login and sign up buttons, basket icon and search bar
+
+![Main features](media/images/landing_page.png)
+
+- Shop name, Chocolate Shop Categories, login and sign up buttons, basket icon and search bar
+
+![Main features](media/images/landing_page.png)
+
+- Shop name, Chocolate Shop Categories, login and sign up buttons, basket icon and search bar
+
+![Main features](media/images/landing_page.png)
 
 ## Features
 - Shop name, Chocolate Shop Categories, login and sign up buttons, basket icon and search bar
@@ -77,7 +85,6 @@ Part of a Business Strategy is also a [Facebook](https://www.facebook.com/) mock
 - Social Media Icons
 
 ![Social Media Icons](media/images/social_media_icons.png)
-
 
 
 ## Goals
@@ -125,11 +132,12 @@ Icons
 
 ![basket icon](media/images/basket.png)
 
-
  
-## Color scheme and styling
+Color scheme and styling
 
-I have decided to use colors
+- [Coolors](https://coolors.co/) was used to generate Colors used for this project. As product images are colorful subtle colors were used to not distract user while browsing the shop.
+
+![project colors](media/images/project_colors.png)
 
 ## Wireframes
 All wireframes are created with [Balsamiq](https://balsamiq.com/) during the Scope Plane part of the design and planning process for this project.
@@ -163,6 +171,22 @@ Contact Us
 ERD Diagram is created with [Lucidchart](https://www.lucidchart.com/pages/) during the Scope Plane part of the design and planning process for this project.
 
 ![erd diagram](media/erd/database_diagram.png)
+
+# Marketing Strategy
+
+7 P's Marketing Strategy was used throughout the whole process of this project : 
+
+- Product - Chocolate used is made from the finest cocoa solids and cocoa butter and as such will be marked as a "pure ingredients and high quality product".
+- Promotion - Lot of promotions will be organised through Newsletters, Social Media, online events and other.
+- Price - Price of all products is the same but the Company will make new strategies and planning for Newsletter and Social Media Campaigns. There will always be discounts there so we can engage more people to buy the product.
+- Place - As a startup Company we will wait for few months before deciding on the best place to show off our product.
+- People - People in our team will grow how the team grows, making sure customers are happy and that they are starting to promote the product free by "word of mouth".
+- Process - All processes and materials used are sustainable and this will be presented to the customer.
+- Physical Evidence - Company owns a factory where all chocolates are produced but main point of sale will be our Website.
+
+Part of a Business Strategy is also a [Facebook](https://www.facebook.com/) mockup page, made with [Balsamiq](https://balsamiq.com/):
+
+![mockup page](media/wireframes/facebook_mockup.png)
 
 
 ## SEO
@@ -229,6 +253,8 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
 - [Sitemaps](https://www.xml-sitemaps.com/) - to create sitemaps for SEO.
 - [Cloudinary](https://cloudinary.com/) - to store images.
 - [Am I reponsive](https://ui.dev/amiresponsive) - to create am I responsive image.
+- [Mailchimp](https://mailchimp.com/?currency=EUR) - to store E-mail Addresses for Users who signed up for Newsletter.
+- [Coolors](https://coolors.co/) - to generate color set used for the project.
 
 ## Credits and Acknowledgements
 
