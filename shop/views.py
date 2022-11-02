@@ -383,7 +383,8 @@ def paymentSuccess(request):
         ] 
     }
    
-    result = mailjet.send.create(date=data)
+    result = mailjet.send.create(data=data)
+    print(result.status_code)
     context = {
         'payment_status': 'success',
         'order_id': order_id,
