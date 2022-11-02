@@ -70,3 +70,4 @@ function restrictAlphabets(e){
     else
         return false;
 }
+

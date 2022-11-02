@@ -18,8 +18,7 @@ import stripe
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-import sendgrid
-from sendgrid.helpers.mail import Mail
+import mailjet_rest
 
 
 class home(TemplateView):
@@ -369,15 +368,22 @@ def paymentSuccess(request):
     email = stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["email"]
     name = stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["name"]
     print(email, name)
-    SENDGRID_API_KEY = ''
-    sg = sendgrid.SendGridAPIClient(api_key=SENDGRID_API_KEY)
-    message = Mail(
-        from_email='',
-        to_emails=email,
-        subject="Order Confirmation",
-        html_content=f"Hey thank you for shopping with us! Your order is {order_id}"
-    )
-    response = sg.send(message)
+    API_KEY = '4f1a7d731006e2eb51deefdfb5f71dcf'
+    API_SECRET = '620e7017b43d6fdd9eade49ab772a24d'
+    mailjet = mailjet_rest.Client(auth=(API_KEY, API_SECRET))
+    data= {
+        "FromEmail":"ivana.iles@protonmail.com",
+        "FromName":"Art Of Chocolate Shop",
+        "Subject": "Order Confirmation",
+        "Text-part": f"Dear {name}, your order number {order_id} has been confirmed.",
+        "Recepients": [
+            {
+                "Email": email
+            }
+        ] 
+    }
+   
+    result = mailjet.send.create(date=data)
     context = {
         'payment_status': 'success',
         'order_id': order_id,
