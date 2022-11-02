@@ -5,7 +5,7 @@
    {% for chocolate in chocolates %}
    <div class="col-lg-4">
       {% if chocolate.image %}
-      <img class="thumbnail" src="{{chocolate.image.url}}">
+      <img class="thumbnail" src="{{chocolate.image.url}}" alt="Chocolate with a flavour">
       {% endif %}
       <div class="box-element product">
          <h6><strong>{{chocolate.name}}</strong> - {{chocolate.category}}</h6>
