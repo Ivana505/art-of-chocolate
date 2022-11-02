@@ -57,9 +57,19 @@ Art Of Chocolate is a B2C business supporting the end consumer. The site gives U
 
 ### User Access
 
-- User Access
+- Anonymous and Registered Users do not have access to add, edit or delete product. 
 
-![Main features](media/images/landing_page.png)
+- If Anonymous User tries to access these pager, user will be transfered to Sign In page.
+
+- If Registered User tries to access these pages, HttpResponse message generates.
+
+![anonymous user](media/images/sign_in_anonymous.png)
+
+![registered user add](media/images/registered_user_add.png)
+
+![registered user edit](media/images/registered_user_edit.png)
+
+![registered user delete](media/images/registered_user_delete.png)
 
 - Shop name, Chocolate Shop Categories, login and sign up buttons, basket icon and search bar
 
