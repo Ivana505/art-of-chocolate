@@ -98,7 +98,7 @@
                {% endif %}
                {% if not request.user.is_superuser %}
                <a href="{% url 'basket' %}">
-               <img id="basket-icon"><i class="fas fa-shopping-cart"></i>
+               <i class="fas fa-shopping-cart" id="basket-icon"></i>
                </a>
                <p id="basket-total">{{basketItems}}</p>
                {% endif %}

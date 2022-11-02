@@ -11,14 +11,14 @@
          <h6><strong>{{chocolate.name}}</strong> - {{chocolate.category}}</h6>
          <hr>
          {% if not request.user.is_superuser %}
-         <button data-chocolate={{chocolate.id}} data-action="add" class="btn btn-outline-secondary add-btn update-basket">Add to Basket</button>
+         <button data-chocolate={{chocolate.id}} data-action="add" class="btn btn-outline-dark add-btn update-basket">Add to Basket</button>
          {% endif %}
-         <a class="btn btn-outline-success" href="chocolate_page/{{chocolate.id}}">View</a>
-         <h4 style="display: inline- block; float: right"><strong>€{{chocolate.price|floatformat:2}}</strong></h4>
+         <a class="btn btn-outline-dark" href="chocolate_page/{{chocolate.id}}">View</a>
+         <h4 style="display: inline-block; float: right"><strong>€{{chocolate.price|floatformat:2}}</strong></h4>
          {% if user.is_superuser %}
-         <a class="btn btn-outline-success" href="add_chocolate/">Add new</a>
-         <a class="btn btn-outline-success" href="edit_chocolate/{{chocolate.id}}">Edit</a>
-         <a class="btn btn-outline-success" href="delete_chocolate/{{chocolate.id}}">Delete</a>
+         <a class="btn btn-outline-dark" href="add_chocolate/">Add new</a>
+         <a class="btn btn-outline-dark" href="edit_chocolate/{{chocolate.id}}">Edit</a>
+         <a class="btn btn-outline-dark" href="delete_chocolate/{{chocolate.id}}">Delete</a>
          {% endif %}
       </div>
    </div>

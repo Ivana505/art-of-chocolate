@@ -57,17 +57,11 @@ Part of a Business Strategy is also a [Facebook](https://www.facebook.com/) mock
 # User Experience
 ## User Stories
 
-- User Stories are made with an Agile approach. 
+- User Stories were made with an Agile approach, Kanban board.
 
-  - As a User I want to be able to create an account so that I can see all my purchases.
-  - As a User I want to be able to search for the products.
-  - As a User I want to be able to add product to the basket.
-  - As a User I want to be able to purchase product with credit card.
-  - As a User I want to be able to signup for a Newsletter.
-  - As a User I want to be able to see Social Media links on the Website.
+![User Stories, Kanban board](media/images/agile.png)
 
 
-Future development : 
 
 ## Features
 - Navigation and Social Media Icons etc
@@ -119,7 +113,7 @@ Icons
 - Social Media Icons [Facebook](https://www.facebook.com/), [Instagram](https://www.instagram.com/) and [Pinterest](https://www.pinterest.ie/) 
 - [Fontawesome](https://fontawesome.com/) was used to add social media icons.
 
-![main page](media/images/social_media_icons.png)
+![social media icons](media/images/social_media_icons.png)
 
  
 ## Color scheme and styling
@@ -222,6 +216,7 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
 - [PEP8 validator](http://pep8online.com/) - used to validate Python code
 - [Coloors](https://coolors.co/) - to create color scheme for the UX section
 - [Sitemaps](https://www.xml-sitemaps.com/) - to create sitemaps for SEO.
+- [Cloudinary](https://cloudinary.com/) - to store images.
 
 ## Credits and Acknowledgements
 
