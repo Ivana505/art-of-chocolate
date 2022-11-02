@@ -326,10 +326,10 @@ class CreateCheckoutSessionView(generic.View):
                 ],
                 mode='payment',
                 customer_email=email,
-                success_url="http://{}{}".format(host, reverse('payment-success')),
-                cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
-                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
-                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-cancel/',
+                # success_url="http://{}{}".format(host, reverse('payment-success')),
+                # cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
+                  success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
+                  cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-cancel/',
             )
         else:
             order_total = self.request.POST.get('order_total')
@@ -349,10 +349,10 @@ class CreateCheckoutSessionView(generic.View):
                 ],
                 mode='payment',
                 customer_email=email,
-                success_url="http://{}{}".format(host, reverse('payment-success')),
-                cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
-                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
-                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu7..gitpod.io/payment-cancel/',
+                # success_url="http://{}{}".format(host, reverse('payment-success')),
+                # cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
+                  success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
+                  cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu7..gitpod.io/payment-cancel/',
             )
         return redirect(checkout_session.url, code=303)
 
