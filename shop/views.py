@@ -244,7 +244,7 @@ def add_product(request):
     chocolate_form = ChocolateForm(request.POST, request.FILES)
     user = get_object_or_404(User, username=request.user.username)
     if not request.user.is_superuser:
-        return HttpResponse('You do not have access')
+        return HttpResponse('You do not have access to add new product!')
     if request.method == "POST":
         if chocolate_form.is_valid():
             # save the form but do not commit
@@ -271,7 +271,7 @@ def edit_product(request, pk):
     chocolate_form = ChocolateForm(request.POST, request.FILES)
     user = get_object_or_404(User, username=request.user.username)
     if not request.user.is_superuser:
-        return HttpResponse('You do not have access to edit new product!')
+        return HttpResponse('You do not have access to edit product!')
     if request.method == "POST":
         if chocolate_form.is_valid():
             # save the form but do not commit
