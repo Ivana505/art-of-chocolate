@@ -18,7 +18,7 @@ import stripe
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-import mailjet_rest
+from mailjet_rest import Client
 
 
 class home(TemplateView):
@@ -370,13 +370,13 @@ def paymentSuccess(request):
     print(email, name)
     API_KEY = '4f1a7d731006e2eb51deefdfb5f71dcf'
     API_SECRET = '620e7017b43d6fdd9eade49ab772a24d'
-    mailjet = mailjet_rest.Client(auth=(API_KEY, API_SECRET))
+    mailjet = Client(auth=(API_KEY, API_SECRET))
     data= {
-        "FromEmail":"ivana.iles@protonmail.com",
+        "FromEmail":"iwanna.iles@gmail.com",
         "FromName":"Art Of Chocolate Shop",
         "Subject": "Order Confirmation",
         "Text-part": f"Dear {name}, your order number {order_id} has been confirmed.",
-        "Recepients": [
+        "Recipients": [
             {
                 "Email": email
             }
