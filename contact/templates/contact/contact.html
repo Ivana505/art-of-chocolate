@@ -8,6 +8,7 @@
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
             <form method="post" enctype="multipart/form-data" class="update" id="contact_form" >
+                <p> Contact Us </p>
                 {% csrf_token %}
                     {{form.as_p}}
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
