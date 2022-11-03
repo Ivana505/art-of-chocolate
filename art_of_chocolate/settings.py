@@ -172,4 +172,3 @@ STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET')
 API_KEY = os.getenv('API_KEY')
 API_SECRET = os.getenv('API_SECRET')
 EMAIL = os.getenv('EMAIL')
-
