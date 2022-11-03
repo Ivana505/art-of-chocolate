@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
 from cloudinary.models import CloudinaryField
+from django_resized import ResizedImageField
 
 
 class Buyer(models.Model):
@@ -29,7 +30,7 @@ class Chocolate(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     digital = models.BooleanField(default=False, null=True, blank=True)
-    image = CloudinaryField('image', null=True, blank=True)
+    image = CloudinaryField('image', null=True, blank=True) 
     description = models.TextField(default=False)
 
     def __str__(self):
