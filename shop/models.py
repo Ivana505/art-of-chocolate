@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
 from cloudinary.models import CloudinaryField
-from django_resized import ResizedImageField
 
 
 class Buyer(models.Model):
