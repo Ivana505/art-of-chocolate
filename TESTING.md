@@ -27,7 +27,6 @@ Result for mobile devices
 - Performance for mobile devices 
 
 
-
 ## Bugs
 
 ### Solved
