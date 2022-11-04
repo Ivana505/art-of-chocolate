@@ -188,6 +188,7 @@ def checkout(request):
             date_added=datetime.datetime.now()
 
         )
+        basketItems = order_object.get_basket_items
         sending_address.order = order_object
         sending_address.save()
 
