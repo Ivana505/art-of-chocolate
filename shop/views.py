@@ -78,7 +78,8 @@ def basket(request):
         for item in basket:
             try:
                 chocolate = Chocolate.objects.get(id=item)
-                order['get_basket_total'] += chocolate.price*basket[item]['quantity']
+                order['get_basket_total'] += chocolate.price*basket[
+                    item]['quantity']
                 order['get_basket_items'] += basket[item]['quantity']
                 item = {
                     "chocolate": {
@@ -95,7 +96,11 @@ def basket(request):
                 pass
         basketItems = order['get_basket_items']
         print(items)
-    context = {'items': items, 'order': order, 'basketItems': basketItems, "user": request.user, "show": len(items) > 0}
+    context = {
+        'items': items,
+        'order': order,
+        'basketItems': basketItems,
+        "user": request.user, "show": len(items) > 0}
     return render(request, 'shop/basket.html', context)
 
 
@@ -132,7 +137,8 @@ def checkout(request):
         for item in basket:
             try:
                 chocolate = Chocolate.objects.get(id=item)
-                order['get_basket_total'] += chocolate.price*basket[item]['quantity']
+                order['get_basket_total'] += chocolate.price*basket[
+                    item]['quantity']
                 order['get_basket_items'] += basket[item]['quantity']
                 item = {
                     "chocolate": {
@@ -148,7 +154,11 @@ def checkout(request):
             except Exception:
                 pass
 
-        context = {'items': items, 'order': order, 'basketItems': basketItems, 'total': order['get_basket_total'], 'email': email}
+        context = {
+            'items': items,
+            'order': order,
+            'basketItems': basketItems,
+            'total': order['get_basket_total'], 'email': email}
     return render(request, 'shop/checkout.html', context)
 
 
@@ -326,10 +336,12 @@ class CreateCheckoutSessionView(generic.View):
                 ],
                 mode='payment',
                 customer_email=email,
-                # success_url="http://{}{}".format(host, reverse('payment-success')),
-                # cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
-                  success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
-                  cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-cancel/',
+                success_url="http://{}{}".format(
+                    host, reverse('payment-success')),
+                cancel_url="http://{}{}".format(
+                    host, reverse('payment-cancel')),
+                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
+                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-cancel/',
             )
         else:
             order_total = self.request.POST.get('order_total')
@@ -341,7 +353,8 @@ class CreateCheckoutSessionView(generic.View):
                             'currency': 'eur',
                             'unit_amount': int(100 * float(order_total)),
                             'product_data': {
-                                'name': 'Your order will be generated when purchased',
+                                'name':
+                                'Your order will be generated when purchased',
                             },
                         },
                         'quantity': 1,
@@ -349,10 +362,12 @@ class CreateCheckoutSessionView(generic.View):
                 ],
                 mode='payment',
                 customer_email=email,
-                # success_url="http://{}{}".format(host, reverse('payment-success')),
-                # cancel_url="http://{}{}".format(host, reverse('payment-cancel')),
-                  success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
-                  cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu7..gitpod.io/payment-cancel/',
+                success_url="http://{}{}".format(
+                    host, reverse('payment-success')),
+                cancel_url="http://{}{}".format(
+                    host, reverse('payment-cancel')),
+                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
+                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu7..gitpod.io/payment-cancel/',
             )
         return redirect(checkout_session.url, code=303)
 
@@ -365,24 +380,26 @@ def paymentSuccess(request):
         order_id = order.id
     else:
         order_id = "anonymous"
-    email = stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["email"]
-    name = stripe.checkout.Session.list(limit=1)["data"][0]["customer_details"]["name"]
+    email = stripe.checkout.Session.list(
+        limit=1)["data"][0]["customer_details"]["email"]
+    name = stripe.checkout.Session.list(
+        limit=1)["data"][0]["customer_details"]["name"]
     print(email, name)
     API_KEY = settings.API_KEY
     API_SECRET = settings.API_SECRET
     mailjet = Client(auth=(API_KEY, API_SECRET))
-    data= {
-        "FromEmail":settings.EMAIL,
-        "FromName":"Art Of Chocolate Shop",
+    data = {
+        "FromEmail": settings.EMAIL,
+        "FromName": "Art Of Chocolate Shop",
         "Subject": "Order Confirmation",
-        "Text-part": f"Dear {name}, your order number {order_id} has been confirmed.",
+        "Text-part":
+        f"Dear {name}, your order number {order_id} has been confirmed.",
         "Recipients": [
             {
                 "Email": email
             }
-        ] 
+        ]
     }
-   
     result = mailjet.send.create(data=data)
     print(result.status_code)
     context = {
@@ -439,5 +456,3 @@ def fulfill_order(order_id):
         product_var = ProductVariation.objects.get(id=item.product.id)
         product_var.stock -= item.quantity
         product_var.save()
-
-

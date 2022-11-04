@@ -18,4 +18,4 @@ def main():
 if __name__ == '__main__':
     main()
 
-#DISABLE_COLLECTSTATIC=1
+# DISABLE_COLLECTSTATIC=1
