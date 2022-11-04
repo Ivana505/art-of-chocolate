@@ -2,8 +2,8 @@
 {% load static %}
 {% block content %}
 <form method="post">
-    {% csrf_token %}
-    <p> Do you want to delete "{{ object }}"?</p>
-    <input type="submit" value="Confirm">
- </form>
+   {% csrf_token %}
+   <p> Do you want to delete "{{ object }}"?</p>
+   <input type="submit" value="Confirm">
+</form>
 {% endblock content %}

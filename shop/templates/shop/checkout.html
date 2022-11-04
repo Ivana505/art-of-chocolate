@@ -1,34 +1,34 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-   <head>
-      <title>Buy cool new product</title>
-      <meta name ="description" content="Art Chocolate shop, place for chocolate lovers">
-      <meta name ="keywords" content="chocolate cakes,cacao,fondant recipe,muffin ingredients">
-      <!-- <link rel="stylesheet" href="style.css"> -->
-      <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-      <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
-      <script src="https://js.stripe.com/v3/"></script>
-   </head>
-   <body>
-      <section>
-            <div class="description">
-               <h3>Please click on Checkout if you are ready to proceed with payment.</h3>
-               {% if request.user.is_authenticated %}
-               <h5>eur{{order.get_basket_total}}</h5>
-               {% else %}
-               <h3>eur {{total}}</h3>
-               {% endif %}
-            </div>
-         <form action="{% url 'create-checkout-session' %}" method="POST">
-            {% csrf_token %}
-            {% if request.user.is_authenticated %}
-            <input type="hidden" name="order_id" value="{{order.id}}">
-            {% else %}
-            <input type="hidden" name="order_total" value="{{total}}">
-            {% endif %}
-            <button type="submit" id="checkout-button">Checkout</button>
-         </form>
-      </section>
-   </body>
+<head>
+   <title>Buy cool new product</title>
+   <meta name ="description" content="Art Chocolate shop, place for chocolate lovers">
+   <meta name ="keywords" content="chocolate cakes,cacao,fondant recipe,muffin ingredients">
+   <!-- <link rel="stylesheet" href="style.css"> -->
+   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+   <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+   <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+   <section>
+      <div class="description">
+         <h3>Please click on Checkout if you are ready to proceed with payment.</h3>
+         {% if request.user.is_authenticated %}
+         <h5>eur{{order.get_basket_total}}</h5>
+         {% else %}
+         <h3>eur {{total}}</h3>
+         {% endif %}
+      </div>
+      <form action="{% url 'create-checkout-session' %}" method="POST">
+         {% csrf_token %}
+         {% if request.user.is_authenticated %}
+         <input type="hidden" name="order_id" value="{{order.id}}">
+         {% else %}
+         <input type="hidden" name="order_total" value="{{total}}">
+         {% endif %}
+         <button type="submit" id="checkout-button">Checkout</button>
+      </form>
+   </section>
+</body>
 {% endblock content %}

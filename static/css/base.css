@@ -1,101 +1,102 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap');
 
 html {
-    height: 100%;
-    font-family: 'Manrope', sans-serif;
+	height: 100%;
+	font-family: 'Manrope', sans-serif;
 }
 
 #basket-icon {
-    width:35px;
-    color: white;
+	width: 35px;
+	color: white;
 }
 
-.btn{
+.btn {
 	border-radius: 25px;
-    margin-left: 15px;
+	margin-left: 15px;
 }
 
-#basket-total{
-    display:block;
-    font-size: 16px;
-    background-color: grey;
-    border-radius: 15px;
-    margin: 15px;
-    text-align: center;
+#basket-total {
+	display: block;
+	font-size: 16px;
+	background-color: grey;
+	border-radius: 15px;
+	margin: 15px;
+	text-align: center;
 }
 
-.thumbnail{
-    width: 100%;
-    height: 200px;
-    margin-top:50px;
+.thumbnail {
+	width: 100%;
+	height: 200px;
+	margin-top: 50px;
 }
 
 .basket-box {
-    display: flex;
+	display: flex;
 }
 
-.basket-heading{
- padding: 10px;
+.basket-heading {
+	padding: 10px;
 }
 
-.basket-row{
-    display: flex;
-    align-items: stretch;
+.basket-row {
+	display: flex;
+	align-items: stretch;
 
 }
 
-.basket-image{
-    width: 200px;
+.basket-image {
+	width: 200px;
 }
 
-.amount{
-    display: inline-block;
-    
+.amount {
+	display: inline-block;
+
 }
 
-.chg-amount{
-    width:40px;
-    height:45px;
-    display:block;
-    margin-right: 10px;
+.chg-amount {
+	width: 40px;
+	height: 45px;
+	display: block;
+	margin-right: 10px;
 }
 
 li {
-    display: inline;
-    font-size: 2em;
-    padding: 10px;
+	display: inline;
+	font-size: 2em;
+	padding: 10px;
 }
 
 li>a {
-    color: black;
+	color: black;
 }
 
-#welcome, #search {
-    color: white;
+#welcome,
+#search {
+	color: white;
 }
 
-#mc_embed_signup{
-    background:#fff; 
-    clear:left; 
-    font:14px Helvetica,Arial,sans-serif;  
-    width:600px;
-    margin-left: 10%;
+#mc_embed_signup {
+	background: #fff;
+	clear: left;
+	font: 14px Helvetica, Arial, sans-serif;
+	width: 600px;
+	margin-left: 10%;
 }
 
 #news {
-    margin-left: 10%;
-    margin-top: 5%;
+	margin-left: 10%;
+	margin-top: 5%;
 }
 
 #edit_chocolate {
-    width: 400px;
-    height: 250px;
+	width: 400px;
+	height: 250px;
 }
 
 #contact {
-    color: black;
+	color: black;
 }
 
 #info {
-    margin-left:25%;
+	margin-left: 25%;
 }

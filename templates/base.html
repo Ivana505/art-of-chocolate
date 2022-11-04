@@ -12,7 +12,6 @@
       <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
       <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
       <script src="https://kit.fontawesome.com/5797e01b9b.js" crossorigin="anonymous"></script>
-
       <script>
          let user = '{{request.user}}';
          
@@ -68,10 +67,7 @@
          }
          
       </script>
-
    </head>
-   
-
    <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
          <a class="navbar-brand" href="{% url 'shop' %}">Art Of Chocolate</a>
@@ -82,10 +78,10 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                <li class="nav-item dropdown">
-                     <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-chocolates-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Chocolate Shop - categories
-                    </a>
-                    <div class="dropdown-menu border-0" >
+                  <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-chocolates-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Chocolate Shop - categories
+                  </a>
+                  <div class="dropdown-menu border-0" >
                      <a href="{% url 'shop' %}?category=white_chocolate" class="dropdown-item">White Chocolates</a>
                      <a href="{% url 'shop' %}?category=dark_chocolate" class="dropdown-item">Dark Chocolates</a>
                      <a href="{% url 'shop' %}?category=milk_chocolate" class="dropdown-item">Milk Chocolates</a>
@@ -153,20 +149,19 @@
                         <div class="response" id="mce-success-response" style="display:none"></div>
                      </div>
                      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ff6848632b2c2724924da1780_1068abdfe8" tabindex="-1" value="">
-                     <div class="optionalParent">
-                        <div class="clear foot">
-                           <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-                           <p class="brandingLogo"><a href="http://eepurl.com/ibMnMD" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg" alt="monkey face image"></a></p>
+                     <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text" name="b_ff6848632b2c2724924da1780_1068abdfe8" tabindex="-1" value="">
+                        <div class="optionalParent">
+                           <div class="clear foot">
+                              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                              <p class="brandingLogo"><a href="http://eepurl.com/ibMnMD" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg" alt="monkey face image"></a></p>
+                           </div>
                         </div>
                      </div>
                   </div>
-               </div>
-
                </form>
             </div>
          </div>
-    
          <div class="container">
             <ul class="d-flex justify-content-center h-100">
                <li>
@@ -184,7 +179,6 @@
             </ul>
             <p id="info"><span>&copy;2022 | Art Of Chocolate, Inc | All rights Reserved | Privacy Policy | <a href="{% url 'contact' %}" id="contact">Click here to Contact Us</a></span></p>
          </div>
-
       </footer>
       <!-- JavaScript Bundle with Popper -->
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

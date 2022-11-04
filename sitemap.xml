@@ -9,47 +9,92 @@
 
 <url>
   <loc>https://art-of-chocolate.herokuapp.com/</loc>
-  <lastmod>2022-10-18T17:17:03+00:00</lastmod>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://art-of-chocolate.herokuapp.com/?category=white_chocolate</loc>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://art-of-chocolate.herokuapp.com/?category=dark_chocolate</loc>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://art-of-chocolate.herokuapp.com/?category=milk_chocolate</loc>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://art-of-chocolate.herokuapp.com/accounts/login/</loc>
-  <lastmod>2022-10-18T17:17:03+00:00</lastmod>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://art-of-chocolate.herokuapp.com/accounts/signup/</loc>
-  <lastmod>2022-10-18T17:17:03+00:00</lastmod>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://art-of-chocolate.herokuapp.com/basket/</loc>
-  <lastmod>2022-10-18T17:17:03+00:00</lastmod>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://art-of-chocolate.herokuapp.com/chocolate_page/47</loc>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://art-of-chocolate.herokuapp.com/chocolate_page/45</loc>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://art-of-chocolate.herokuapp.com/chocolate_page/35</loc>
-  <lastmod>2022-10-18T17:17:03+00:00</lastmod>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://art-of-chocolate.herokuapp.com/chocolate_page/36</loc>
-  <lastmod>2022-10-18T17:17:03+00:00</lastmod>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://art-of-chocolate.herokuapp.com/chocolate_page/41</loc>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://art-of-chocolate.herokuapp.com/chocolate_page/42</loc>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://art-of-chocolate.herokuapp.com/chocolate_page/43</loc>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://art-of-chocolate.herokuapp.com/chocolate_page/37</loc>
-  <lastmod>2022-10-18T17:17:03+00:00</lastmod>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://art-of-chocolate.herokuapp.com/chocolate_page/44</loc>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://art-of-chocolate.herokuapp.com/contact/</loc>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://art-of-chocolate.herokuapp.com/accounts/password/reset/</loc>
-  <lastmod>2022-10-18T17:17:03+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://art-of-chocolate.herokuapp.com/checkout/</loc>
-  <lastmod>2022-10-18T17:17:03+00:00</lastmod>
+  <lastmod>2022-11-04T13:00:06+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 

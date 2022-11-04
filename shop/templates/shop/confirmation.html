@@ -8,7 +8,7 @@
       for(item in basket){
          delete basket[item]
       }
-   document.cookie="basket"+JSON.stringify(basket)+";domain=;path=/"
+      document.cookie="basket"+JSON.stringify(basket)+";domain=;path=/"
    </script>
    {% else %}
    <p>Oops something went wrong.</p>
