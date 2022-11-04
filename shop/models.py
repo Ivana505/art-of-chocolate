@@ -87,10 +87,12 @@ class OrderItem(models.Model):
     def get_total(self):
         total = self.chocolate.price * self.quantity
         return total
+    def __str__(self):
+        return str(self.order.id)
 
 
 class SendingAddress(models.Model):
-    buyer = models.ForeignKey(Buyer, on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     address = models.CharField(max_length=255, null=False)
     city = models.CharField(max_length=255, null=False)

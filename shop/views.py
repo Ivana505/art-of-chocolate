@@ -105,6 +105,10 @@ def basket(request):
 
 
 def checkout(request):
+    address = request.GET['address']
+    city = request.GET['city']
+    state = request.GET['state']
+    zipcode = request.GET['zipcode']
     if request.user.is_authenticated:
         if request.user.is_superuser:
             return HttpResponse('Available for other users')
@@ -113,12 +117,24 @@ def checkout(request):
         order, created = Order.objects.get_or_create(
             buyer=buyer, complete=False)
         items = order.orderitem_set.all()
+        sending_address = SendingAddress(
+            user=request.user,
+            address=address,
+            city=city,
+            state=state,
+            zipcode=zipcode,
+            date_added=datetime.datetime.now()
+
+        )
+        sending_address.order = order
+        sending_address.save()
         basketItems = order.get_basket_items
         context = {
             'items': items,
             'order': order,
             'basketItems': basketItems,
-            'email': email
+            'email': email,
+            'order_id': order.id
         }
     else:
         items = []
@@ -153,12 +169,33 @@ def checkout(request):
                 items.append(item)
             except Exception:
                 pass
+        order_object = Order.objects.create(buyer=None, complete=False)
+        for item in items:
+            chocolate_object = Chocolate.objects.get(id = item['chocolate']['id'])
+            order_item = OrderItem.objects.create(
+                chocolate = chocolate_object,
+                order = order_object,
+                quantity = item['quantity']
+            )
+            order_item.save()
+        
+        sending_address = SendingAddress(
+            user=None,
+            address=address,
+            city=city,
+            state=state,
+            zipcode=zipcode,
+            date_added=datetime.datetime.now()
+
+        )
+        sending_address.order = order_object
+        sending_address.save()
 
         context = {
             'items': items,
             'order': order,
             'basketItems': basketItems,
-            'total': order['get_basket_total'], 'email': email}
+            'total': order['get_basket_total'], 'email': email, 'order_id': order_object.id}
     return render(request, 'shop/checkout.html', context)
 
 
@@ -336,14 +373,15 @@ class CreateCheckoutSessionView(generic.View):
                 ],
                 mode='payment',
                 customer_email=email,
-                success_url="http://{}{}".format(
-                    host, reverse('payment-success')),
-                cancel_url="http://{}{}".format(
-                    host, reverse('payment-cancel')),
-                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
-                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-cancel/',
+                # success_url="http://{}{}".format(
+                #     host, reverse('payment-success')),
+                # cancel_url="http://{}{}".format(
+                #     host, reverse('payment-cancel')),
+                  success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu74.gitpod.io/payment-success/',
+                  cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu74.gitpod.io/payment-cancel/',
             )
         else:
+            order_id = self.request.POST.get('order_id')
             order_total = self.request.POST.get('order_total')
             email = self.request.POST.get("email")
             checkout_session = stripe.checkout.Session.create(
@@ -353,8 +391,8 @@ class CreateCheckoutSessionView(generic.View):
                             'currency': 'eur',
                             'unit_amount': int(100 * float(order_total)),
                             'product_data': {
-                                'name':
-                                'Your order will be generated when purchased',
+                                'name': order_id,
+                                
                             },
                         },
                         'quantity': 1,
@@ -362,12 +400,12 @@ class CreateCheckoutSessionView(generic.View):
                 ],
                 mode='payment',
                 customer_email=email,
-                success_url="http://{}{}".format(
-                    host, reverse('payment-success')),
-                cancel_url="http://{}{}".format(
-                    host, reverse('payment-cancel')),
-                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu73.gitpod.io/payment-success/',
-                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu7..gitpod.io/payment-cancel/',
+                # success_url="http://{}{}".format(
+                #     host, reverse('payment-success')),
+                # cancel_url="http://{}{}".format(
+                #     host, reverse('payment-cancel')),
+                  success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu74.gitpod.io/payment-success/',
+                  cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu74.gitpod.io/payment-cancel/',
             )
         return redirect(checkout_session.url, code=303)
 
@@ -379,7 +417,10 @@ def paymentSuccess(request):
         order.save()
         order_id = order.id
     else:
-        order_id = "anonymous"
+        order = Order.objects.filter(buyer=None, complete=False).last()
+        order.complete = True
+        order.save()
+        order_id = order.id
     email = stripe.checkout.Session.list(
         limit=1)["data"][0]["customer_details"]["email"]
     name = stripe.checkout.Session.list(
