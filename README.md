@@ -57,7 +57,7 @@ Art Of Chocolate is a B2C business supporting the end consumer. The site gives U
 
 ### User Access
 
-- Anonymous and Registered Users do not have access to add, edit or delete products. 
+Anonymous and Registered Users do not have access to add, edit or delete products. 
 
 - If Anonymous User tries to access add, edit or delete page, user will be transfered to Sign In page.
 
@@ -74,7 +74,7 @@ Art Of Chocolate is a B2C business supporting the end consumer. The site gives U
 
 ### Form Validation
 
-- Shipping form and Contact Us form require all input data, they restrict Users to proceed if any of the fields are empty.
+- Shipping form, Newsletter Mailchimp form and Contact Us form require all input data, they restrict Users to proceed if any of the fields are empty.
 
 ### Env.py file
 
@@ -97,17 +97,17 @@ Art Of Chocolate is a B2C business supporting the end consumer. The site gives U
 
 ![Shop name and categories ](media/images/shop_name_and_categories.png)
 
-- Login and sign up buttons, basket icon and search bar are on the right handside of the header.
+- Login and sign up buttons, basket icon and search bar are on the right side of the header.
 
 ![Logins, signup, search bar](media/images/login_signup_search.png)
 
-- When User is logged in greeting message will appear.
+- When User logs in greeting message will appear.
 
-![Greeting message](media/images/signed_in_alert.png)
+![Greeting message singed in](media/images/signed_in_alert.png)
 
 - When User logs out message will appear advising user sign out was successful.
 
-![Greeting message](media/images/signed_out_alert.png)
+![Greeting message signed out](media/images/signed_out_alert.png)
 
 ### Footer
 
@@ -117,10 +117,13 @@ Art Of Chocolate is a B2C business supporting the end consumer. The site gives U
 
 ![Mailchimp](media/images/mailchimp.png)
 
-- Social Media Icons
+- Social Media Icons for Facebookm Instagram and Pinterest pages.
 
+![Social Media Icons](media/images/social_media_icons.png)
 
 ### Landing page and features
+
+- Lnading page is showing chocolate products available in the shop.
 
 ![Landing page](media/images/landing_page.png)
 
@@ -130,24 +133,28 @@ Art Of Chocolate is a B2C business supporting the end consumer. The site gives U
 ![Chocolate page](media/images/chocolate_page.png)
 
 
-- Basket page with product added to basket.
+- Basket page with product added to basket and shipping form.
 
 ![Basket page](media/images/basket_page.png)
 
 
-- If all products are removed from the basket, iser can still access the page but shipping Information is removed.
+- If all products are removed from the basket, User can still access the page but shipping Information is removed.
 
 ![Empty basket](media/images/empty_basket.png)
 
 
-- On the checkout page User can confirm that it is ok to proceed to payment with the total amount.
+- On the checkout page User can confirm that it is ok to proceed to payment with the total amount noted on the page.
 
 ![Chocolate page](media/images/checkout_page.png)
 
 
 ### Superuser features
 
-- Super user has access to add, edit and delete chocolate products.
+Superuser has access to add, edit and delete chocolate products.
+
+![Superuser landing page](media/images/super_user_landing_page.png)
+
+![Superuser buttons](media/images/super_user_buttons.png)
 
 - Add
 
@@ -161,6 +168,11 @@ Art Of Chocolate is a B2C business supporting the end consumer. The site gives U
 - Delete
 
 ![Delete chocolate product](media/images/delete_chocolate.png)
+
+
+Superuser does not have access to basket and checkout pages.
+
+![Superuser access](media/images/super_user_access.png)
 
 
 ## Goals
@@ -178,16 +190,11 @@ Target Audience are all the people who love chocolate. Business has a great pote
 
 ### User Goals
 
-As a user I would like to:
-
-- Be able
-- Be able 
-- Be able 
-- Be able
+User Goals can be found within the Kanban board as part of User Stories where users goals are mentioned.
 
 ## Design Choices
 
-Font choices
+### Font choices
 
 I have decided to use [Google Fonts](https://fonts.google.com/). 
  - Font Style used: Manrope 300
@@ -197,7 +204,7 @@ I have decided to use [Google Fonts](https://fonts.google.com/).
 ![main page](media/images/google_font.png)
 
 
-Icons
+### Icons
 
 - Social Media Icons [Facebook](https://www.facebook.com/), [Instagram](https://www.instagram.com/) and [Pinterest](https://www.pinterest.ie/) 
 - [Fontawesome](https://fontawesome.com/) was used to add social media icons and basket.
@@ -209,7 +216,7 @@ Icons
 ![basket icon](media/images/basket.png)
 
  
-Color scheme and styling
+### Color scheme and styling
 
 - [Coolors](https://coolors.co/) was used to generate Colors used for this project. As product images are colorful subtle colors were used to not distract user while browsing the shop.
 
@@ -283,6 +290,25 @@ Further keywords research done :
 
 ![google search](media/seo/google_search.png)
 
+
+### Mailchimp
+
+To increase audience and to send news, offers and discounts, Mailchimp form was implemented so users can signup for Newsletter. 
+
+![Mailchimp](media/images/mailchimp_email.png)
+
+Message will show when user is successfully signed up.
+
+![Mailchimp subscribed](media/images/mailchimp_email.png)
+
+Audience - E-mail Address has been added to the audience list.
+
+![Mailchimp audience](media/images/audience.png)
+
+
+Embedded form can be generated through Mailchimp by going to Audience/Signup forms/Embedded forms
+
+![Embedded form](media/images/embedded_form.png)
 
 ## Testings
 
