@@ -94,8 +94,8 @@ def basket(request):
                 items.append(item)
             except Exception:
                 pass
-        # basketItems = order['get_basket_items']
-        # print(items)
+        basketItems = order['get_basket_items']
+        print(items)
     context = {
         'items': items,
         'order': order,
