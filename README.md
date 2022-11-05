@@ -293,6 +293,7 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
  - [Pythonstacks](https://www.pythonstacks.com/blog/post/integrating-mailchimp-django/) - For implementing mailchimp.
  - [Youtube channel Cryce Truly](https://www.youtube.com/watch?v=3SKjPppM_DU) - For implementing 404 error page.
  - [Youtube channel Code Varto](https://www.youtube.com/watch?v=g_5ZDrl2KKE) - For restricting letters in the phone input tag.
+ - [W3 Schools](https://www.w3schools.com/css/css3_buttons.asp) - For button styling.
 
 I want to say thank you to my Mentor Tim for the guidance, and special thanks tp tutor support.
 
