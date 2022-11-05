@@ -119,6 +119,50 @@ Art Of Chocolate is a B2C business supporting the end consumer. The site gives U
 
 - Social Media Icons
 
+
+### Landing page and features
+
+![Landing page](media/images/landing_page.png)
+
+
+- Chocolate page with Information about the chocolate product.
+
+![Chocolate page](media/images/chocolate_page.png)
+
+
+- Basket page with product added to basket.
+
+![Basket page](media/images/basket_page.png)
+
+
+- If all products are removed from the basket, iser can still access the page but shipping Information is removed.
+
+![Empty basket](media/images/empty_basket.png)
+
+
+- On the checkout page User can confirm that it is ok to proceed to payment with the total amount.
+
+![Chocolate page](media/images/checkout_page.png)
+
+
+### Superuser features
+
+- Super user has access to add, edit and delete chocolate products.
+
+- Add
+
+![Add chocolate product](media/images/add_form.png)
+
+- Edit
+
+![Edit chocolate product](media/images/edit_form.png)
+
+
+- Delete
+
+![Delete chocolate product](media/images/delete_chocolate.png)
+
+
 ## Goals
 
 ### Visitor goals
