@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<head>
-   <title>Buy cool new product</title>
-   <meta name ="description" content="Art Chocolate shop, place for chocolate lovers">
-   <meta name ="keywords" content="chocolate cakes,cacao,fondant recipe,muffin ingredients">
+
    <!-- <link rel="stylesheet" href="style.css"> -->
    <link rel="stylesheet" href="{% static 'css/base.css' %}">
    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
    <script src="https://js.stripe.com/v3/"></script>
-</head>
-<body>
+
+
    <section>
       <div class="description">
          <h3>Please click on Checkout if you are ready to proceed with payment.</h3>
@@ -27,5 +24,5 @@
          <button type="submit" id="checkout-button">Checkout</button>
       </form>
    </section>
-</body>
+
 {% endblock content %}
