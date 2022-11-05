@@ -71,31 +71,53 @@ Art Of Chocolate is a B2C business supporting the end consumer. The site gives U
 
 ![registered user delete](media/images/registered_user_delete.png)
 
-- Shop name, Chocolate Shop Categories, login and sign up buttons, basket icon and search bar
 
-![Main features](media/images/landing_page.png)
+### Form Validation
 
-- Shop name, Chocolate Shop Categories, login and sign up buttons, basket icon and search bar
+- Shipping form and Contact Us form require all input data, they restrict Users to proceed if any of the fields are empty.
 
-![Main features](media/images/landing_page.png)
+### Env.py file
 
-- Shop name, Chocolate Shop Categories, login and sign up buttons, basket icon and search bar
+- All Secret Keys, API's, Database Url and E-mail were stored within env.py file to secure unwanted access.
 
-![Main features](media/images/landing_page.png)
+### 404 page
+
+- Custom 404 error for the page that does not exist or is unavailable.
+
+![404 custom page error](media/images/404_error.png)
+
 
 ## Features
-- Shop name, Chocolate Shop Categories, login and sign up buttons, basket icon and search bar
 
-![Main features](media/images/landing_page.png)
+### Navigation
 
-- Footer
+![Header ](media/images/header.png)
+
+- Shop name and categories are positioned on the left side of the header.
+
+![Shop name and categories ](media/images/shop_name_and_categories.png)
+
+- Login and sign up buttons, basket icon and search bar are on the right handside of the header.
+
+![Logins, signup, search bar](media/images/login_signup_search.png)
+
+- When User is logged in greeting message will appear.
+
+![Greeting message](media/images/signed_in_alert.png)
+
+- When User logs out message will appear advising user sign out was successful.
+
+![Greeting message](media/images/signed_out_alert.png)
+
+### Footer
 
 ![Footer](media/images/footer.png)
 
+- Newsletter signup offered with mailchimp.
+
+![Mailchimp](media/images/mailchimp.png)
+
 - Social Media Icons
-
-![Social Media Icons](media/images/social_media_icons.png)
-
 
 ## Goals
 
@@ -263,8 +285,9 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
 - [Sitemaps](https://www.xml-sitemaps.com/) - to create sitemaps for SEO.
 - [Cloudinary](https://cloudinary.com/) - to store images.
 - [Am I reponsive](https://ui.dev/amiresponsive) - to create am I responsive image.
-- [Mailchimp](https://mailchimp.com/?currency=EUR) - to store E-mail Addresses for Users who signed up for Newsletter.
 - [Coolors](https://coolors.co/) - to generate color set used for the project.
+- [Mailchimp](https://mailchimp.com/?currency=EUR) - to store E-mail Addresses for Users who signed up for Newsletter.
+- [Mailjet](https://www.mailjet.com/) - to send order E-mail confirmations.
 
 ## Credits and Acknowledgements
 
