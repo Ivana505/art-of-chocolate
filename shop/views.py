@@ -94,8 +94,8 @@ def basket(request):
                 items.append(item)
             except Exception:
                 pass
-        basketItems = order['get_basket_items']
-        print(items)
+        # basketItems = order['get_basket_items']
+        # print(items)
     context = {
         'items': items,
         'order': order,
@@ -171,14 +171,15 @@ def checkout(request):
                 pass
         order_object = Order.objects.create(buyer=None, complete=False)
         for item in items:
-            chocolate_object = Chocolate.objects.get(id = item['chocolate']['id'])
+            chocolate_object = Chocolate.objects.get(
+                id=item['chocolate']['id'])
             order_item = OrderItem.objects.create(
-                chocolate = chocolate_object,
-                order = order_object,
-                quantity = item['quantity']
+                chocolate=chocolate_object,
+                order=order_object,
+                quantity=item['quantity']
             )
             order_item.save()
-        
+
         sending_address = SendingAddress(
             user=None,
             address=address,
@@ -196,7 +197,9 @@ def checkout(request):
             'items': items,
             'order': order,
             'basketItems': basketItems,
-            'total': order['get_basket_total'], 'email': email, 'order_id': order_object.id}
+            'total': order['get_basket_total'],
+            'email': email,
+            'order_id': order_object.id}
     return render(request, 'shop/checkout.html', context)
 
 
@@ -393,7 +396,7 @@ class CreateCheckoutSessionView(generic.View):
                             'unit_amount': int(100 * float(order_total)),
                             'product_data': {
                                 'name': order_id,
-                                
+
                             },
                         },
                         'quantity': 1,

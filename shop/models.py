@@ -87,6 +87,7 @@ class OrderItem(models.Model):
     def get_total(self):
         total = self.chocolate.price * self.quantity
         return total
+
     def __str__(self):
         return str(self.order.id)
 
