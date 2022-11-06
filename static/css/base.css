@@ -109,23 +109,30 @@ li>a {
 	border: 3px solid grey;
 	padding-left: 10px;
 	text-align: center;
-	box-sizing:border-box;
+	box-sizing: border-box;
 	font-size: large;
 }
 
 
-#contact_submit, #signup_form, #form_logout, #form_login {
-	    border: 3px solid black;
-		padding: 15px 32px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-		font-weight: 700;
-		margin: 5px;
-		
-	
+#contact_submit,
+#signup_form,
+#form_logout,
+#form_login {
+	border: 3px solid black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 700;
+	margin: 5px;
+
+
 }
 
-#mc_embed_signup{
-	background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;}
+#mc_embed_signup {
+	background: #fff;
+	clear: left;
+	font: 14px Helvetica, Arial, sans-serif;
+	width: 600px;
+}

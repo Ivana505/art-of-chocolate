@@ -240,9 +240,9 @@ Target Audience are all the people who love chocolate. Business has a great pote
 
 User Goals can be found within the Kanban board as part of User Stories where users goals are mentioned.
 
-## Design Choices
+# Design Choices
 
-### Font choices
+## Font choices
 
 I have decided to use [Google Fonts](https://fonts.google.com/). 
  - Font Style used: Manrope 300
@@ -252,7 +252,7 @@ I have decided to use [Google Fonts](https://fonts.google.com/).
 ![main page](media/images/google_font.png)
 
 
-### Icons
+## Icons
 
 - Social Media Icons [Facebook](https://www.facebook.com/), [Instagram](https://www.instagram.com/) and [Pinterest](https://www.pinterest.ie/) 
 - [Fontawesome](https://fontawesome.com/) was used to add social media icons and basket.
@@ -264,13 +264,13 @@ I have decided to use [Google Fonts](https://fonts.google.com/).
 ![basket icon](media/images/basket.png)
 
  
-### Color scheme and styling
+## Color scheme and styling
 
 - [Coolors](https://coolors.co/) was used to generate Colors used for this project. As product images are colorful subtle colors were used to not distract user while browsing the shop.
 
 ![project colors](media/images/project_colors.png)
 
-## Wireframes
+# Wireframes
 All wireframes are created with [Balsamiq](https://balsamiq.com/) during the Scope Plane part of the design and planning process for this project.
 
 Main Page
@@ -298,7 +298,7 @@ Contact Us
 ![contact us](media/wireframes/contact_us.png)
 
 
-## ERD Diagram
+# ERD Diagram
 ERD Diagram is created with [Lucidchart](https://www.lucidchart.com/pages/) during the Scope Plane part of the design and planning process for this project.
 
 ![erd diagram](media/erd/database_diagram.png)
@@ -320,9 +320,9 @@ Part of a Business Strategy is also a [Facebook](https://www.facebook.com/) mock
 ![mockup page](media/wireframes/facebook_mockup.png)
 
 
-## SEO
+# SEO
 
-### Keyword Research
+## Keyword Research
 
 Short-tail and long-tail words used for SEO implementation.
 
@@ -339,14 +339,14 @@ Further keywords research done :
 ![google search](media/seo/google_search.png)
 
 
-### Sitemap and robots.txt
+## Sitemap and robots.txt
 
 ![XML-Sitemaps](https://www.xml-sitemaps.com/) was used to create sitemap.txt file so that search engines can navigate through the site easily.
 
 Robots.txt file iwas created to improve SEO by not allowing search engines to access particular parts of the website.
 
 
-### Mailchimp
+## Mailchimp
 
 To increase audience and to send news, offers and discounts, Mailchimp form was implemented so users can signup for Newsletter. 
 
@@ -392,7 +392,10 @@ The site was deployed to [Heroku](https://art-of-chocolate.herokuapp.com/) pages
 
     To install the required packages for this application, type the following: pip3 install -r requirements.txt
 
-NEED TO ADD REQUIREMENTS
+Config vars 
+
+![Heroku config vars](media/images/heroku_config_vars.png)
+
 
 The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
 
@@ -405,7 +408,6 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
 - [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) - for generating Secret Key
 - [Font Awesome](https://fontawesome.com/) - for Icons on the page
 - [Freeformatter](https://www.freeformatter.com/) - used to format and beautify HTML and CSS code
-- [PEP8 validator](http://pep8online.com/) - used to validate Python code
 - [Coloors](https://coolors.co/) - to create color scheme for the UX section
 - [Sitemaps](https://www.xml-sitemaps.com/) - to create sitemaps for SEO.
 - [Cloudinary](https://cloudinary.com/) - to store images.
@@ -442,10 +444,11 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
  - [Youtube channel Code Varto](https://www.youtube.com/watch?v=g_5ZDrl2KKE) - For restricting letters in the phone input tag.
  - [W3 Schools](https://www.w3schools.com/css/css3_buttons.asp) - For button styling.
  - [Web dev](https://web.dev/csp-xss/?utm_source=lighthouse&utm_medium=devtools) - To add CSP to files to increase Lighthouse best practices.
-I want to say thank you to my Mentor Tim for the guidance, and special thanks tp tutor support.
+
+I want to say thank you to my Mentor Tim for the guidance, and special thanks to tutor support and Slack Commmunity.
 
 
-### Content
+## Content
  - Content was created intentionally for the purpose of this project and this Website. 
  
  
