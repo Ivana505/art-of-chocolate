@@ -17,7 +17,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
-DEBUG = os.environ.get("DEBUG", True)
+#DEBUG = os.environ.get("DEBUG", True)
 
 ALLOWED_HOSTS = ['art-of-chocolate.herokuapp.com', 'localhost']
 
