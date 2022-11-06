@@ -414,7 +414,7 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
  - [Youtube channel Cryce Truly](https://www.youtube.com/watch?v=3SKjPppM_DU) - For implementing 404 error page.
  - [Youtube channel Code Varto](https://www.youtube.com/watch?v=g_5ZDrl2KKE) - For restricting letters in the phone input tag.
  - [W3 Schools](https://www.w3schools.com/css/css3_buttons.asp) - For button styling.
-
+ - [Web dev](https://web.dev/csp-xss/?utm_source=lighthouse&utm_medium=devtools) - To add CSP to files to increase Lighthouse best practices.
 I want to say thank you to my Mentor Tim for the guidance, and special thanks tp tutor support.
 
 

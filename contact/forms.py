@@ -9,4 +9,3 @@ class ContactForm(forms.ModelForm):
             'name', 'email_address', 'phone', 'message'
         )
         fields_required = ['name', 'email_address', 'phone', 'message']
-
