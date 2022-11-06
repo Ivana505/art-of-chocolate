@@ -2,9 +2,7 @@
 
 Return to the [README.md](README.md)
 
-## Validator testing and browser compatibility
-
-- I have tested Python code with - [PEP8 validator](http://pep8online.com/)
+## Validator testing
 
 ![python problems](media/testing/python_errors.png)
 
@@ -12,15 +10,21 @@ Return to the [README.md](README.md)
 
 ![python problems resolved](media/testing/python_errors_fixed.png)
 
+- After clearing all the errors from the terminal, I have tested Python code with - [PEP8 validator](http://pep8online.com/) but as the Website was compromised I have validated code through gitpod as per instructions.
+
+![python problems resolved](media/testing/ppep8.png)
+
+- No problems were detected
+
+![python problems resolved](media/testing/python_clear.png)
+
 - All HTML Url were validated with ![W3 validator](https://validator.w3.org/)
 
 Main page validation
 ![html problems](media/testing/html_validation.png)
 
-
 Checkout session error
 ![checkout problem](media/testing/checkout_error.png)
-
 
 - All errors have been corrected
 
@@ -31,9 +35,39 @@ Checkout session validated in live booking process
 ![checkout problem resolved](media/testing/checkout_validated.png)
 
 
-- CSS Validation was made with Jigsaw ![W3 validator](https://jigsaw.w3.org/)
-NEED TO ADD 
+- CSS Validation was made with Jigsaw ![W3 validator](https://jigsaw.w3.org/) and was showing no errors.
 
+![checkout problem resolved](media/testing/css_validation.png)
+
+## Browser compatibility
+
+Different browsers were used to validate the look and compatibility.
+
+Landing page [Google Chrome](https://www.google.com/chrome/?brand=YTUH&gclid=EAIaIQobChMIlsOG9sya-wIVcoBQBh3FIgOFEAAYASAAEgIHcfD_BwE&gclsrc=aw.ds)
+
+![google chrome screenshot](media/testing/google_chrome.png)
+
+Chocolate page [MS Edge](https://www.microsoft.com/en-us/edge)
+
+![ms esgde screenshot](media/testing/ms_edge.png)
+
+Contact Us page [Mozzilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
+
+![mozilla firefox screenshot](media/testing/mozilla.png)
+
+## Manual testing
+
+- I have manually tested functionality of the Website:
+ - Sign in
+ - Logout
+ - Adding to bag
+ - Payment
+ - Newsletter with Mailchimp 
+ - Shipping Form
+ - Contact Us form 
+ - Buttons
+ - Access and restrictions for specific users
+ - Using print to check Javascript code
 
 ## Accessibility
 I have confirmed that the Website is accessible by inspecting it in Lighthouse on the [Google Chrome](https://www.google.com/chrome/?brand=FKPE&gclid=EAIaIQobChMIqOPWwuu69AIVFeDtCh1CEgKGEAAYASAAEgKvwvD_BwE&gclsrc=aw.ds) Dev tools.
@@ -55,10 +89,9 @@ Result for mobile devices
 - Performance for mobile devices 
 ![lighthouse mobile](media/testing/best_practices.png)
 
-
 ## Bugs
 
-### Solved
+### Solved bugs
 All problems from [Gitpod](https://www.gitpod.io/) have been resolved. Most of them were Python related, indentation bugs and lines of code too long.
 
 - Attribute error - resolved by removing shop app name from the apps list.
@@ -93,6 +126,14 @@ All problems from [Gitpod](https://www.gitpod.io/) have been resolved. Most of t
 
 ![solved bugs template does not exist](media/testing/template_does_not_exist.png)
 
+### Unsolved bugs
+JSHint was showing two different warnings and one variable as unused.
+
+ - I have added /* jshint esversion: 11, jquery: true */ to basket.js to ignore " ['quantity'] is better written in dot notation. " error.
+
+ - restrictAlphabets variable is used within shipping form to restrict the user of inputting letters into the phone field.
+
+![javascript errors](media/testing/java_script_warnings.png)
 
 ### STRIPE payment testing
 
@@ -108,8 +149,7 @@ All problems from [Gitpod](https://www.gitpod.io/) have been resolved. Most of t
 
 ![inbox email confirmation](media/stripe/inbox.png)
 
-
-### E-mail verification when signing up
+### E-mail verification testing when signing up
 
 - Verification was tested both locally and through deployed website.
 
@@ -118,14 +158,7 @@ All problems from [Gitpod](https://www.gitpod.io/) have been resolved. Most of t
 - Processing payment
 ![verification deployed](media/testing/verification_deployed_test.png)
 
-
-### Unsolved bugs
-- Unsolved problem which relates to ms-toolsai.jupyter extension not bein synched and not added in .gitpod.yml. I have checked Slack community and this is known issue which we can ignore.
-- This is also part of the repository cloned for the project that should not be touched.
-
-
 ### Django Administration testing
 - I have tested Django Administration and all is working as it should. All data is storing as intended.
 
 ![django test](media/testing/django_test.png)
-

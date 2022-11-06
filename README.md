@@ -52,7 +52,6 @@ You can access live page to Art Of Chocolate by clicking [here](https://art-of-c
 
 
 # Business Model
-
 Intention behind creating Art Of Chocolate website is incresing amount of diversity in chocolate tastes. Art Of Chocolate is a B2C business supporting the end consumer. The site gives User option to interact with central dataset, choose and purchase products and process payment with Stripe. Users can sign-up to Art Of Chocolate Newsletter. Full CRUD functionality is implemented.
 
 
@@ -75,7 +74,6 @@ Intention behind creating Art Of Chocolate website is incresing amount of divers
 
 
 ## Security Features
-
 ### User Access
 
 Anonymous and Registered Users do not have access to add, edit or delete products. 
@@ -109,7 +107,6 @@ Anonymous and Registered Users do not have access to add, edit or delete product
 
 
 ## Features
-
 ### Navigation
 
 ![Header ](media/images/header.png)
@@ -168,7 +165,6 @@ Anonymous and Registered Users do not have access to add, edit or delete product
 
 ![Chocolate page](media/images/checkout_page.png)
 
-
 ### Sign in, Sign Up, Logout, Password reset
 
 ![Sign in page](media/images/sign_in_anonymous.png)
@@ -184,7 +180,6 @@ E-mail verification
 ![Sign out](media/images/sign_out.png)
 
 ![Password reset](media/images/password_reset.png)
-
 
 ### Landing page and features - Superuser
 
@@ -202,7 +197,6 @@ Superuser has access to add, edit and delete chocolate products.
 
 ![Edit chocolate product](media/images/edit_form.png)
 
-
 - Delete
 
 ![Delete chocolate product](media/images/delete_chocolate.png)
@@ -211,7 +205,6 @@ Superuser has access to add, edit and delete chocolate products.
 Superuser does not have access to basket and checkout pages.
 
 ![Superuser access](media/images/super_user_access.png)
-
 
 ### Forms
 
@@ -223,10 +216,9 @@ Contact form - all fields must be filled out for the form to be sent.
 
 ![Contact form](media/images/contact_us.png)
 
+
 # Goals
-
 ## Visitor goals
-
 Target Audience are all the people who love chocolate. Business has a great potential to grow into B2B, where businesses where chocolate is neccesity and main ingreadient like bakeries and coffee shops will be able to purchase high quality products.
 
 - To have easy navigation and clear message.
@@ -241,7 +233,6 @@ Target Audience are all the people who love chocolate. Business has a great pote
 User Goals can be found within the Kanban board as part of User Stories where users goals are mentioned.
 
 # Design Choices
-
 ## Font choices
 
 I have decided to use [Google Fonts](https://fonts.google.com/). 
@@ -269,6 +260,7 @@ I have decided to use [Google Fonts](https://fonts.google.com/).
 - [Coolors](https://coolors.co/) was used to generate Colors used for this project. As product images are colorful subtle colors were used to not distract user while browsing the shop.
 
 ![project colors](media/images/project_colors.png)
+
 
 # Wireframes
 All wireframes are created with [Balsamiq](https://balsamiq.com/) during the Scope Plane part of the design and planning process for this project.
@@ -303,8 +295,8 @@ ERD Diagram is created with [Lucidchart](https://www.lucidchart.com/pages/) duri
 
 ![erd diagram](media/erd/database_diagram.png)
 
-# Marketing Strategy
 
+# Marketing Strategy
 7 P's Marketing Strategy was used throughout the whole process of this project : 
 
 - Product - Chocolate used is made from the finest cocoa solids and cocoa butter and as such will be marked as a "pure ingredients and high quality product".
@@ -321,9 +313,7 @@ Part of a Business Strategy is also a [Facebook](https://www.facebook.com/) mock
 
 
 # SEO
-
 ## Keyword Research
-
 Short-tail and long-tail words used for SEO implementation.
 
 ![SEO keywords](media/seo/keywords.png)
@@ -365,11 +355,13 @@ Embedded form can be generated through Mailchimp by going to Audience/Signup for
 
 ![Embedded form](media/images/embedded_form.png)
 
-# Testings
 
+# Testings
 To view all testing documentation, please refer to [TESTING.md](TESTING.md)
 
+
 # Local Deployment
+[Github](https://github.com/) was used for version control using Git and developer platform used was [Gitpod](https://www.gitpod.io/).
 
 In order to make a local copy of this repository, you can type the following into your IDE Terminal:
 
@@ -389,10 +381,15 @@ The site was deployed to [Heroku](https://art-of-chocolate.herokuapp.com/) pages
    - The project has now been deployed
    - When deployed click on view
    - If you click on settings on the main menu bar you will find your Heroku git URL
+   - Attach Postgres database by going to Resources, add-ons and type Postgres.
 
-    To install the required packages for this application, type the following: pip3 install -r requirements.txt
+Prepare your environment and settings.py, also create env.py file in the main directory where all your secret keys will "live".
 
-Config vars 
+To install the required packages for this application, type the following: pip3 install -r requirements.txt.
+
+Create "Procfile" in the main directory web: gunicorn project-name.wsgi
+
+Config vars required for this project are:
 
 ![Heroku config vars](media/images/heroku_config_vars.png)
 
