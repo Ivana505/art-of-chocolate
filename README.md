@@ -404,7 +404,6 @@ The live site can be previewed [here](https://art-of-chocolate.herokuapp.com/).
  - [Emarsys](https://emarsys.com/learn/blog/what-is-b2c-marketing/) - More Information about B2C.
  - [Assemblo](https://assemblo.com/guides/what-are-the-7-ps-of-marketing/)- Insight of 7 P's in Marketing.
  - [Youtube channel Easy WebCode](https://www.youtube.com/watch?v=g55EQkDGdg4) - details in creating Newsletter.
- - [Javascripter](http://www.javascripter.net/faq/validati.htm) - For nesletter notification setup.
  - [Youtube channel Codepiep](https://www.youtube.com/watch?v=66joNBEyNwE) - Used to set up STRIPE.
  - [Stack Overflow](https://stackoverflow.com/questions/64476542/stripe-error-in-order-to-use-checkout-you-must-set-an-account-or-business-name) - Helped to resolve STRIPE checkout error.
  - [Youtube channel Technology IT](https://www.youtube.com/watch?v=dpU3KY6mQ28) - For adding categories to Django.

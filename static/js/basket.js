@@ -14,21 +14,21 @@ for (var i = 0; i < updateBtns.length; i++) {
                 if (basket[chocolateId]==undefined){
                     basket[chocolateId]={
                         "quantity":1
-                    }
+                    };
                 }else
                 {
-                    basket[chocolateId]["quantity"]+=1
+                    basket[chocolateId]["quantity"]+=1;
                 }
             }
             if (action=="remove"){
-                basket[chocolateId]["quantity"]-=1
+                basket[chocolateId]["quantity"]-=1;
                 if(basket[chocolateId]["quantity"]<=0){
-                    delete basket[chocolateId]
+                    delete basket[chocolateId];
                 }
             }
-            console.log(basket)
-            document.cookie="basket="+JSON.stringify(basket)+";domain=;path=/"
-            location.reload()
+            console.log(basket);
+            document.cookie="basket="+JSON.stringify(basket)+";domain=;path=/";
+            location.reload();
         }else {
             updateUserOrder(chocolateId, action);
         }
@@ -70,6 +70,7 @@ function restrictAlphabets(e){
     else
         return false;
 }
+
 
 
 
