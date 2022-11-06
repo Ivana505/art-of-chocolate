@@ -38,7 +38,7 @@ You can access live page to Art Of Chocolate by clicking [here](https://art-of-c
 
 # Business Model
 
-Art Of Chocolate is a B2C business supporting the end consumer. The site gives User option to interact with central dataset, choose and purchase products and process payment with Stripe. Users can sign-up to Art Of Chocolate Newsletter. Full CRUD functionality is available to the user.
+Intention behind creating Art Of Chocolate website is incresing amount of diversity in chocolate tastes. Art Of Chocolate is a B2C business supporting the end consumer. The site gives User option to interact with central dataset, choose and purchase products and process payment with Stripe. Users can sign-up to Art Of Chocolate Newsletter. Full CRUD functionality is available to the user.
 
 
 # User Experience
@@ -76,9 +76,9 @@ Anonymous and Registered Users do not have access to add, edit or delete product
 
 - Shipping form, Newsletter Mailchimp form and Contact Us form require all input data, they restrict Users to proceed if any of the fields are empty.
 
-### Env.py file
+### Data and Env.py file
 
-- All Secret Keys, API's, Database Url and E-mail were stored within env.py file to secure unwanted access.
+- All data, Secret Keys, API's, Database Url and E-mail were stored within env.py file to secure unwanted access.
 
 ### 404 page
 
@@ -316,6 +316,13 @@ Further keywords research done :
 [Google](https://www.google.com/) - Search for wordkey "chocolate"
 
 ![google search](media/seo/google_search.png)
+
+
+### Sitemap and robots.txt
+
+![XML-Sitemaps](https://www.xml-sitemaps.com/) was used to create sitemap.txt file so that search engines can navigate through the site easily.
+
+Robots.txt file iwas created to improve SEO by not allowing search engines to access particular parts of the website.
 
 
 ### Mailchimp

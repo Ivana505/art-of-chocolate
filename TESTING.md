@@ -4,7 +4,6 @@ Return to the [README.md](README.md)
 
 ## Validator testing and browser compatibility
 
-
 - I have tested Python code with - [PEP8 validator](http://pep8online.com/)
 
 ![python problems](media/testing/python_errors.png)
@@ -37,26 +36,30 @@ NEED TO ADD
 
 
 ## Accessibility
-- I have confirmed that the Website is accessible by inspecting it in Lighthouse on the [Google Chrome](https://www.google.com/chrome/?brand=FKPE&gclid=EAIaIQobChMIqOPWwuu69AIVFeDtCh1CEgKGEAAYASAAEgKvwvD_BwE&gclsrc=aw.ds) Dev tools.
+I have confirmed that the Website is accessible by inspecting it in Lighthouse on the [Google Chrome](https://www.google.com/chrome/?brand=FKPE&gclid=EAIaIQobChMIqOPWwuu69AIVFeDtCh1CEgKGEAAYASAAEgKvwvD_BwE&gclsrc=aw.ds) Dev tools.
     
 Result for desktop 
  - Performance for the desktop version 
 
 ![lighthouse desktop](media/testing/desktop_low_lighthouse.png)
 
+ - Increased parameters.
 
 ![checkout problem resolved](media/testing/desktop_performance_increased.png)
 
+ - Future implementation to improve best practices : Resizing images.
+ - Tried removing Javascript from base.html and CSP added as meta tag but result for Best Practices dicreased.
+![best practices](media/testing/best_practices.png)
+
 Result for mobile devices
 - Performance for mobile devices 
+![lighthouse mobile](media/testing/best_practices.png)
 
 
 ## Bugs
 
 ### Solved
-- All problems from [Gitpod](https://www.gitpod.io/) from the image have been resolved. Most of them were indentation bugs and lines of code too long.
-
-![solved bugs]
+All problems from [Gitpod](https://www.gitpod.io/) have been resolved. Most of them were Python related, indentation bugs and lines of code too long.
 
 - Attribute error - resolved by removing shop app name from the apps list.
 
@@ -69,7 +72,6 @@ Result for mobile devices
 - ProgrammingError at - Models were updated but migration was not done. Resolved by making migrations and migrating new models added.
 
 ![solved bugs programming error](media/testing/programming_error.png)
-
 
 - IndentationError - Migration was not processing due to incorrect indentationt, indentation corrected to resolve the issue.
 
@@ -94,14 +96,17 @@ Result for mobile devices
 
 ### STRIPE payment testing
 
-- I have tested Stripe payment with card provided in Stripe documents.
+- I have tested Stripe payment with card provided in Stripe documentation.
 
-![stripe payment testing card](media/testing/stripe_card_testing.png)
+![stripe payment testing card](media/stripe/stripe_card_testing.png)
 
-![stripe payment testing payment](media/testing/stripe_payment_testing.png)
+![stripe payment testing payment](media/stripe/stripe_payment.png)
 
+![stripe payment url confirmation](media/stripe/order_confirmation_page.png)
 
+![order email confirmation](media/stripe/email_confirmation.png)
 
+![inbox email confirmation](media/stripe/inbox.png)
 
 
 ### E-mail verification when signing up
@@ -110,7 +115,9 @@ Result for mobile devices
 
 ![verification local](media/testing/verification_local_test.png)
 
+- Processing payment
 ![verification deployed](media/testing/verification_deployed_test.png)
+
 
 ### Unsolved bugs
 - Unsolved problem which relates to ms-toolsai.jupyter extension not bein synched and not added in .gitpod.yml. I have checked Slack community and this is known issue which we can ignore.
@@ -118,5 +125,7 @@ Result for mobile devices
 
 
 ### Django Administration testing
-- I have tested Django Administration,
+- I have tested Django Administration and all is working as it should. All data is storing as intended.
+
+![django test](media/testing/django_test.png)
 
