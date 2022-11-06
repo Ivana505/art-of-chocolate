@@ -12,11 +12,11 @@ Return to the [README.md](README.md)
 ![python problems resolved](media/testing/python_errors_fixed.png)
 
 
-- All HTML Url Validation was made with ![W3 validator](https://validator.w3.org/)
+- All HTML Url were validated with ![W3 validator](https://validator.w3.org/)
 
 ![html problems](media/testing/html_validation.png)
 
-![html problems](media/testing/html_validation.png)
+![html problems resolved](media/testing/html_validated.png)
 
 
 - All errors have been corrected
