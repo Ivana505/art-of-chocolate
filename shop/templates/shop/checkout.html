@@ -1,28 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-   <!-- <link rel="stylesheet" href="style.css"> -->
-   <link rel="stylesheet" href="{% static 'css/base.css' %}">
-   <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
-   <script src="https://js.stripe.com/v3/"></script>
-
-
-   <section>
-      <div class="description">
-         <h3>Please click on Checkout if you are ready to proceed with payment.</h3>
-         {% if request.user.is_authenticated %}
-         <h5>eur{{order.get_basket_total}}</h5>
-         {% else %}
-         <h3>eur {{total}}</h3>
-         {% endif %}
-      </div>
-      <form action="{% url 'create-checkout-session' %}" method="POST">
-         {% csrf_token %}
-         <input type="hidden" name="order_id" value="{{order_id}}">
-         <input type="hidden" name="order_total" value="{{total}}">
-         <button type="submit" id="checkout-button">Checkout</button>
-      </form>
-   </section>
-
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<section>
+   <div class="description">
+      <h3>Please click on Checkout if you are ready to proceed with payment.</h3>
+      {% if request.user.is_authenticated %}
+      <h5>eur{{order.get_basket_total}}</h5>
+      {% else %}
+      <h3>eur {{total}}</h3>
+      {% endif %}
+   </div>
+   <form action="{% url 'create-checkout-session' %}" method="POST">
+      {% csrf_token %}
+      <input type="hidden" name="order_id" value="{{order_id}}">
+      <input type="hidden" name="order_total" value="{{total}}">
+      <button type="submit" id="checkout-button">Checkout</button>
+   </form>
+</section>
 {% endblock content %}

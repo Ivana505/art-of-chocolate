@@ -12,54 +12,54 @@
       <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
       <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
       <script src="https://kit.fontawesome.com/5797e01b9b.js" crossorigin="anonymous"></script>
-
-   <script>
-
-
-let user = '{{request.user}}';
-         
-         function getToken(name) {
-           let cookieValue = null;
-           if (document.cookie && document.cookie !== '') {
-             const cookies = document.cookie.split(';');
-             for (let i = 0; i < cookies.length; i++) {
-               const cookie = cookies[i].trim();
-               if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                 break;
-               }
-             }
-           }
-           return cookieValue;
-         }
-         const csrftoken = getToken('csrftoken');
-         
-         
-         function getCookie(name) {
-            var cookieArr = document.cookie.split(";");
-         
-            for(var i = 0; i < cookieArr.length; i++) {
-                var cookiePair = cookieArr[i].split("=");
-         
-                if (name == cookiePair[0].trim()) {
-                   return decodeURIComponent(cookiePair[1]);
-             }
-           }
-           
-           return null;
-         }
-         
-         var basket = JSON.parse(getCookie('basket'));
-         if (basket == undefined){
-             basket = {};
-             console.log('Basket was created', basket);
-             document.cookie = 'basket=' + JSON.stringify(basket) + ";domain=;path=/";
-            }
-         console.log('basket:', basket);
-         
-   </script>
-      </head>
+      <!-- Script to handle Use Cookies -->
+      <script>
+         let user = '{{request.user}}';
+                  
+                  function getToken(name) {
+                    let cookieValue = null;
+                    if (document.cookie && document.cookie !== '') {
+                      const cookies = document.cookie.split(';');
+                      for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                          break;
+                        }
+                      }
+                    }
+                    return cookieValue;
+                  }
+                  const csrftoken = getToken('csrftoken');
+                  
+                  
+                  function getCookie(name) {
+                     var cookieArr = document.cookie.split(";");
+                  
+                     for(var i = 0; i < cookieArr.length; i++) {
+                         var cookiePair = cookieArr[i].split("=");
+                  
+                         if (name == cookiePair[0].trim()) {
+                            return decodeURIComponent(cookiePair[1]);
+                      }
+                    }
+                    
+                    return null;
+                  }
+                  
+                  var basket = JSON.parse(getCookie('basket'));
+                  if (basket == undefined){
+                      basket = {};
+                      console.log('Basket was created', basket);
+                      document.cookie = 'basket=' + JSON.stringify(basket) + ";domain=;path=/";
+                     }
+                  console.log('basket:', basket);
+                  
+            
+      </script>
+   </head>
    <body>
+      <!-- Navigation bar with Shop Categories -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
          <a class="navbar-brand" href="{% url 'shop' %}">Art Of Chocolate</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -80,6 +80,7 @@ let user = '{{request.user}}';
                   </div>
                </li>
             </ul>
+            <!-- Greeting when User logs in -->
             <div class="form-online my2 my-lg-0">
                {% if user.is_authenticated %}
                <p id="welcome">Welcome {{ user.username }} !</p>
@@ -123,7 +124,7 @@ let user = '{{request.user}}';
       <footer class="footer mt-auto py-3 bg-light">
          <div class="col-12 col-md-6">
             <h4 id="news">News, offers and discounts.</h4>
-            <!-- Begin Mailchimp Signup Form -->
+            <!-- Mailchimp signup form -->
             <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
             <div id="mc_embed_signup">
                <form action="https://protonmail.us21.list-manage.com/subscribe/post?u=ff6848632b2c2724924da1780&amp;id=1068abdfe8&amp;f_id=00cdc3e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -140,7 +141,6 @@ let user = '{{request.user}}';
                         <div class="response" id="mce-error-response" style="display:none"></div>
                         <div class="response" id="mce-success-response" style="display:none"></div>
                      </div>
-                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ff6848632b2c2724924da1780_1068abdfe8" tabindex="-1" value=""></div>
                      <div class="optionalParent">
                         <div class="clear foot">
@@ -153,6 +153,7 @@ let user = '{{request.user}}';
             </div>
          </div>
          <div class="container">
+            <!-- Social Media links -->
             <ul class="d-flex justify-content-center h-100">
                <li>
                   <a href="https://www.facebook.com/" target="_blank" rel="noopener"

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<!-- Code to send order number confirmation to user -->
 <div class="row">
    {% if payment_status == 'success' %}
    <p>Your order number {{order_id}} is confirmed and your order confirmation sent to your E-mail Address {{email}}</p>

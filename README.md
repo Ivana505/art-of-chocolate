@@ -2,9 +2,9 @@
 Art Of Chocolate is an E-commerce Website that allows people to buy chocolate with unusual tastes.
 It is loved by many pastry chefs around the world.
 
-Also, our clients are people who like to try new tastes who are not afraid to risk and who are adventurous. People from all over the World can order our Chocolate as Website gives shipping option worldwide.
+Also, our clients are people who like to try new tastes, who are not afraid to risk and who are adventurous. People from all over the World can order our Chocolate as Website gives shipping option worldwide.
 
-Users can browse the shop and view each product, check chocolate categories and use searchbar. They can also add products to basket and purchase them by using payment with Stripe ( you can find more details [below](#art-of-chocolate) ).
+Users can browse the shop and view each product, check chocolate categories and use searchbar. They can also add products to basket and purchase them by using payment with Stripe (you can find more details in [TESTING.md](TESTING.md)).
 
 This project is made for Code Institute Full-stack development program - Portfolio 5.
 
@@ -16,29 +16,44 @@ You can access live page to Art Of Chocolate by clicking [here](https://art-of-c
 # Table of content:
 - [Art Of Chocolate Shop](#art-of-chocolate)
 - [Business Model](#business-model)
-- [Marketing Strategy](#marketing-strategy)
 - [User Experience](#user-experience)
   - [User Stories](#user-stories)
+  - [Security Features](#security-features)
+      - [User Access](#user-access)
+      - [Form Validation](#form-validation)
+      - [Data and Env.py file](#data)
+      - [404 page](#404)
   - [Features](#features)
-  - [Goals](#goals)
-   - [Visitor goals](#visitor-goals)
-   - [User goals](#user-goals)
+      - [Navigation](#navigation)
+      - [Footer](#footer)
+      - [Landing page and features](#landing-page)
+      - [Sign in, Sign Up, Logout, Password reset](#sign)
+      - [Landing page and features - Superuser](#landing-page-superuser)
+      - [Forms](#forms)
+- [Goals](#goals)
+  - [Visitor goals](#visitor-goals)
+  - [User goals](#user-goals)
 - [Design Choices](#design-choices)
+  - [Font Chcoices](#font-choices)
+  - [Icons](#icons)
   - [Color scheme and styling](#colors-style)
 - [Wireframes](#wireframes)
 - [ERD Diagram](#erd-diagram)
+- [Marketing Strategy](#marketing-strategy)
 - [SEO](#seo)
   - [Keyword Research](#keyword-research)
+  - [Sitemap and robots.txt](#sitemap)
+  - [Mailchimp](#mailchimp)
 - [Testing](#testing)
 - [Local Deployment](#local-deployment)
 - [Languages and technologies used](#languages-technologies)
-- [Credits and Acknowledgements](#credits)
-- [Content](#content)
+  - [Credits and Acknowledgements](#credits)
+  - [Content](#content)
 
 
 # Business Model
 
-Intention behind creating Art Of Chocolate website is incresing amount of diversity in chocolate tastes. Art Of Chocolate is a B2C business supporting the end consumer. The site gives User option to interact with central dataset, choose and purchase products and process payment with Stripe. Users can sign-up to Art Of Chocolate Newsletter. Full CRUD functionality is available to the user.
+Intention behind creating Art Of Chocolate website is incresing amount of diversity in chocolate tastes. Art Of Chocolate is a B2C business supporting the end consumer. The site gives User option to interact with central dataset, choose and purchase products and process payment with Stripe. Users can sign-up to Art Of Chocolate Newsletter. Full CRUD functionality is implemented.
 
 
 # User Experience
@@ -49,6 +64,12 @@ Intention behind creating Art Of Chocolate website is incresing amount of divers
 - User stories are divided to:
   - Site Users - Anonymous and Registered Users
   - Superuser
+
+- And actions:
+  - To do
+  - In Progress
+  - Done
+  - Future Implementation
 
 ![User Stories, Kanban board](media/images/agile.png)
 
@@ -165,7 +186,7 @@ E-mail verification
 ![Password reset](media/images/password_reset.png)
 
 
-### Landing page and features
+### Landing page and features - Superuser
 
 Superuser has access to add, edit and delete chocolate products.
 
@@ -202,9 +223,9 @@ Contact form - all fields must be filled out for the form to be sent.
 
 ![Contact form](media/images/contact_us.png)
 
-## Goals
+# Goals
 
-### Visitor goals
+## Visitor goals
 
 Target Audience are all the people who love chocolate. Business has a great potential to grow into B2B, where businesses where chocolate is neccesity and main ingreadient like bakeries and coffee shops will be able to purchase high quality products.
 
@@ -215,7 +236,7 @@ Target Audience are all the people who love chocolate. Business has a great pote
 - To be able to make purchase easy and quickly.
 - To be able to see Social Media links for further Information and stories about the Company.
 
-### User Goals
+## User Goals
 
 User Goals can be found within the Kanban board as part of User Stories where users goals are mentioned.
 
@@ -344,11 +365,11 @@ Embedded form can be generated through Mailchimp by going to Audience/Signup for
 
 ![Embedded form](media/images/embedded_form.png)
 
-## Testings
+# Testings
 
 To view all testing documentation, please refer to [TESTING.md](TESTING.md)
 
-### Local Deployment
+# Local Deployment
 
 In order to make a local copy of this repository, you can type the following into your IDE Terminal:
 
