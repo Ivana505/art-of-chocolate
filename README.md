@@ -152,6 +152,12 @@ Anonymous and Registered Users do not have access to add, edit or delete product
 
 ![Sign in page](media/images/sign_in_anonymous.png)
 
+E-mail verification
+
+![Email verification](media/images/email_verification.png)
+
+![Email message](media/images/email_message.png)
+
 ![Sign up page](media/images/sign_up.png)
 
 ![Sign out](media/images/sign_out.png)

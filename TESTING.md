@@ -76,6 +76,18 @@ Result for mobile devices
 
 ![stripe payment testing payment](media/testing/stripe_payment_testing.png)
 
+
+
+
+
+### E-mail verification when signing up
+
+- Verification was tested both locally and through deployed website.
+
+![verification local](media/testing/verification_local_test.png)
+
+![verification deployed](media/testing/verification_deployed_test.png)
+
 ### Unsolved bugs
 - Unsolved problem which relates to ms-toolsai.jupyter extension not bein synched and not added in .gitpod.yml. I have checked Slack community and this is known issue which we can ignore.
 - This is also part of the repository cloned for the project that should not be touched.
