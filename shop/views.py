@@ -290,18 +290,14 @@ class DeleteProductView(DeleteView):
 
 @login_required
 def add_product(request):
-    # add the request.FILES
     chocolate_form = ChocolateForm(request.POST, request.FILES)
     user = get_object_or_404(User, username=request.user.username)
     if not request.user.is_superuser:
         return HttpResponse('You do not have access to add new product!')
     if request.method == "POST":
         if chocolate_form.is_valid():
-            # save the form but do not commit
             form = chocolate_form.save(commit=False)
-            # attach the arthur after
             form.author = request.user
-            # save the form
             form.save()
             messages.success(request, "chocolate added")
             return redirect("shop")
@@ -316,7 +312,6 @@ def add_product(request):
 
 @login_required
 def edit_product(request, pk):
-    # add the request.FILES
     chocolate = get_object_or_404(Chocolate, id=pk)
     chocolate_form = ChocolateForm(request.POST, request.FILES)
     user = get_object_or_404(User, username=request.user.username)
@@ -324,10 +319,8 @@ def edit_product(request, pk):
         return HttpResponse('You do not have access to edit product!')
     if request.method == "POST":
         if chocolate_form.is_valid():
-            # save the form but do not commit
             form = ChocolateForm(
                 request.POST, request.FILES, instance=chocolate)
-            # attach the arthur after
             if form.is_valid():
                 form.save()
                 messages.success(request, "edited")
@@ -344,7 +337,7 @@ def edit_product(request, pk):
     return render(request, template, context)
 
 
-# This is your test secret API key.
+# Stripe settings
 stripe.api_key = settings.STRIPE_SECRET_KEY
 endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
 
@@ -473,13 +466,10 @@ def my_webhook_view(request):
             payload, sig_header, endpoint_secret
         )
     except ValueError as e:
-        # Invalid payload
         return HttpResponse(status=400)
     except stripe.error.SignatureVerificationError as e:
-        # Invalid signature
         return HttpResponse(status=400)
 
-    # Handle the checkout.session.completed event
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
 
@@ -488,7 +478,6 @@ def my_webhook_view(request):
             order_id = line_item['description']
             fulfill_order(order_id)
 
-    # Passed signature verification
     return HttpResponse(status=200)
 
 

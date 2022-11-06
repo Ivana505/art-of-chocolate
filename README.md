@@ -148,7 +148,18 @@ Anonymous and Registered Users do not have access to add, edit or delete product
 ![Chocolate page](media/images/checkout_page.png)
 
 
-### Superuser features
+### Sign in, Sign Up, Logout, Password reset
+
+![Sign in page](media/images/sign_in_anonymous.png)
+
+![Sign up page](media/images/sign_up.png)
+
+![Sign out](media/images/sign_out.png)
+
+![Password reset](media/images/sign_out.png)
+
+
+### Landing page and features
 
 Superuser has access to add, edit and delete chocolate products.
 
@@ -173,6 +184,17 @@ Superuser has access to add, edit and delete chocolate products.
 Superuser does not have access to basket and checkout pages.
 
 ![Superuser access](media/images/super_user_access.png)
+
+
+### Forms
+
+Shipping form - can only be submitted if all the fields are filled out correctly.
+
+![Shipping form](media/images/shipping_form.png)
+
+Contact form - all fields must be filled out for the form to be sent.
+
+![Contact form](media/images/contact_form.png)
 
 
 ## Goals
