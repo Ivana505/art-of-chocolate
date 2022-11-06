@@ -3,6 +3,8 @@
 Return to the [README.md](README.md)
 
 ## Validator testing and browser compatibility
+
+
 - I have tested Python code with - [PEP8 validator](http://pep8online.com/)
 
 ![python problems](media/testing/python_errors.png)
@@ -11,19 +13,27 @@ Return to the [README.md](README.md)
 
 ![python problems resolved](media/testing/python_errors_fixed.png)
 
-
 - All HTML Url were validated with ![W3 validator](https://validator.w3.org/)
 
+Main page validation
 ![html problems](media/testing/html_validation.png)
 
-![html problems resolved](media/testing/html_validated.png)
+
+Checkout session error
+![checkout problem](media/testing/checkout_error.png)
 
 
 - All errors have been corrected
-![html problems resolved](media/testing/html_validation.png)
+
+![html problems resolved](media/testing/html_validated.png)
+
+Checkout session validated in live booking process
+
+![checkout problem resolved](media/testing/checkout_validated.png)
+
 
 - CSS Validation was made with Jigsaw ![W3 validator](https://jigsaw.w3.org/)
-
+NEED TO ADD 
 
 
 ## Accessibility
@@ -32,6 +42,10 @@ Return to the [README.md](README.md)
 Result for desktop 
  - Performance for the desktop version 
 
+![lighthouse desktop](media/testing/desktop_low_lighthouse.png)
+
+
+![checkout problem resolved](media/testing/desktop_performance_increased.png)
 
 Result for mobile devices
 - Performance for mobile devices 
