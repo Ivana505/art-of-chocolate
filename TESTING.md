@@ -3,14 +3,24 @@
 Return to the [README.md](README.md)
 
 ## Validator testing and browser compatibility
-- I have tested Python code with - [PEP8 validator](http://pep8online.com/), ...
+- I have tested Python code with - [PEP8 validator](http://pep8online.com/)
 
+![python problems](media/testing/python_errors.png)
 
 - All errors have been corrected
 
+![python problems resolved](media/testing/python_errors_fixed.png)
 
-- HTML Validation was made with ![W3 validator](https://validator.w3.org/)
 
+- All HTML Url Validation was made with ![W3 validator](https://validator.w3.org/)
+
+![html problems](media/testing/html_validation.png)
+
+![html problems](media/testing/html_validation.png)
+
+
+- All errors have been corrected
+![html problems resolved](media/testing/html_validation.png)
 
 - CSS Validation was made with Jigsaw ![W3 validator](https://jigsaw.w3.org/)
 

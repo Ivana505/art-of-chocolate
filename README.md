@@ -162,7 +162,7 @@ E-mail verification
 
 ![Sign out](media/images/sign_out.png)
 
-![Password reset](media/images/sign_out.png)
+![Password reset](media/images/password_reset.png)
 
 
 ### Landing page and features
@@ -200,8 +200,7 @@ Shipping form - can only be submitted if all the fields are filled out correctly
 
 Contact form - all fields must be filled out for the form to be sent.
 
-![Contact form](media/images/contact_form.png)
-
+![Contact form](media/images/contact_us.png)
 
 ## Goals
 
