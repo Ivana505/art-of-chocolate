@@ -21,15 +21,14 @@ You can access live page to Art Of Chocolate by clicking [here](https://art-of-c
   - [Security Features](#security-features)
       - [User Access](#user-access)
       - [Form Validation](#form-validation)
-      - [Data and Env.py file](#data)
-      - [404 page](#404)
+      - [Data and Env.py file](#data-and-envpy-file)
+      - [404 page](#404-page)
   - [Features](#features)
       - [Navigation](#navigation)
       - [Footer](#footer)
-      - [Landing page and features - Anonymous and Registered User](#landing-page)
-      - [Landing page and features - Superuser](#landing-page-superuser)
-      - [Sign in, Sign Up, Logout, Password reset](#sign)
- 
+      - [Landing page and features for Anonymous and Registered User](#landing-page-and-features-for-anonymous-and-registered-user)
+      - [Landing page and features for Superuser](#landing-page-and-features-for-superuser)
+      - [Sign in, Sign Up, Logout, Password reset](#sign-in-sign-up-logout-password-reset)
       - [Forms](#forms)
 - [Goals](#goals)
   - [Visitor goals](#visitor-goals)
@@ -37,18 +36,18 @@ You can access live page to Art Of Chocolate by clicking [here](https://art-of-c
 - [Design Choices](#design-choices)
   - [Font Chcoices](#font-choices)
   - [Icons](#icons)
-  - [Color scheme and styling](#colors-style)
+  - [Color scheme and styling](#color-scheme-and-styling)
 - [Wireframes](#wireframes)
 - [ERD Diagram](#erd-diagram)
 - [Marketing Strategy](#marketing-strategy)
 - [SEO](#seo)
   - [Keyword Research](#keyword-research)
-  - [Sitemap and robots.txt](#sitemap)
+  - [Sitemap and robots.txt](#sitemap-and-robotstxt)
   - [Mailchimp](#mailchimp)
-- [Testing](#testing)
+- [Testings](#testings)
 - [Local Deployment](#local-deployment)
-- [Languages and technologies used](#languages-technologies)
-  - [Credits and Acknowledgements](#credits)
+- [Languages and technologies used](#languages-and-technologies-used)
+  - [Credits and Acknowledgements](#credits-and-acknowledgements)
   - [Content](#content)
 
 
@@ -141,7 +140,7 @@ Footer includes Mailchimp Newsletter form, Social Media links, owner Information
 
 ![Social Media Icons](media/images/social_media_icons.png)
 
-### Landing page and features - Anonymous and Registered User
+### Landing page and features for Anonymous and Registered User
 
 - Lnading page is showing chocolate products available in the shop, their prices and type of chocolate.
 
@@ -163,7 +162,7 @@ Footer includes Mailchimp Newsletter form, Social Media links, owner Information
 
 ![Chocolate page](media/images/checkout_page.png)
 
-### Landing page and features - Superuser
+### Landing page and features for Superuser
 
 Superuser has access to add, edit and delete chocolate products.
 
