@@ -12,6 +12,7 @@ Return to the [README.md](README.md)
   - [Unsolved bugs](#unsolved-bugs)
 - [STRIPE payment testing](#stripe-payment-testing)
 - [Email verification testing when signing up](#email-verification-testing-when-signing-up)
+- [Search bar and category testing](#search-bar-and-category-testing)
 - [Django Administration testing](#django-administration-testing)
 
 
@@ -192,6 +193,18 @@ JSHint was showing two different warnings and one variable as unused.
 
 - Processing payment
 ![verification deployed](media/testing/verification_deployed_test.png)
+
+### Search bar and category testing
+- I have tested functionality of the search bar and categories. Testing showed it is working as intended.
+
+Word "chilli" was added in the search bar. Result is below.
+![chilli search](media/testing/chilli_search.png)
+
+Popcorn chocolate displayed as well as the content in the chocolate description has word "chillout" in it.
+![another chilli search](media/testing/chilli_search_another.png)
+
+Milk chocolate category was requested and displayed correctly.
+![category search](media/testing/category_testing.png)
 
 ### Django Administration testing
 - I have tested Django Administration and all is working as it should. All data is storing as intended.
