@@ -256,11 +256,10 @@ I have decided to use [Google Fonts](https://fonts.google.com/).
 
 ![basket icon](media/images/basket.png)
 
-- Arrow images used as icons to add or remove products from the basket.
+- Arrow images used as icons to add or remove products from the basket. Also, basket shows number of items added to the basket on the top right side of the header in the basket Url.
 
-![arrow up](shop/static/images/arrow_up.png)
+![basket product](media/images/basket_product.png)
 
-![arrow down](shop/static/images/arrow_down.png)
  
 ## Color scheme and styling
 
