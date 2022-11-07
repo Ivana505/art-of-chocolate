@@ -197,7 +197,7 @@ JSHint was showing two different warnings and one variable as unused.
 ### Search bar and category testing
 - I have tested functionality of the search bar and categories. Testing showed it is working as intended.
 
-Word "chilli" was added in the search bar. Result is below.
+Word "chill" was added in the search bar. Result is below.
 ![chilli search](media/testing/chilli_search.png)
 
 Popcorn chocolate displayed as well as the content in the chocolate description has word "chillout" in it.
