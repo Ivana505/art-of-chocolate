@@ -25,6 +25,7 @@ class home(TemplateView):
     template_name = 'home.html'
 
 
+# Function to handle chop categories and search bar function
 def shop(request):
     chocolates = Chocolate.objects.all()
     query = None
@@ -54,6 +55,7 @@ def shop(request):
     return render(request, 'shop/shop.html', context)
 
 
+# Function to handle basket
 def basket(request):
     if request.user.is_authenticated:
         if request.user.is_superuser:
@@ -104,6 +106,7 @@ def basket(request):
     return render(request, 'shop/basket.html', context)
 
 
+# Function that stores shipping Information and order
 def checkout(request):
     address = request.GET['address']
     city = request.GET['city']
@@ -203,6 +206,7 @@ def checkout(request):
     return render(request, 'shop/checkout.html', context)
 
 
+# Function to add and remove products from the basket
 def updateItem(request):
     if request.user.is_superuser:
         return HttpResponse('Available for other users')
@@ -277,6 +281,7 @@ def chocolate_page(request, id):
     return render(request, 'shop/chocolate_page.html', context)
 
 
+# Superuser - access to delete chocolate
 class DeleteProductView(DeleteView):
     model = Chocolate
     template_name = 'delete_chocolate.html'
@@ -288,6 +293,7 @@ class DeleteProductView(DeleteView):
         return super().dispatch(request, *args, **kwargs)
 
 
+# Superuser - access to add chocolate
 @login_required
 def add_product(request):
     chocolate_form = ChocolateForm(request.POST, request.FILES)
@@ -310,6 +316,7 @@ def add_product(request):
     return render(request, template, context)
 
 
+# Superuser - access to edit chocolate
 @login_required
 def edit_product(request, pk):
     chocolate = get_object_or_404(Chocolate, id=pk)
@@ -374,8 +381,7 @@ class CreateCheckoutSessionView(generic.View):
                     host, reverse('payment-success')),
                 cancel_url="http://{}{}".format(
                     host, reverse('payment-cancel')),
-                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu74.gitpod.io/payment-success/',
-                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu74.gitpod.io/payment-cancel/',
+
             )
         else:
             order_id = self.request.POST.get('order_id')
@@ -401,8 +407,7 @@ class CreateCheckoutSessionView(generic.View):
                     host, reverse('payment-success')),
                 cancel_url="http://{}{}".format(
                     host, reverse('payment-cancel')),
-                #   success_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu74.gitpod.io/payment-success/',
-                #   cancel_url='https://8000-ivana505-artofchocolate-grr6ik0bz9k.ws-eu74.gitpod.io/payment-cancel/',
+
             )
         return redirect(checkout_session.url, code=303)
 
@@ -455,6 +460,7 @@ def paymentCancel(request):
     return render(request, 'shop/confirmation.html', context)
 
 
+# Stripe Webhooks
 @csrf_exempt
 def my_webhook_view(request):
     payload = request.body
