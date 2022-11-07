@@ -33,6 +33,7 @@ You can access live page to Art Of Chocolate by clicking [here](https://art-of-c
 - [Goals](#goals)
   - [Visitor goals](#visitor-goals)
   - [User goals](#user-goals)
+  - [Future implementation](#future-implementation)
 - [Design Choices](#design-choices)
   - [Font Chcoices](#font-choices)
   - [Icons](#icons)
@@ -233,6 +234,14 @@ Target Audience are all the people who love chocolate. Business has a great pote
 ## User Goals
 
 User Goals can be found within the Kanban board as part of User Stories where users goals are mentioned.
+
+## Future implementation
+
+Future implementations are : 
+- Adding more style to forms.
+- Adding more colors and more products to the shop.
+- Dividing shop to more apps like basket and checkout app.
+- Perfecting media queries for easy multi device use.
 
 # Design Choices
 ## Font choices
