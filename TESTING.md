@@ -58,16 +58,15 @@ Contact Us page [Mozzilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
 ## Manual testing
 
 - I have manually tested functionality of the Website:
- - Sign in
- - Logout
- - Adding to bag
- - Payment
- - Newsletter with Mailchimp 
- - Shipping Form
- - Contact Us form 
- - Buttons
- - Access and restrictions for specific users
- - Using print to check Javascript code
+ - Sign in with E-mail verificationa.
+ - Adding products to basket as Anonymous and Registered User.
+ - Stripe payment with mail jet conifrmation E-mail.
+ - Newsletter with Mailchimp and adding E-mails to Audience section.
+ - Shipping form
+ - Contact Us form which is submited to the terminal.
+ - Buttons on all pages to make sure they are working (adding product, removing product, submitting forms)
+ - Access and restrictions for specific users, Anonymous, Registered and Superuser.
+ - Using print to check Javascript code.
 
 ## Accessibility
 I have confirmed that the Website is accessible by inspecting it in Lighthouse on the [Google Chrome](https://www.google.com/chrome/?brand=FKPE&gclid=EAIaIQobChMIqOPWwuu69AIVFeDtCh1CEgKGEAAYASAAEgKvwvD_BwE&gclsrc=aw.ds) Dev tools.
