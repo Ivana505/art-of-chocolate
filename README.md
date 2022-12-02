@@ -8,7 +8,7 @@ Users can browse the shop and view each product, check chocolate categories and 
 
 This project is made for Code Institute Full-stack development program - Portfolio 5.
 
-You can access live page to Art Of Chocolate by clicking [here](https://art-of-chocolate.onrender.com).
+You can access live page to Art Of Chocolate by clicking [here](https://art-of-chocolate.onrender.com). 
 
 ![Am I reponsive](media/images/am_i_responsive.png)
 
